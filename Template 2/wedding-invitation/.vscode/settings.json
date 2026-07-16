@@ -1,0 +1,8 @@
+{
+  "javascript.validate.enable": false,
+  "javascript.suggest.enabled": false,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "html.validate.scripts": false,
+  "html.suggest.enabled": false,
+  "css.lint.unknownAtRules": "ignore"
+}

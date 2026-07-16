@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- ============================================================
+    META / SEO
+    ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2C1E23" />
+
+  <!-- ── EDITABLE: Update title, description, and OG tags with your brand copy ── -->
+  <title>RAB6 رابط — Luxury Digital Invitations</title>
+  <meta name="description"
+    content="Discover our curated collection of luxury digital invitations. Elegant, cinematic, and crafted for moments that deserve to be remembered." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="RAB6 رابط — Luxury Digital Invitations" />
+  <meta property="og:description"
+    content="Crafting your story with the finest details and the luxury of modern design." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RAB6 رابط — Luxury Digital Invitations" />
+  <meta name="twitter:description" content="Crafting your story with the finest details." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://yourdomain.com" />
+
+  <!-- ============================================================
+    FONTS — Google Fonts
+    Cormorant Garamond (display) + Playfair Display (serif) + Outfit (sans)
+    ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=Cairo:wght@200..1000&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+    GLOBAL PARTICLES (Zeekraa Twinkling Stars)
+    ============================================================ -->
+  <div id="site-particles" aria-hidden="true"></div>
+
+  <!-- ============================================================
+    SITE HEADER — Sticky Navigation
+    ============================================================ -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="header__inner">
+
+      <!-- ── Logo ── RAB6 رابط — PNG brand image ── -->
+      <a href="#home" class="header__logo header__logo--img" aria-label="RAB6 رابط — Go to homepage">
+        <img src="assets/RAB6-Transparent.png" alt="RAB6 رابط — Digital Wedding Invitations" class="header__logo-img"
+          width="100" height="100" />
+      </a>
+
+      <!-- ── Primary Navigation ── -->
+      <nav class="header__nav" aria-label="Primary navigation">
+        <a href="#process" data-i18n="nav_process">Process</a>
+        <a href="#templates" data-i18n="nav_designs">Designs</a>
+        <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+        <a href="#features" data-i18n="nav_why_us">Why Us</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- ── Right Side Actions ── -->
+      <div class="header__actions">
+        <!-- Theme Toggle (Dark / Light mode) -->
+        <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle light/dark mode" title="Toggle theme">
+          <!-- Sun icon (light mode) -->
+          <svg class="theme-toggle__icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <!-- Moon icon (dark mode) -->
+          <svg class="theme-toggle__icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <!-- Language Toggle -->
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-toggle__btn is-active" data-lang="en" id="lang-en" aria-pressed="true">EN</button>
+          <button class="lang-toggle__btn" data-lang="ar" id="lang-ar" aria-pressed="false">AR</button>
+        </div>
+      </div>
+
+      <!-- ── Mobile Hamburger ── -->
+      <button class="header__hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false"
+        aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div><!-- /header__inner -->
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+    <a href="#process" data-i18n="nav_process">Process</a>
+    <a href="#templates" data-i18n="nav_designs">Designs</a>
+    <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+    <a href="#features" data-i18n="nav_why_us">Why Us</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+    <a href="#templates" class="btn btn--primary" style="margin-top:1rem; text-align:center; justify-content:center;"
+      data-i18n="hero_btn_1">Get Started</a>
+  </nav>
+
+
+  <!-- ============================================================
+    MAIN CONTENT
+    ============================================================ -->
+  <main id="main-content">
+
+    <!-- ========================================================
+      1. HERO SECTION
+      ======================================================== -->
+    <section class="hero" id="home" aria-label="Hero">
+
+      <!-- Static Image Background -->
+      <div class="hero__bg" aria-hidden="true"></div>
+
+      <!-- Main content -->
+      <div class="hero__content">
+        <p class="hero__eyebrow" data-i18n="hero_eyebrow">
+          Luxury Digital Invitations
+        </p>
+        <h1 class="hero__title">
+          <span class="reveal" data-i18n="hero_title_1">A Memory Worth</span>
+          <span class="reveal reveal-delay-2 text-gold-light text-italic" data-i18n="hero_title_2">Keeping.</span>
+        </h1>
+
+        <div class="divider reveal reveal-delay-3">
+          <div class="divider-icon"></div>
+        </div>
+
+        <p class="hero__subtitle reveal reveal-delay-4" data-i18n="hero_desc">
+          Crafting your story with the finest details and the luxury of modern design.
+        </p>
+
+        <div class="hero__actions reveal reveal-delay-5">
+          <a href="#templates" class="btn btn--primary" data-i18n="hero_btn_1">Begin Your Memory</a>
+          <a href="#templates" class="btn btn--ghost" data-i18n="hero_btn_2">Explore Designs</a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section><!-- /hero -->
+
+
+    <!-- ========================================================
+      2. STATS TICKER
+      ======================================================== -->
+    <div class="stats-ticker" aria-hidden="true">
+      <div class="stats-ticker__track" id="ticker-track">
+        <!-- Duplicated for seamless loop -->
+        <div class="stats-ticker__item"><strong>500+</strong> Invitations Delivered <span
+            class="stats-ticker__sep">✦</span></div>
+        <div class="stats-ticker__item"><strong>98%</strong> Client Satisfaction <span
+            class="stats-ticker__sep">✦</span></div>
+        <div class="stats-ticker__item"><strong>24h</strong> Delivery Time <span class="stats-ticker__sep">✦</span>
+        </div>
+        <div class="stats-ticker__item"><strong>Always</strong> Live & Shareable <span
+            class="stats-ticker__sep">✦</span></div>
+        <div class="stats-ticker__item"><strong>100%</strong> Mobile Optimized <span class="stats-ticker__sep">✦</span>
+        </div>
+        <div class="stats-ticker__item"><strong>Custom</strong> Music & Design <span class="stats-ticker__sep">✦</span>
+        </div>
+        <!-- Duplicate set for seamless loop -->
+        <div class="stats-ticker__item"><strong>500+</strong> Invitations Delivered <span
+            class="stats-ticker__sep">✦</span></div>
+        <div class="stats-ticker__item"><strong>98%</strong> Client Satisfaction <span
+            class="stats-ticker__sep">✦</span></div>
+        <div class="stats-ticker__item"><strong>24h</strong> Delivery Time <span class="stats-ticker__sep">✦</span>
+        </div>
+        <div class="stats-ticker__item"><strong>Always</strong> Live & Shareable <span
+            class="stats-ticker__sep">✦</span></div>
+        <div class="stats-ticker__item"><strong>100%</strong> Mobile Optimized <span class="stats-ticker__sep">✦</span>
+        </div>
+        <div class="stats-ticker__item"><strong>Custom</strong> Music & Design <span class="stats-ticker__sep">✦</span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ========================================================
+      3. THE COLLECTION (#templates)
+         EDITABLE AREA — The cards below are your template slots.
+         For each card:
+           • Replace .placeholder-img with <img src="YOUR_THUMBNAIL.jpg">
+           • Update card__name, card__desc, card__meta text
+           • Update the "Try Demo" href with your actual demo URL
+      ======================================================== -->
+    <section class="section collection" id="templates" aria-labelledby="collection-heading">
+      <div class="container">
+
+        <header class="collection__header">
+          <p class="section-eyebrow reveal" data-i18n="collection_eyebrow">Our Portfolio</p>
+          <h2 class="section-title reveal reveal-delay-1" id="collection-heading">
+            <span data-i18n="collection_title">The Collection:</span><br /><em data-i18n="collection_title_em">Designs
+              Worthy of Your Story.</em>
+          </h2>
+          <div class="divider reveal reveal-delay-2">
+            <div class="divider-icon"></div>
+          </div>
+          <p class="text-secondary reveal reveal-delay-3"
+            style="font-size:var(--text-base); max-width:520px; margin:0 auto;" data-i18n="collection_desc">
+            Each template is handcrafted with cinematic detail. Browse, fall in love, and make it yours.
+          </p>
+        </header>
+
+        <!-- ── Standard Collection ── -->
+        <div class="collection__sub-header reveal">
+          <div class="collection__sub-icon" aria-hidden="true">✧</div>
+          <h3 class="collection__sub-title" data-i18n="collection_standard">Standard Collection</h3>
+          <div class="collection__sub-line"></div>
+        </div>
+
+        <div class="collection__grid" id="standard-grid">
+
+          <!-- ══ CARD 01 ══ EDITABLE ══ -->
+          <article class="template-card reveal reveal-delay-1" aria-label="Template 01">
+            <div class="card__img-wrap">
+              <!-- EDITABLE: Replace with <img src="path/to/thumbnail.jpg" alt="Template Name preview"> -->
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+              <!-- EDITABLE: Remove or change badge text -->
+              <span class="card__badge">New</span>
+            </div>
+            <div class="card__body">
+              <!-- EDITABLE: Template name, meta, description -->
+              <p class="card__name" data-i18n="card_01_name">Template Name 01</p>
+              <p class="card__meta" data-i18n="card_01_meta">Wedding · Elegant</p>
+              <p class="card__desc" data-i18n="card_01_desc">Fun, warm and full of personality. Perfect for couples who
+                want their invitation to feel alive.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-01" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 02 -->
+          <article class="template-card reveal reveal-delay-2" aria-label="Template 02">
+            <div class="card__img-wrap">
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <p class="card__name" data-i18n="card_02_name">Template Name 02</p>
+              <p class="card__meta" data-i18n="card_02_meta">Wedding · Modern</p>
+              <p class="card__desc" data-i18n="card_02_desc">A modern, funky vibe with individual portraits and a
+                totally different layout.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-02" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 03 -->
+          <article class="template-card reveal reveal-delay-3" aria-label="Template 03">
+            <div class="card__img-wrap">
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+              <span class="card__badge">Popular</span>
+            </div>
+            <div class="card__body">
+              <p class="card__name" data-i18n="card_03_name">Template Name 03</p>
+              <p class="card__meta" data-i18n="card_03_meta">Wedding · Minimal</p>
+              <p class="card__desc" data-i18n="card_03_desc">Refined, calm, and beautifully simple. For couples who
+                prefer elegance with no excess.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-03" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 04 -->
+          <article class="template-card reveal reveal-delay-4" aria-label="Template 04">
+            <div class="card__img-wrap">
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <p class="card__name" data-i18n="card_04_name">Template Name 04</p>
+              <p class="card__meta" data-i18n="card_04_meta">Engagement · Classic</p>
+              <p class="card__desc" data-i18n="card_04_desc">Our best-selling template. Elegant, calm, and cinematic
+                with an Eastern soul.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-04" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /standard-grid -->
+
+        <!-- ── Premium Collection ── -->
+        <div class="collection__sub-header collection__sub-header--spaced reveal">
+          <div class="collection__sub-icon" aria-hidden="true">◈</div>
+          <h3 class="collection__sub-title" data-i18n="collection_premium">Premium Collection</h3>
+          <div class="collection__sub-line"></div>
+        </div>
+
+        <div class="collection__grid" id="premium-grid">
+
+          <!-- CARD 05 -->
+          <article class="template-card reveal reveal-delay-1" aria-label="Template 05">
+            <div class="card__img-wrap">
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+              <span class="card__badge">Exclusive</span>
+            </div>
+            <div class="card__body">
+              <p class="card__name" data-i18n="card_05_name">Template Name 05</p>
+              <p class="card__meta" data-i18n="card_05_meta">Wedding · Luxury</p>
+              <p class="card__desc" data-i18n="card_05_desc">A stunning and deeply elegant template, tailored for those
+                who appreciate fine details.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-05" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 06 -->
+          <article class="template-card reveal reveal-delay-2" aria-label="Template 06">
+            <div class="card__img-wrap">
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <p class="card__name" data-i18n="card_06_name">Template Name 06</p>
+              <p class="card__meta" data-i18n="card_06_meta">Anniversary · Romantic</p>
+              <p class="card__desc" data-i18n="card_06_desc">One of our finest premium templates. Deeply crafted and
+                loved by everyone who sees it.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-06" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 07 -->
+          <article class="template-card reveal reveal-delay-3" aria-label="Template 07">
+            <div class="card__img-wrap">
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+            </div>
+            <div class="card__body">
+              <p class="card__name" data-i18n="card_07_name">Template Name 07</p>
+              <p class="card__meta" data-i18n="card_07_meta">Wedding · Coastal</p>
+              <p class="card__desc" data-i18n="card_07_desc">Calm, beautiful, and perfect for beach or coastal
+                celebrations. A peaceful elegance.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-07" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 08 -->
+          <article class="template-card reveal reveal-delay-4" aria-label="Template 08">
+            <div class="card__img-wrap">
+              <div class="placeholder-img">
+                <span class="placeholder-img__icon" aria-hidden="true">✦</span>
+                <span class="placeholder-img__label">Template Image</span>
+              </div>
+              <span class="card__badge">Popular</span>
+            </div>
+            <div class="card__body">
+              <p class="card__name" data-i18n="card_08_name">Template Name 08</p>
+              <p class="card__meta" data-i18n="card_08_meta">Wedding · Outdoor</p>
+              <p class="card__desc" data-i18n="card_08_desc">Stunning, bold, and breathtaking — perfect for any couple
+                celebrating in a beautiful outdoor venue.</p>
+              <div class="card__actions">
+                <a href="#" class="btn btn--ghost btn--sm" id="demo-link-08" target="_blank" rel="noopener"
+                  data-i18n="card_try_demo">Try Demo</a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /premium-grid -->
+
+      </div><!-- /container -->
+    </section><!-- /collection -->
+
+
+    <!-- ========================================================
+      4. DEVICE PREVIEW SECTION (#preview)
+      ======================================================== -->
+    <section class="section preview-section" id="preview" aria-labelledby="preview-heading">
+      <div class="container">
+
+        <header class="preview-section__header reveal">
+          <p class="section-eyebrow" data-i18n="preview_eyebrow">Live Preview</p>
+          <h2 class="section-title" id="preview-heading">
+            <span data-i18n="preview_title">Your Design,</span><br /><em data-i18n="preview_title_em">In Every
+              Hand.</em>
+          </h2>
+          <div class="divider">
+            <div class="divider-icon"></div>
+          </div>
+          <p class="text-secondary text-base-size" data-i18n="preview_desc">
+            Switch between devices to see exactly how your invitation looks across every screen.
+          </p>
+        </header>
+
+        <!-- Device toggle pills -->
+        <div class="device-toggles" role="group" aria-label="Select preview device">
+          <button class="device-toggle is-active" data-device="mobile" id="toggle-mobile" aria-pressed="true"
+            data-i18n="preview_device_mobile">📱 Mobile</button>
+          <button class="device-toggle" data-device="tablet" id="toggle-tablet" aria-pressed="false"
+            data-i18n="preview_device_tablet">⬜ Tablet</button>
+          <button class="device-toggle" data-device="desktop" id="toggle-desktop" aria-pressed="false"
+            data-i18n="preview_device_desktop">🖥 Desktop</button>
+        </div>
+
+        <!-- Preview Frame — EDITABLE: Replace .preview-frame__content with an <iframe> -->
+        <div class="preview-frame-wrapper reveal">
+          <div class="preview-frame" id="preview-frame" data-device="mobile" role="img"
+            aria-label="Template preview frame">
+            <div class="preview-frame__content">
+              <div class="preview-frame__label">
+                <span aria-hidden="true">✦</span>
+                <!-- Updated by JS on device toggle -->
+                <p>Mobile View — 375px</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /container -->
+    </section><!-- /preview -->
+
+
+    <!-- ========================================================
+      5. PROCESS / JOURNEY (#process) — Zeekraa-style timeline
+      ======================================================== -->
+    <section class="section process" id="process" aria-labelledby="process-heading">
+      <div class="container">
+
+        <header class="process__header">
+          <p class="section-eyebrow reveal" data-i18n="process_eyebrow">How It Works</p>
+          <h2 class="section-title reveal reveal-delay-1" id="process-heading">
+            <span data-i18n="process_title">Your Journey</span> <em data-i18n="process_title_em">with Us.</em>
+          </h2>
+          <div class="divider reveal reveal-delay-2">
+            <div class="divider-icon"></div>
+          </div>
+        </header>
+
+        <div class="process__steps" style="position:relative;">
+
+          <!-- Animated connector line -->
+          <div class="process__connector" aria-hidden="true">
+            <div class="process__connector-line"></div>
+          </div>
+
+          <!-- Step 01 — Contact Us -->
+          <div class="process-step reveal reveal-delay-1">
+            <div class="process-step__above">
+              <p class="process-step__label" data-i18n="process_1_label">Get in Touch</p>
+              <p class="process-step__sub" data-i18n="process_1_sub">Reach out via WhatsApp to confirm your booking.</p>
+            </div>
+            <div class="process-step__circle" aria-hidden="true">01</div>
+            <h3 class="process-step__title" data-i18n="process_1_title">Contact Us</h3>
+            <p class="process-step__desc" data-i18n="process_1_desc">Send us a message and we'll help you choose the
+              perfect starting point.</p>
+          </div>
+
+          <!-- Step 02 — Choose Design -->
+          <div class="process-step reveal reveal-delay-2">
+            <div class="process-step__above" style="visibility:hidden; pointer-events:none;" aria-hidden="true">
+              <p class="process-step__label">—</p>
+              <p class="process-step__sub">—</p>
+            </div>
+            <div class="process-step__circle" aria-hidden="true">02</div>
+            <h3 class="process-step__title" data-i18n="process_2_title">Choose Your Design</h3>
+            <p class="process-step__desc" data-i18n="process_2_desc">Browse our collection and fall in love with the
+              template that speaks your story.</p>
+          </div>
+
+          <!-- Step 03 — Fill Details -->
+          <div class="process-step reveal reveal-delay-3">
+            <div class="process-step__above">
+              <p class="process-step__label" data-i18n="process_3_label">Fill in Your Details</p>
+              <p class="process-step__sub" data-i18n="process_3_sub">We'll send you a form for your event info and
+                photos.</p>
+            </div>
+            <div class="process-step__circle" aria-hidden="true">03</div>
+            <h3 class="process-step__title" data-i18n="process_3_title">Personalize It</h3>
+            <p class="process-step__desc" data-i18n="process_3_desc">Share your details and the personal touches that
+              make the moment uniquely yours.</p>
+          </div>
+
+          <!-- Step 04 — active/highlighted -->
+          <div class="process-step process-step--active reveal reveal-delay-4">
+            <div class="process-step__above" style="visibility:hidden; pointer-events:none;" aria-hidden="true">
+              <p class="process-step__label">—</p>
+              <p class="process-step__sub">—</p>
+            </div>
+            <div class="process-step__circle" aria-hidden="true">04</div>
+            <h3 class="process-step__title" data-i18n="process_4_title">Receive Your Link</h3>
+            <p class="process-step__desc" data-i18n="process_4_desc">Get your final invitation link — ready to share
+              instantly with all your guests.</p>
+          </div>
+
+        </div><!-- /process__steps -->
+      </div><!-- /container -->
+    </section><!-- /process -->
+
+
+    <!-- ========================================================
+      6. FEATURES / WHY US (#features)
+      ======================================================== -->
+    <section class="section features" id="features" aria-labelledby="features-heading">
+      <div class="container">
+
+        <header class="features__header">
+          <p class="section-eyebrow reveal" data-i18n="features_eyebrow">The Difference</p>
+          <h2 class="section-title reveal reveal-delay-1" id="features-heading">
+            <span data-i18n="features_title">Why Choose</span> <em data-i18n="features_title_em">Us.</em>
+          </h2>
+          <div class="divider reveal reveal-delay-2">
+            <div class="divider-icon"></div>
+          </div>
+        </header>
+
+        <div class="features__grid">
+
+          <!-- Feature 1 -->
+          <div class="feature-item reveal reveal-delay-1">
+            <div class="feature-item__icon" aria-hidden="true">✧</div>
+            <h3 class="feature-item__title" data-i18n="feature_1_title">Bespoke Artistry</h3>
+            <p class="feature-item__desc" data-i18n="feature_1_desc">
+              Every template is crafted with a jeweller's precision —
+              balancing beauty, hierarchy, and emotion in perfect proportion.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-item reveal reveal-delay-2">
+            <div class="feature-item__icon" aria-hidden="true">✦</div>
+            <h3 class="feature-item__title" data-i18n="feature_2_title">Perfect Harmony</h3>
+            <p class="feature-item__desc" data-i18n="feature_2_desc">
+              Typography, color, and spacing converge seamlessly across
+              every device, creating an experience that feels truly native.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-item reveal reveal-delay-3">
+            <div class="feature-item__icon" aria-hidden="true">⚡</div>
+            <h3 class="feature-item__title" data-i18n="feature_3_title">Instant Delivery</h3>
+            <p class="feature-item__desc" data-i18n="feature_3_desc">
+              From checkout to shareable link in moments.
+              No waiting, no complexity — just effortless elegance, immediately.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-item reveal reveal-delay-1">
+            <div class="feature-item__icon" aria-hidden="true">📱</div>
+            <h3 class="feature-item__title" data-i18n="feature_4_title">Fully Responsive</h3>
+            <p class="feature-item__desc" data-i18n="feature_4_desc">
+              Each design is meticulously tested on mobile, tablet, and desktop
+              to guarantee a flawless guest experience everywhere.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-item reveal reveal-delay-2">
+            <div class="feature-item__icon" aria-hidden="true">💬</div>
+            <h3 class="feature-item__title" data-i18n="feature_5_title">Effortless Sharing</h3>
+            <p class="feature-item__desc" data-i18n="feature_5_desc">
+              One elegant link. Share directly via WhatsApp, Instagram, or
+              email — no app required for your guests.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-item reveal reveal-delay-3">
+            <div class="feature-item__icon" aria-hidden="true">♾</div>
+            <h3 class="feature-item__title" data-i18n="feature_6_title">Lasting Legacy</h3>
+            <p class="feature-item__desc" data-i18n="feature_6_desc">
+              Your invitation remains live and accessible long after the event —
+              a digital keepsake as timeless as the memory itself.
+            </p>
+          </div>
+
+        </div><!-- /features__grid -->
+      </div><!-- /container -->
+    </section><!-- /features -->
+
+
+    <!-- ========================================================
+      7. PRICING SECTION (#pricing) — New Section
+      ======================================================== -->
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+
+        <header class="pricing__header">
+          <p class="section-eyebrow reveal" data-i18n="pricing_eyebrow">Pricing Packages</p>
+          <h2 class="section-title reveal reveal-delay-1" id="pricing-heading">
+            <span data-i18n="pricing_title">Choose Your</span> <em data-i18n="pricing_title_em">Experience.</em>
+          </h2>
+          <div class="divider reveal reveal-delay-2">
+            <div class="divider-icon"></div>
+          </div>
+        </header>
+
+        <div class="pricing__grid">
+
+          <!-- ── Standard Plan ── -->
+          <div class="pricing-card reveal reveal-delay-1">
+            <div class="pricing-card__header">
+              <div class="pricing-card__icon" aria-hidden="true">✧</div>
+              <p class="pricing-card__plan-name" data-i18n="pricing_std_name">Standard Plan</p>
+            </div>
+
+            <div class="pricing-card__price-block">
+              <span class="pricing-card__price-currency" data-i18n="pricing_currency">EGP</span>
+              <span class="pricing-card__price" data-i18n="pricing_std_val">800</span>
+              <span class="pricing-card__badge-discount" data-i18n="pricing_discount">-33%</span>
+            </div>
+
+            <div style="margin-bottom:var(--space-2);">
+              <span class="pricing-card__original-price" data-i18n="pricing_std_orig">1,200 EGP</span>
+            </div>
+
+            <div class="pricing-card__savings" data-i18n="pricing_std_savings">save 400 EGP</div>
+
+            <p class="pricing-card__offer">
+              <span aria-hidden="true">🔥</span>
+              <span data-i18n="pricing_offer">Offer until 30 July</span>
+            </p>
+
+            <div class="pricing-card__divider"></div>
+
+            <ul class="pricing-card__features" aria-label="Standard Plan features">
+              <li class="pricing-card__feature" data-i18n="pricing_std_f1">Pick a template from our <a
+                  href="#templates">collection</a></li>
+              <li class="pricing-card__feature" data-i18n="pricing_std_f2">Your information and colors applied to the
+                design</li>
+              <li class="pricing-card__feature" data-i18n="pricing_std_f3">Personalized background music of your choice
+              </li>
+              <li class="pricing-card__feature" data-i18n="pricing_std_f4">Add or remove sections (Countdown, Location,
+                Guidelines &amp; Gallery)</li>
+            </ul>
+
+            <a href="#contact" class="btn btn--navy" id="pricing-standard-cta" data-i18n="pricing_cta_start">Get
+              Started</a>
+          </div>
+
+          <!-- ── Premium Plan (Featured) ── -->
+          <div class="pricing-card pricing-card--featured reveal reveal-delay-2">
+            <span class="pricing-card__badge" data-i18n="pricing_popular_badge">✦ Most couples choose this</span>
+
+            <div class="pricing-card__header">
+              <div class="pricing-card__icon" aria-hidden="true">◈</div>
+              <p class="pricing-card__plan-name" data-i18n="pricing_prm_name">Premium Plan</p>
+            </div>
+
+            <div class="pricing-card__price-block">
+              <span class="pricing-card__price-currency">EGP</span>
+              <span class="pricing-card__price">1,000</span>
+              <span class="pricing-card__badge-discount">-33%</span>
+            </div>
+
+            <div style="margin-bottom:var(--space-2);">
+              <span class="pricing-card__original-price">1,500 EGP</span>
+            </div>
+
+            <div class="pricing-card__savings" data-i18n="pricing_prm_savings">save 500 EGP</div>
+
+            <p class="pricing-card__offer">
+              <span>🔥</span>
+              <span data-i18n="pricing_offer">Offer until 30 July</span>
+            </p>
+
+            <div class="pricing-card__divider"></div>
+
+            <ul class="pricing-card__features" aria-label="Premium Plan features">
+              <li class="pricing-card__feature" data-i18n="pricing_prm_f1">Pick a template from our premium collection
+              </li>
+              <li class="pricing-card__feature" data-i18n="pricing_prm_f2">Animated Preloader &amp; Cinematic Hero
+                Section</li>
+              <li class="pricing-card__feature" data-i18n="pricing_prm_f3">Your information and colors applied to the
+                design</li>
+              <li class="pricing-card__feature" data-i18n="pricing_prm_f4">Personalized background music of your choice
+              </li>
+              <li class="pricing-card__feature" data-i18n="pricing_prm_f5">Priority delivery within 12 hours</li>
+            </ul>
+
+            <a href="#contact" class="btn btn--primary" id="pricing-premium-cta" data-i18n="pricing_cta_start">Get
+              Started</a>
+          </div>
+
+          <!-- ── Customized Plan ── -->
+          <div class="pricing-card reveal reveal-delay-3">
+            <span class="pricing-card__badge"
+              style="background:rgba(235,235,235,0.08); color:var(--color-text-secondary);"
+              data-i18n="pricing_cst_badge">◈ 100% Unique Design</span>
+
+            <div class="pricing-card__header" style="padding-top:var(--space-10);">
+              <div class="pricing-card__icon" aria-hidden="true">✺</div>
+              <p class="pricing-card__plan-name" data-i18n="pricing_cst_name">Customized Plan</p>
+            </div>
+
+            <div class="pricing-card__custom-price" data-i18n="pricing_cst_price">Tailored Cost</div>
+            <p class="pricing-card__custom-note">
+              <span>🔒</span> <span data-i18n="pricing_cst_note">Depends on the details</span>
+            </p>
+
+            <div class="pricing-card__divider"></div>
+
+            <ul class="pricing-card__features" aria-label="Customized Plan features">
+              <li class="pricing-card__feature" data-i18n="pricing_cst_f1">100% fully customized design built from
+                scratch</li>
+              <li class="pricing-card__feature" data-i18n="pricing_cst_f2">Add any custom sections tailored exactly to
+                your needs</li>
+              <li class="pricing-card__feature" data-i18n="pricing_cst_f3">We bring any theme, idea, or concept to life
+              </li>
+              <li class="pricing-card__feature" data-i18n="pricing_cst_f4">Highly personalized details matching your
+                unique love story</li>
+              <li class="pricing-card__feature" data-i18n="pricing_cst_f5">Unlimited revisions until it matches your
+                exact vision</li>
+            </ul>
+
+            <a href="#contact" class="btn btn--ghost" id="pricing-custom-cta" data-i18n="pricing_cta_contact">Contact
+              Us</a>
+          </div>
+
+        </div><!-- /pricing__grid -->
+      </div><!-- /container -->
+    </section><!-- /pricing -->
+
+
+    <!-- ========================================================
+      8. TESTIMONIALS / WORDS OF LOVE
+         EDITABLE: Replace placeholder text with real testimonials.
+      ======================================================== -->
+    <section class="section testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+
+        <header class="testimonials__header">
+          <p class="section-eyebrow reveal" data-i18n="testimonials_eyebrow">Client Stories</p>
+          <h2 class="section-title reveal reveal-delay-1" id="testimonials-heading">
+            <span data-i18n="testimonials_title">Loved by Our</span> <em data-i18n="testimonials_title_em">Clients.</em>
+          </h2>
+          <div class="divider reveal reveal-delay-2">
+            <div class="divider-icon"></div>
+          </div>
+          <p class="text-secondary reveal reveal-delay-3" style="font-size:var(--text-base);"
+            data-i18n="testimonials_desc">
+            Real words from real couples who trusted us with their most special moments.
+          </p>
+        </header>
+
+        <div class="testimonials__track-wrap reveal">
+          <div class="testimonials__track" id="testimonials-track" role="list">
+
+            <!-- Quote Card 01 — EDITABLE -->
+            <div class="quote-card" role="listitem">
+              <div class="quote-card__stars" aria-label="5 out of 5 stars">
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+              </div>
+              <span class="quote-card__mark" aria-hidden="true">"</span>
+              <p class="quote-card__text">
+                "The invitation was beyond anything I could have imagined.
+                Every guest commented on how stunning it was — it truly set the
+                tone for the entire evening."
+              </p>
+              <div class="quote-card__author">
+                <div class="quote-card__avatar" aria-hidden="true">✦</div>
+                <div>
+                  <p class="quote-card__name">Amira Al-Rashid</p>
+                  <p class="quote-card__role">Bride · Dubai</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote Card 02 — EDITABLE -->
+            <div class="quote-card" role="listitem">
+              <div class="quote-card__stars" aria-label="5 out of 5 stars">
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+              </div>
+              <span class="quote-card__mark" aria-hidden="true">"</span>
+              <p class="quote-card__text">
+                "Working with this team was seamless from start to finish.
+                The design captured our story perfectly, and the digital link
+                made sharing so effortlessly elegant."
+              </p>
+              <div class="quote-card__author">
+                <div class="quote-card__avatar" aria-hidden="true">✦</div>
+                <div>
+                  <p class="quote-card__name">Khalid &amp; Nour</p>
+                  <p class="quote-card__role">Couple · Riyadh</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote Card 03 — EDITABLE -->
+            <div class="quote-card" role="listitem">
+              <div class="quote-card__stars" aria-label="5 out of 5 stars">
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+              </div>
+              <span class="quote-card__mark" aria-hidden="true">"</span>
+              <p class="quote-card__text">
+                "I ordered the wedding template and was absolutely floored.
+                The typography alone made it feel like a piece of art.
+                Highly, highly recommend."
+              </p>
+              <div class="quote-card__author">
+                <div class="quote-card__avatar" aria-hidden="true">✦</div>
+                <div>
+                  <p class="quote-card__name">Sara Al-Mansouri</p>
+                  <p class="quote-card__role">Bride · Abu Dhabi</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote Card 04 — EDITABLE -->
+            <div class="quote-card" role="listitem">
+              <div class="quote-card__stars" aria-label="5 out of 5 stars">
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+              </div>
+              <span class="quote-card__mark" aria-hidden="true">"</span>
+              <p class="quote-card__text">
+                "The attention to detail is unmatched. Every element felt intentional
+                and refined. Our guests thought we hired a high-end design studio —
+                and in a way, we did."
+              </p>
+              <div class="quote-card__author">
+                <div class="quote-card__avatar" aria-hidden="true">✦</div>
+                <div>
+                  <p class="quote-card__name">Fatima H.</p>
+                  <p class="quote-card__role">Client · Kuwait</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote Card 05 — EDITABLE -->
+            <div class="quote-card" role="listitem">
+              <div class="quote-card__stars" aria-label="5 out of 5 stars">
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+                <span class="quote-card__star">★</span>
+              </div>
+              <span class="quote-card__mark" aria-hidden="true">"</span>
+              <p class="quote-card__text">
+                "Fast, beautiful, and luxurious. The process was so simple yet
+                the result looked like it took weeks to create. A true gem of a service."
+              </p>
+              <div class="quote-card__author">
+                <div class="quote-card__avatar" aria-hidden="true">✦</div>
+                <div>
+                  <p class="quote-card__name">Layla &amp; Omar</p>
+                  <p class="quote-card__role">Couple · Cairo</p>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /testimonials__track -->
+        </div><!-- /track-wrap -->
+
+        <!-- Carousel Dot Indicators -->
+        <div class="testimonials__dots" role="group" aria-label="Testimonial navigation">
+          <button class="dot is-active" role="button" aria-label="Go to testimonial 1" aria-pressed="true"></button>
+          <button class="dot" role="button" aria-label="Go to testimonial 2" aria-pressed="false"></button>
+          <button class="dot" role="button" aria-label="Go to testimonial 3" aria-pressed="false"></button>
+          <button class="dot" role="button" aria-label="Go to testimonial 4" aria-pressed="false"></button>
+          <button class="dot" role="button" aria-label="Go to testimonial 5" aria-pressed="false"></button>
+        </div>
+
+      </div><!-- /container -->
+    </section><!-- /testimonials -->
+
+
+    <!-- ========================================================
+      9. PRE-FOOTER CTA (#contact)
+      ======================================================== -->
+    <section class="prefooter" id="contact" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="prefooter__box reveal">
+          <p class="section-eyebrow" data-i18n="cta_eyebrow">Begin Today</p>
+          <h2 class="section-title" id="cta-heading">
+            <span data-i18n="cta_title">Let Us Craft</span> <em data-i18n="cta_title_em">Yours.</em>
+          </h2>
+          <p class="prefooter__subtitle" data-i18n="cta_subtitle">
+            Every great story deserves a cinematic beginning.
+          </p>
+          <div class="prefooter__actions">
+            <!-- EDITABLE: Update href to WhatsApp: https://wa.me/YOURNUMBER -->
+            <a href="#" class="btn btn--primary btn--lg" id="prefooter-cta" data-i18n="cta_btn_whatsapp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                style="margin-right:4px;">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.118 1.531 5.843L.057 23.55a.5.5 0 00.614.612l5.807-1.523A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.895a9.886 9.886 0 01-5.032-1.371l-.36-.214-3.733.979.997-3.648-.235-.374A9.863 9.863 0 012.104 12C2.104 6.53 6.53 2.104 12 2.104S21.896 6.53 21.896 12 17.47 21.895 12 21.895z" />
+              </svg>
+              Start on WhatsApp
+            </a>
+            <a href="#templates" class="btn btn--ghost" style="font-size:var(--text-base); padding:1em 2.5em;"
+              data-i18n="cta_btn_browse">
+              Browse Designs
+            </a>
+          </div>
+        </div>
+      </div>
+    </section><!-- /prefooter -->
+
+  </main><!-- /main-content -->
+
+
+  <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+
+        <!-- Brand name — EDITABLE -->
+        <p class="footer__brand">✦ BRAND NAME ✦</p>
+
+        <!-- Footer navigation links -->
+        <nav class="footer__nav" aria-label="Footer navigation">
+          <a href="#templates">Designs</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#features">Why Us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Social Links — EDITABLE: Replace "#" with your actual social URLs -->
+        <nav class="footer__socials" aria-label="Social media links">
+
+          <!-- Instagram -->
+          <a href="https://instagram.com" class="footer__social-link" id="social-instagram"
+            aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://tiktok.com" class="footer__social-link" id="social-tiktok" aria-label="Follow us on TikTok"
+            target="_blank" rel="noopener noreferrer" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.28 8.28 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z" />
+            </svg>
+          </a>
+
+          <!-- WhatsApp — EDITABLE: href="https://wa.me/YOURNUMBER" -->
+          <a href="https://wa.me/YOURNUMBER" class="footer__social-link" id="social-whatsapp"
+            aria-label="Contact us on WhatsApp" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12c0 2.125.558 4.118 1.531 5.843L.057 23.55a.5.5 0 00.614.612l5.807-1.523A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.895a9.886 9.886 0 01-5.032-1.371l-.36-.214-3.733.979.997-3.648-.235-.374A9.863 9.863 0 012.104 12C2.104 6.53 6.53 2.104 12 2.104S21.896 6.53 21.896 12 17.47 21.895 12 21.895z" />
+            </svg>
+          </a>
+
+        </nav><!-- /footer__socials -->
+
+        <!-- Copyright — EDITABLE: Update brand name -->
+        <p class="footer__copy">
+          &copy; <span id="footer-year">2026</span> BrandName. All rights reserved.
+          &nbsp;·&nbsp; <a href="#home" aria-label="Privacy Policy (coming soon)">Privacy Policy</a>
+          &nbsp;·&nbsp; <a href="#home" aria-label="Terms of Service (coming soon)">Terms</a>
+        </p>
+
+      </div><!-- /footer__inner -->
+    </div><!-- /container -->
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

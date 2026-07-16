@@ -1,0 +1,1971 @@
+/* ==========================================================================
+   "VELVET" VINTAGE RETRO-LUXURY DESIGN SYSTEM
+   Theme: 1970s Romantic Nostalgia & Timeless High-End Elegance
+   ========================================================================== */
+
+/* Variables & Base Customization */
+:root {
+  --bg-cream: #faf5eb;
+  --bg-cream-darker: #f3ebd9;
+  --accent-burgundy: #5c1622;
+  --accent-burgundy-light: #7a202f;
+  --accent-orange: #d35e35;
+  --accent-orange-light: #e57c57;
+  --text-charcoal: #2e2522;
+  --text-muted: #5e504a;
+  --gold-foil: #c59b48;
+  --gold-foil-light: #dfb764;
+  --velvet-shadow: 0 16px 38px -12px rgba(92, 22, 34, 0.35);
+  --paper-shadow: 0 10px 30px rgba(46, 37, 34, 0.15);
+  --transition-slow: 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #1a060a; /* Deep velvet void backdrop */
+  color: var(--text-charcoal);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Classes */
+.font-serif {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+}
+
+.font-calligraphy {
+  font-family: 'Pinyon Script', cursive;
+  font-weight: 400;
+}
+
+.script-cursive {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.2rem;
+  color: var(--accent-orange);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.spacing-wide {
+  letter-spacing: 0.18em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ==========================================================================
+   TEXTURES & OVERLAYS
+   ========================================================================== */
+
+/* Pressed Watercolor Paper Texture */
+.paper-texture {
+  background-color: var(--bg-cream);
+  filter: url(#paper-texture-filter);
+  position: relative;
+}
+
+/* Viewport Film Grain Overlay */
+.grain-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E") repeat;
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain-animation 8s steps(10) infinite;
+}
+
+@keyframes grain-animation {
+  0%, 100% { transform:translate(0, 0); }
+  10% { transform:translate(-5%, -10%); }
+  20% { transform:translate(-15%, 5%); }
+  30% { transform:translate(7%, -25%); }
+  40% { transform:translate(-5%, 25%); }
+  50% { transform:translate(-15%, 10%); }
+  60% { transform:translate(15%, 0%); }
+  70% { transform:translate(0%, 15%); }
+  80% { transform:translate(3%, 35%); }
+  90% { transform:translate(-10%, 10%); }
+}
+
+/* ==========================================================================
+   IMAGE TREATMENTS (CSS Analog Film Filters)
+   ========================================================================== */
+.film-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Replicates chemical aged print paper */
+  filter: sepia(0.24) contrast(1.15) brightness(0.92) saturate(1.05) hue-rotate(-3deg);
+  transition: filter var(--transition-medium);
+}
+
+.film-photo:hover {
+  filter: sepia(0.12) contrast(1.2) brightness(0.96) saturate(1.1);
+}
+
+/* Film strip specifics styling */
+.sepia-saturate {
+  filter: sepia(0.35) contrast(1.2) brightness(0.88) saturate(1.25) hue-rotate(-8deg);
+}
+
+.orange-warm {
+  filter: sepia(0.2) contrast(1.1) brightness(0.9) saturate(1.4) hue-rotate(5deg);
+}
+
+/* ==========================================================================
+   ENVELOPE SCREEN LAYOUT & ANIMATION (3D Tactile)
+   ========================================================================== */
+#app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+#envelope-wrapper {
+  position: absolute;
+  width: 580px;
+  height: 400px;
+  z-index: 100;
+  transition: transform var(--transition-slow), opacity var(--transition-slow);
+  transform-style: preserve-3d;
+}
+
+/* Responsive envelope adjustments */
+@media (max-width: 600px) {
+  #envelope-wrapper {
+    width: 90vw;
+    height: 62vw;
+  }
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-burgundy);
+  border-radius: 6px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.55), var(--velvet-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Envelope Flaps (Built with CSS Clip-path and borders) */
+.envelope-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-burgundy-light);
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%, 50% 60%);
+  z-index: 3;
+}
+
+.envelope-paper-lining {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  background: var(--accent-orange);
+  border-radius: 4px;
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%, 50% 56%);
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-burgundy);
+  clip-path: polygon(0% 0%, 50% 60%, 100% 0%);
+  z-index: 5;
+  transform-origin: top center;
+  transition: transform var(--transition-slow);
+}
+
+/* Wax Seal Trigger Button */
+#wax-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+  z-index: 6;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition-medium);
+}
+
+#wax-seal:hover {
+  transform: translate(-50%, -15%) scale(1.06);
+}
+
+.seal-outer {
+  width: 76px;
+  height: 76px;
+  background: radial-gradient(circle, #b92b3a 0%, #761821 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+}
+
+.seal-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.seal-inner .initials {
+  font-family: 'DM Serif Display', Georgia, serif;
+  color: #fff;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.seal-scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotate-seal 30s linear infinite;
+}
+
+@keyframes rotate-seal {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.seal-hint {
+  margin-top: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Address Label (Simulating a shipping label) */
+.address-label {
+  position: absolute;
+  bottom: 25px;
+  left: 30px;
+  width: 240px;
+  padding: 15px;
+  background: var(--bg-cream);
+  filter: url(#paper-texture-filter);
+  box-shadow: var(--paper-shadow);
+  border: 1px solid rgba(46, 37, 34, 0.08);
+  transform: rotate(-2deg);
+  z-index: 4;
+}
+
+.label-to {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--accent-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.label-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-charcoal);
+  border-bottom: 1px dotted rgba(46, 37, 34, 0.2);
+  padding-bottom: 4px;
+}
+
+/* Postage Stamp Graphics */
+.postage-stamp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 46px;
+  background: #fdfcf7;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transform: rotate(4deg);
+}
+
+.stamp-edges {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px dotted #faf5eb;
+  pointer-events: none;
+}
+
+.stamp-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: bold;
+  color: var(--accent-burgundy);
+}
+
+.stamp-country {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.5rem;
+  color: var(--accent-orange);
+}
+
+/* Invitation card preview sticking out before open */
+.invitation-card-tucked {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 20px);
+  background: var(--bg-cream);
+  filter: url(#paper-texture-filter);
+  box-shadow: var(--paper-shadow);
+  border-radius: 4px;
+  border: 1px solid var(--gold-foil);
+  z-index: 1;
+  padding: 30px;
+  transition: transform var(--transition-slow);
+}
+
+.card-front-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 1px solid rgba(197, 155, 72, 0.3);
+  padding: 15px;
+  text-align: center;
+}
+
+.card-front-preview h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--accent-burgundy);
+  margin: 5px 0;
+}
+
+.card-front-preview .date-stamp {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+/* ENVELOPE OPENING ANIMATION TRIGGERS */
+#app-container.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* Move flap behind card */
+}
+
+#app-container.open .invitation-card-tucked {
+  transform: translateY(-240px) scale(0.95);
+  z-index: 8;
+}
+
+#app-container.content-active #envelope-wrapper {
+  transform: translateY(120vh) scale(0.7);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   MAIN WEB INVITATION INTERFACE
+   ========================================================================== */
+#invitation-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-slow);
+  background: linear-gradient(135deg, #2a0a0f 0%, #150205 100%);
+  padding: 2.5rem;
+}
+
+#app-container.content-active #invitation-content {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Premium App Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(197, 155, 72, 0.15);
+}
+
+.app-header .brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-foil);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.quick-nav-indicator {
+  font-size: 1.8rem;
+  color: var(--bg-cream);
+  opacity: 0.95;
+}
+
+.header-controls .icon-btn {
+  background: rgba(92, 22, 34, 0.35);
+  border: 1px solid var(--gold-foil);
+  color: var(--gold-foil);
+  padding: 6px 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all var(--transition-medium);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.header-controls .icon-btn:hover {
+  background: var(--gold-foil);
+  color: var(--accent-burgundy);
+  transform: translateY(-2px);
+}
+
+.disc-icon {
+  width: 14px;
+  height: 14px;
+  animation: spin-record 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.music-playing .disc-icon {
+  animation-play-state: running;
+}
+
+/* ==========================================================================
+   LANGUAGE TOGGLE BUTTON
+   ========================================================================== */
+
+/* Make the header-controls a flex row so lang + music buttons sit side-by-side */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Language toggle – unique gold-fill style to visually distinguish it */
+.header-controls .lang-btn {
+  background: linear-gradient(135deg, var(--gold-foil) 0%, var(--gold-foil-light) 100%);
+  border: 1px solid var(--gold-foil-light);
+  color: var(--accent-burgundy);
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-controls .lang-btn:hover {
+  background: var(--accent-burgundy);
+  color: var(--gold-foil-light);
+  border-color: var(--gold-foil);
+  transform: translateY(-2px);
+}
+
+/* Arabic character icon inside the button */
+.lang-btn .lang-icon {
+  font-family: 'Noto Naskh Arabic', 'DM Serif Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  display: inline-block;
+}
+
+/* Flip animation on language switch */
+@keyframes lang-flip {
+  0%   { transform: scaleX(1); opacity: 1; }
+  40%  { transform: scaleX(0); opacity: 0; }
+  60%  { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+.lang-btn.lang-switching {
+  animation: lang-flip 0.4s ease-in-out;
+}
+
+/* ==========================================================================
+   RTL LAYOUT OVERRIDES (applied when dir="rtl" is set on <html>)
+   ========================================================================== */
+
+/* Reverse flex direction for slide header controls */
+[dir="rtl"] .app-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .header-controls {
+  flex-direction: row-reverse;
+}
+
+/* Reverse story layout grid for RTL */
+[dir="rtl"] .story-content-grid {
+  direction: rtl;
+}
+
+/* Reverse the timeline layout */
+[dir="rtl"] .timeline-item {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* Reverse timeline time/badge/content order */
+[dir="rtl"] .timeline-time {
+  text-align: left;
+}
+
+/* Flip the controls footer layout */
+[dir="rtl"] .controls-inner {
+  flex-direction: row-reverse;
+}
+
+/* Reverse the polaroid portrait + text grid */
+[dir="rtl"] .slide-layout-grid-portrait {
+  flex-direction: row-reverse;
+}
+
+/* Align RSVP form labels right in RTL */
+[dir="rtl"] .form-label,
+[dir="rtl"] .rsvp-deadline,
+[dir="rtl"] .rsvp-header,
+[dir="rtl"] .form-row {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .form-input-vintage,
+[dir="rtl"] .form-textarea-vintage,
+[dir="rtl"] .form-select-vintage {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Custom radio containers stay LTR internally (label after dot) but RTL outside */
+[dir="rtl"] .attendance-options {
+  direction: rtl;
+}
+
+/* Guestbook ledger inputs */
+[dir="rtl"] .ledger-input-name,
+[dir="rtl"] .ledger-input-msg {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .ledger-row {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Slide text blocks */
+[dir="rtl"] .slide-text-block {
+  direction: rtl;
+}
+
+[dir="rtl"] .slide-layout-story {
+  direction: rtl;
+}
+
+[dir="rtl"] .story-text-column {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Arabic font override for body copy inside slides — Noto Naskh Arabic for refined elegance */
+[dir="rtl"] .story-paragraph,
+[dir="rtl"] .event-desc,
+[dir="rtl"] .rsvp-deadline,
+[dir="rtl"] .success-body,
+[dir="rtl"] .form-label,
+[dir="rtl"] .radio-label,
+[dir="rtl"] .section-subtitle,
+[dir="rtl"] .track-hint,
+[dir="rtl"] .ledger-subtitle,
+[dir="rtl"] .seal-hint,
+[dir="rtl"] .label-to,
+[dir="rtl"] .label-name {
+  font-family: 'Noto Naskh Arabic', 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+[dir="rtl"] .section-title,
+[dir="rtl"] .event-title,
+[dir="rtl"] .ledger-title,
+[dir="rtl"] .rsvp-header h2,
+[dir="rtl"] .track-title {
+  font-family: 'Noto Naskh Arabic', 'DM Serif Display', Georgia, serif;
+}
+
+/* Brand name in Arabic mode */
+[dir="rtl"] .brand {
+  font-family: 'Noto Naskh Arabic', 'DM Serif Display', serif;
+  letter-spacing: 0.05em;
+}
+
+/* Time display in Arabic (Eastern Arabic numerals) */
+[dir="rtl"] .time-hour,
+[dir="rtl"] .time-ampm {
+  font-family: 'Noto Naskh Arabic', 'Space Mono', monospace;
+  font-size: 0.9em;
+}
+
+/* Polaroid caption in Arabic */
+[dir="rtl"] .polaroid-caption {
+  font-family: 'Noto Naskh Arabic', 'Pinyon Script', cursive;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Guestbook messages in Arabic */
+[dir="rtl"] .ledger-text,
+[dir="rtl"] .ledger-sender {
+  font-family: 'Noto Naskh Arabic', 'Cormorant Garamond', serif;
+}
+
+/* Knob labels in Arabic */
+[dir="rtl"] .knob-label,
+[dir="rtl"] .slide-counter .label {
+  font-family: 'Noto Naskh Arabic', 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+/* Drop-cap adjustment in Arabic (no left float needed) */
+[dir="rtl"] .dropcap {
+  float: none;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Knob label text direction */
+[dir="rtl"] .knob-label {
+  direction: rtl;
+}
+
+
+
+/* ==========================================================================
+   CAROUSEL SLIDE PROJECTOR VIEWPORT
+   ========================================================================== */
+#projector-viewport {
+  position: relative;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 1.5rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.7), inset 0 0 100px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #0d0103;
+}
+
+/* Slide projector Shutter Overlay (Triggers darkness during transitions) */
+.projector-shutter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9;
+  transition: opacity 0.25s ease;
+}
+
+.shutter-closed .projector-shutter {
+  opacity: 0.96;
+}
+
+/* Single Slide Styling */
+.projector-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.96) rotate(-0.5deg);
+  filter: blur(10px);
+  /* The projector slide transition logic */
+  transition: 
+    opacity var(--transition-slow),
+    transform var(--transition-slow),
+    filter var(--transition-slow);
+  z-index: 1;
+}
+
+/* Active Slide - Zoomed back into focus and opacity full */
+.projector-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) rotate(0deg);
+  filter: blur(0px);
+  z-index: 2;
+}
+
+/* Transition class triggered by script */
+.projector-slide.transitioning {
+  opacity: 0.3;
+  transform: scale(0.94) rotate(0.8deg);
+  filter: blur(8px);
+}
+
+.slide-inner {
+  width: calc(100% - 3rem);
+  height: calc(100% - 3rem);
+  max-height: 580px;
+  border-radius: 4px;
+  padding: 3.5rem;
+  box-shadow: var(--paper-shadow);
+  overflow-y: auto;
+  border: 1px solid rgba(46, 37, 34, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+/* Slide Layout Grid: Intro Page */
+.slide-layout-grid-portrait {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  width: 100%;
+  align-items: center;
+}
+
+.slide-text-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.meta-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-orange);
+  letter-spacing: 0.25em;
+  margin-bottom: 1rem;
+}
+
+.invitation-names {
+  font-size: 4rem;
+  color: var(--accent-burgundy);
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+}
+
+.serif-sub {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.divider-gold-flourish {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.flourish-dot {
+  width: 5px;
+  height: 5px;
+  background-color: var(--gold-foil);
+  border-radius: 50%;
+}
+
+.flourish-line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-foil), transparent);
+}
+
+.invitation-date {
+  font-size: 1.25rem;
+  color: var(--text-charcoal);
+  margin-bottom: 1.5rem;
+}
+
+.invitation-date .day-name {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.invitation-date .calendar-date {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--accent-burgundy);
+  display: inline-block;
+  margin: 6px 0;
+  border-top: 1px solid rgba(92, 22, 34, 0.15);
+  border-bottom: 1px solid rgba(92, 22, 34, 0.15);
+  padding: 4px 15px;
+}
+
+.invitation-date .time-stamp {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.invitation-venue {
+  font-size: 1.1rem;
+  color: var(--text-charcoal);
+}
+
+.invitation-venue strong {
+  color: var(--accent-orange);
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+/* Polaroid Photo Frame Styling */
+.portrait-container {
+  display: flex;
+  justify-content: center;
+}
+
+.polaroid-frame {
+  background: #fff;
+  padding: 18px 18px 45px 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.05);
+  transform: rotate(2.5deg);
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.04);
+  max-width: 320px;
+  transition: transform var(--transition-medium);
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.photo-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #eee;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.polaroid-caption {
+  font-size: 2rem;
+  text-align: center;
+  color: #3f3531;
+  margin-top: 15px;
+  display: block;
+}
+
+/* Slide 2: The Story Layout */
+.slide-layout-story {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  color: var(--accent-burgundy);
+  margin-bottom: 0.2rem;
+}
+
+.section-subtitle {
+  margin-bottom: 2.5rem;
+}
+
+.story-content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.story-text-column {
+  color: var(--text-charcoal);
+  font-size: 1.15rem;
+  text-align: justify;
+}
+
+.dropcap {
+  float: left;
+  font-size: 3.8rem;
+  line-height: 0.8;
+  padding-right: 8px;
+  padding-top: 4px;
+  color: var(--accent-burgundy);
+  font-family: 'DM Serif Display', serif;
+}
+
+.story-paragraph {
+  margin-bottom: 1.2rem;
+}
+
+/* Styled Retro 35mm Filmstrip */
+.story-graphics-column {
+  display: flex;
+  justify-content: center;
+}
+
+.film-strip {
+  background: #111;
+  padding: 10px 22px;
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transform: rotate(-1.5deg);
+}
+
+.film-sprocket-holes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.film-sprocket-holes::before, .film-sprocket-holes::after {
+  content: "";
+  display: block;
+}
+
+/* Repeating square sprocket holes using background gradients */
+.film-sprocket-holes {
+  height: 10px;
+  background-image: radial-gradient(circle, transparent 40%, #111 40%), linear-gradient(to right, #222 1px, transparent 1px);
+  background: repeat-x;
+  background-size: 16px 10px;
+  background-image: repeating-linear-gradient(to right, #faf5eb 0px, #faf5eb 6px, transparent 6px, transparent 16px);
+  opacity: 0.85;
+}
+
+.film-frame {
+  position: relative;
+  width: 240px;
+  height: 165px;
+  overflow: hidden;
+  background: #222;
+  border-radius: 2px;
+}
+
+.frame-number {
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--accent-orange);
+  opacity: 0.8;
+}
+
+/* Slide 3: The Schedule Layout */
+.slide-layout-schedule {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 1rem auto 0 auto;
+  padding: 1rem 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 120px;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-foil) 10%, var(--gold-foil) 90%, transparent);
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-time {
+  width: 100px;
+  text-align: right;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.time-hour {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.7rem;
+  color: var(--accent-burgundy);
+  line-height: 1;
+}
+
+.time-ampm {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-orange);
+}
+
+.timeline-badge {
+  position: absolute;
+  left: 115px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 11px;
+  height: 11px;
+  background: var(--bg-cream);
+  border: 2px solid var(--accent-orange);
+  border-radius: 50%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge-dot {
+  width: 3px;
+  height: 3px;
+  background: var(--accent-orange);
+  border-radius: 50%;
+}
+
+.timeline-content {
+  margin-left: 45px;
+  flex: 1;
+  background: rgba(243, 235, 217, 0.5);
+  padding: 1.2rem 1.8rem;
+  border-radius: 4px;
+  border: 1px solid rgba(197, 155, 72, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.event-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.35rem;
+  color: var(--accent-burgundy);
+  margin-bottom: 0.25rem;
+}
+
+.event-desc {
+  font-size: 1.05rem;
+  color: var(--text-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.event-location {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-orange);
+  display: inline-block;
+}
+
+/* Slide 4: The RSVP Layout */
+.slide-layout-rsvp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.rsvp-card-border {
+  border: 1px solid var(--gold-foil);
+  padding: 2.2rem;
+  width: 100%;
+  max-width: 650px;
+  background: rgba(253, 252, 247, 0.6);
+  border-radius: 2px;
+  position: relative;
+}
+
+.rsvp-card-border::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(197, 155, 72, 0.25);
+  pointer-events: none;
+}
+
+.rsvp-header h2 {
+  font-size: 2.6rem;
+  color: var(--accent-burgundy);
+  margin-bottom: 0.2rem;
+}
+
+.rsvp-deadline {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent-orange);
+  margin-bottom: 1.8rem;
+}
+
+/* Vintage Form Inputs */
+.rsvp-vintage-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.form-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.form-input-vintage, .form-select-vintage, .form-textarea-vintage {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--text-charcoal);
+  color: var(--text-charcoal);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  padding: 6px 2px;
+  outline: none;
+  transition: border-color var(--transition-medium);
+}
+
+.form-input-vintage:focus, .form-select-vintage:focus, .form-textarea-vintage:focus {
+  border-color: var(--accent-orange);
+}
+
+.form-textarea-vintage {
+  resize: none;
+  height: 60px;
+  border-bottom: 1px solid var(--text-charcoal);
+}
+
+.form-select-vintage {
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* Custom Radio Button styling */
+.attendance-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.custom-radio-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.radio-checkmark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 16px;
+  border: 1px solid var(--text-charcoal);
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all var(--transition-medium);
+}
+
+.custom-radio-container:hover input ~ .radio-checkmark {
+  border-color: var(--accent-orange);
+}
+
+.custom-radio-container input:checked ~ .radio-checkmark {
+  background-color: var(--accent-burgundy);
+  border-color: var(--accent-burgundy);
+  box-shadow: inset 0 0 0 3px var(--bg-cream);
+}
+
+.radio-label {
+  font-size: 1.15rem;
+  color: var(--text-charcoal);
+}
+
+.btn-velvet-gold {
+  background: var(--accent-burgundy);
+  border: 1px solid var(--gold-foil);
+  color: var(--gold-foil);
+  padding: 12px 36px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-medium);
+  box-shadow: 0 4px 15px rgba(92, 22, 34, 0.2);
+}
+
+.btn-velvet-gold:hover {
+  background: var(--gold-foil);
+  color: var(--accent-burgundy);
+  box-shadow: 0 6px 20px rgba(197, 155, 72, 0.35);
+}
+
+/* Success Card state */
+.hidden {
+  display: none !important;
+}
+
+.success-title {
+  font-size: 3.5rem;
+  color: var(--accent-orange);
+  margin-bottom: 0.5rem;
+}
+
+.success-body {
+  font-size: 1.4rem;
+  color: var(--accent-burgundy);
+}
+
+/* Slide 5: Vinyl Player & Guestbook Layout */
+.slide-layout-vinyl {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.vinyl-player-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.turntable-container {
+  width: 300px;
+  height: 250px;
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Turntable Wooden Platter Deck */
+.turntable-deck {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #443229 0%, #2b1d16 100%);
+  border: 4px solid #1a100a;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 2px 5px rgba(255,255,255,0.1);
+  position: relative;
+  padding: 12px;
+}
+
+.platter {
+  width: 210px;
+  height: 210px;
+  background: #151515;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.4);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Rotating Vinyl Graphic */
+.vinyl-disc {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  /* Pure CSS vinyl groove replication */
+  background: radial-gradient(circle, 
+    transparent 0%, 
+    transparent 20%, 
+    #111 20%, 
+    #181818 30%, 
+    #0d0d0d 40%, 
+    #1a1a1a 50%, 
+    #0a0a0a 60%, 
+    #1e1e1e 70%, 
+    #111 80%, 
+    #050505 100%
+  );
+  overflow: hidden;
+  animation: spin-record 5s linear infinite;
+  animation-play-state: paused;
+  transition: transform var(--transition-medium);
+}
+
+.vinyl-disc::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 4px);
+  pointer-events: none;
+}
+
+.vinyl-disc.playing {
+  animation-play-state: running;
+}
+
+.vinyl-record-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+.vinyl-spindle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #dbb368;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+@keyframes spin-record {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Turntable Tonearm */
+.tonearm {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 90px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 20;
+  transform-origin: 55px 20px;
+  transform: rotate(-30deg); /* Resting position */
+  transition: transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.tonearm.active {
+  transform: rotate(6deg); /* Playing position resting on outer record edge */
+}
+
+.tonearm-pivot {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(circle, #8c8c8c 0%, #444 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.tonearm-arm {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  width: 14px;
+  height: 100px;
+  border-left: 2.5px solid #dcdcdc;
+  border-bottom: 2.5px solid #dcdcdc;
+  border-bottom-left-radius: 12px;
+}
+
+.tonearm-cartridge {
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  width: 12px;
+  height: 20px;
+  background: #111;
+  border-radius: 2px;
+  transform: rotate(20deg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+/* Switches */
+.turntable-switch {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  width: 24px;
+  height: 24px;
+  background: #222;
+  border: 1px solid #444;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch-knob {
+  width: 6px;
+  height: 12px;
+  background: #dcdcdc;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.music-playing .switch-knob {
+  transform: rotate(90deg);
+}
+
+.turntable-light {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  width: 8px;
+  height: 8px;
+  background: #4a1215;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.music-playing .turntable-light {
+  background: #00ff66;
+  box-shadow: 0 0 6px #00ff66;
+}
+
+.music-caption {
+  margin-top: 0.5rem;
+}
+
+.track-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  color: var(--accent-burgundy);
+}
+
+.track-hint {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Guestbook Ledger section */
+.guestbook-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.ledger-title {
+  font-size: 1.8rem;
+  color: var(--accent-burgundy);
+}
+
+.ledger-subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent-orange);
+  margin-bottom: 0.8rem;
+}
+
+.guestbook-ledger-paper {
+  background: #fffdf9;
+  box-shadow: var(--paper-shadow);
+  border: 1px solid rgba(46, 37, 34, 0.08);
+  border-radius: 3px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.guestbook-ledger-paper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30px;
+  width: 1px;
+  background: rgba(197, 155, 72, 0.25);
+}
+
+.ledger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  height: 180px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.ledger-row {
+  border-bottom: 1px solid rgba(197, 155, 72, 0.15);
+  padding-bottom: 4px;
+  padding-left: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.ledger-sender {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.95rem;
+  color: var(--accent-burgundy);
+  min-width: 80px;
+}
+
+.ledger-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-charcoal);
+}
+
+/* Ledger inputs */
+.ledger-input-wrapper {
+  display: flex;
+  gap: 10px;
+  border-top: 1px dashed rgba(46, 37, 34, 0.15);
+  padding-top: 1rem;
+}
+
+.ledger-input-name, .ledger-input-msg {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(46, 37, 34, 0.2);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  outline: none;
+  padding: 4px 0;
+  color: var(--text-charcoal);
+}
+
+.ledger-input-name {
+  width: 100px;
+}
+
+.ledger-input-msg {
+  flex: 1;
+}
+
+.ledger-input-name:focus, .ledger-input-msg:focus {
+  border-color: var(--accent-orange);
+}
+
+.btn-ledger-add {
+  background: var(--accent-orange);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--transition-medium);
+}
+
+.btn-ledger-add:hover {
+  background: var(--accent-burgundy);
+}
+
+/* ==========================================================================
+   CAROUSEL SLIDE PROJECTOR CONTROLLER (Footer)
+   ========================================================================== */
+.projector-controls {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 1rem;
+  z-index: 10;
+}
+
+.controls-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(13, 1, 3, 0.6);
+  border: 1px solid rgba(197, 155, 72, 0.2);
+  border-radius: 30px;
+  padding: 10px 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.control-knob {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  outline: none;
+}
+
+.knob-face {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e6c584 0%, #a27b32 100%);
+  border: 2px solid #3c2a0f;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.control-knob:hover .knob-face {
+  transform: scale(1.05) rotate(15deg);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.4);
+}
+
+.control-knob:active .knob-face {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.arrow-left, .arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.arrow-left {
+  border-right: 9px solid #3c2a0f;
+  margin-right: 2px;
+}
+
+.arrow-right {
+  border-left: 9px solid #3c2a0f;
+  margin-left: 2px;
+}
+
+.knob-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-foil);
+}
+
+.projector-status {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.lens-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-orange);
+  box-shadow: 0 0 6px var(--accent-orange);
+  animation: pulse-light 2s infinite;
+}
+
+@keyframes pulse-light {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.slide-counter {
+  font-family: 'Space Mono', monospace;
+  color: var(--bg-cream);
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.slide-counter .label {
+  font-size: 0.55rem;
+  color: var(--gold-foil);
+  margin-right: 4px;
+}
+
+.slide-counter .number {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--accent-orange);
+}
+
+.slide-counter .divider, .slide-counter .total {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Adaptive Scaling)
+   ========================================================================== */
+
+/* Medium Layout Adaptations */
+@media (max-width: 950px) {
+  #invitation-content {
+    padding: 1.5rem;
+  }
+  
+  .slide-inner {
+    width: calc(100% - 1.5rem);
+    height: calc(100% - 1.5rem);
+    padding: 2rem;
+  }
+
+  .slide-layout-grid-portrait {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .portrait-container {
+    order: -1; /* Polaroid moves to top on mobile/tablets */
+  }
+
+  .polaroid-frame {
+    max-width: 240px;
+    padding: 12px 12px 30px 12px;
+  }
+
+  .invitation-names {
+    font-size: 2.8rem;
+  }
+
+  .story-content-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .story-graphics-column {
+    display: none; /* Hide filmstrip on smaller tablets for layout spacing */
+  }
+
+  .slide-layout-vinyl {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .turntable-container {
+    width: 240px;
+    height: 200px;
+  }
+  
+  .turntable-deck {
+    padding: 8px;
+  }
+
+  .platter {
+    width: 170px;
+    height: 170px;
+  }
+
+  .vinyl-disc {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .vinyl-record-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tonearm {
+    width: 70px;
+    height: 110px;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* Mobile Portrait Adaptations */
+@media (max-width: 500px) {
+  html {
+    font-size: 14px;
+  }
+
+  .app-header .brand {
+    font-size: 1.3rem;
+  }
+
+  .knob-face {
+    width: 36px;
+    height: 36px;
+  }
+
+  .knob-label {
+    font-size: 0.45rem;
+  }
+
+  .timeline-container::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+  }
+
+  .timeline-time {
+    width: 100%;
+    text-align: left;
+    padding-left: 45px;
+    margin-bottom: 5px;
+  }
+
+  .timeline-badge {
+    left: 15px;
+    top: 12px;
+  }
+
+  .timeline-content {
+    margin-left: 45px;
+    padding: 1rem;
+  }
+
+  .flex-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .rsvp-card-border {
+    padding: 1.2rem;
+  }
+
+  .guestbook-ledger-paper {
+    padding: 1rem;
+  }
+  
+  .guestbook-ledger-paper::before {
+    left: 20px;
+  }
+
+  .ledger-lines {
+    height: 120px;
+  }
+
+  .ledger-row {
+    padding-left: 15px;
+  }
+}

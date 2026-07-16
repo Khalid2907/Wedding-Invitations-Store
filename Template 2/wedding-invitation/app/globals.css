@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF7F2;
+  --color-cream-dark: #F4EDE0;
+  --color-charcoal: #121A17;
+  --color-charcoal-light: #22302A;
+  --color-romantic-red: #8F253B;
+  --color-romantic-red-dark: #6E1A2B;
+  --color-gold: #C5A059;
+  --color-gold-light: #E4D8C1;
+  --color-gold-dark: #9D7B3C;
+  --color-emerald: #0A2520;
+  --color-emerald-light: #16463C;
+  --color-emerald-dark: #051412;
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+html[dir="rtl"] {
+  --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-amiri), Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+}
+
+/* Elegant Paper Grain Overlay */
+.bg-grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar Hiding Utility for Carousel */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scroll behavior utility */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Luxury Border Flourish */
+.luxury-border {
+  position: relative;
+}
+.luxury-border::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Foil Shine Animation */
+@keyframes foilShine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.foil-text {
+  background: linear-gradient(
+    90deg,
+    #9D7B3C 0%,
+    #C5A059 25%,
+    #FAF7F2 50%,
+    #C5A059 75%,
+    #9D7B3C 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: foilShine 6s linear infinite;
+}
+
+/* Deckled Edge Card effect */
+.deckled-card {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.02),
+    0 10px 30px -5px rgba(26, 38, 32, 0.05),
+    0 20px 40px -15px rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+  background: linear-gradient(135deg, rgba(250, 247, 242, 0.95) 0%, rgba(244, 237, 224, 0.95) 100%);
+  position: relative;
+}
+
+/* Elegant Arch Form */
+.elegant-arch {
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+}
+

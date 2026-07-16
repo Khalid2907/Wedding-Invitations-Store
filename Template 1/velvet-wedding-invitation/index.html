@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velvet — Julian & Sophia Wedding Invitation</title>
+  <meta name="description" content="A vintage retro-luxury digital invitation to the wedding of Julian and Sophia. Nostalgic 1970s elegance blended with tactile paper textures and cinematic projector effects.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Serif+Display:ital@0;1&family=Pinyon+Script&family=Space+Mono&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Viewport Film Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- SVG Paper & Noise Filters -->
+  <svg style="position: absolute; width: 0; height: 0; pointer-events: none;">
+    <defs>
+      <!-- Pressed Watercolor Paper Texture Filter -->
+      <filter id="paper-texture-filter" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
+        <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="1.5" result="light">
+          <feDistantLight azimuth="60" elevation="55" />
+        </feDiffuseLighting>
+        <feBlend mode="multiply" in="SourceGraphic" in2="light" result="blend" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Ambient Slide Projector Sound Effect (Web Audio API Synthesized fallback if file unavailable) -->
+  <audio id="audio-click" preload="auto">
+    <!-- Silence placeholder to prevent errors; script will synthesize clicking sound dynamically -->
+  </audio>
+
+  <!-- BACKGROUND VINYL AUDIO -->
+  <audio id="bg-music" loop preload="auto">
+    <!-- We will use a beautiful romantic jazz track or synthesize it, but let's also provide a royalty-free music source -->
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MAIN WRAPPER: Envelope Opening Sequence -->
+  <main id="app-container" class="envelope-active">
+
+    <!-- THE ENVELOPE -->
+    <div id="envelope-wrapper">
+      <div class="envelope">
+        <div class="envelope-back"></div>
+        <div class="envelope-paper-lining"></div>
+        
+        <!-- The Actual Invitation Card (Tucked Inside) -->
+        <div class="invitation-card-tucked">
+          <div class="card-front-preview">
+            <span class="script-cursive" data-i18n="envelope_title">The Wedding of</span>
+            <h2>Julian &amp; Sophia</h2>
+            <p class="date-stamp" data-i18n="envelope_date">OCTOBER 14, 1974</p>
+          </div>
+        </div>
+
+        <div class="envelope-flap"></div>
+        
+        <!-- Wax Seal Button to Open -->
+        <button id="wax-seal" aria-label="Break Seal and Open Invitation">
+          <div class="seal-outer">
+            <div class="seal-inner">
+              <span class="initials">J&amp;S</span>
+              <svg class="seal-scroll" viewBox="0 0 100 100">
+                <path d="M50,10 A40,40 0 1,1 49.9,10" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+              </svg>
+            </div>
+          </div>
+          <span class="seal-hint" data-i18n="seal_hint">Click to Break Seal</span>
+        </button>
+
+        <!-- Address Label -->
+        <div class="address-label">
+          <p class="label-to" data-i18n="label_to">Kindly Invited To Share Our Joy</p>
+          <p class="label-name" data-i18n="label_name">Our Dear Friends &amp; Family</p>
+          <div class="postage-stamp">
+            <div class="stamp-edges"></div>
+            <span class="stamp-price">10¢</span>
+            <span class="stamp-country">USA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE INVITE WEB INTERFACE (revealed after envelope opens) -->
+    <div id="invitation-content">
+      
+      <!-- Premium Header -->
+      <header class="app-header">
+        <div class="brand" data-i18n="brand">Velvet</div>
+        <div class="quick-nav-indicator">
+          <span class="script-cursive">J&amp;S</span>
+        </div>
+        <div class="header-controls">
+          <button id="lang-toggle-btn" class="icon-btn lang-btn" aria-label="Toggle Language" title="Switch to Arabic">
+            <span class="lang-icon">ع</span>
+            <span class="btn-text" data-i18n="lang_btn">العربية</span>
+          </button>
+          <button id="music-toggle-btn" class="icon-btn" aria-label="Toggle Background Music">
+            <svg class="disc-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="2" fill="currentColor"/>
+            </svg>
+            <span class="btn-text" data-i18n="music_btn">Music Off</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- CAROUSEL SLIDE PROJECTOR VIEWPORT -->
+      <section id="projector-viewport">
+        <div class="projector-shutter"></div>
+        
+        <!-- SLIDE 1: INTRO -->
+        <article class="projector-slide active" id="slide-intro" data-index="1">
+          <div class="slide-inner paper-texture">
+            <div class="slide-layout-grid-portrait">
+              
+              <!-- Left side: Typography -->
+              <div class="slide-text-block text-center">
+                <p class="meta-tag uppercase spacing-wide" data-i18n="slide1_cordially">Cordially Invite You</p>
+                <h1 class="invitation-names font-calligraphy">Julian &amp; Sophia</h1>
+                <p class="serif-sub" data-i18n="slide1_celebrate">TO CELEBRATE THEIR UNION</p>
+                
+                <div class="divider-gold-flourish">
+                  <span class="flourish-dot"></span>
+                  <span class="flourish-line"></span>
+                  <span class="flourish-dot"></span>
+                </div>
+                
+                <p class="invitation-date">
+                  <span class="day-name" data-i18n="slide1_day">Saturday Afternoon</span><br>
+                  <span class="calendar-date" data-i18n="slide1_date">OCTOBER 14, 1974</span><br>
+                  <span class="time-stamp" data-i18n="slide1_time">At Four O'Clock</span>
+                </p>
+                
+                <p class="invitation-venue">
+                  <strong data-i18n="slide1_venue">The Glass Pavilion</strong><br>
+                  <span data-i18n="slide1_address">1200 Whispering Pines Road</span><br>
+                  <span data-i18n="slide1_city">Big Sur, California</span>
+                </p>
+              </div>
+
+              <!-- Right side: Framed Portrait (CSS filters simulate aged polaroid/film stock) -->
+              <div class="portrait-container">
+                <div class="polaroid-frame">
+                  <div class="photo-wrapper">
+                    <img src="assets/couple_portrait.png" alt="Julian and Sophia - Big Sur, 1974" class="film-photo">
+                  </div>
+                  <div class="polaroid-caption font-calligraphy" data-i18n="polaroid_caption">
+                    Big Sur, Spring '74
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 2: THE STORY -->
+        <article class="projector-slide" id="slide-story" data-index="2">
+          <div class="slide-inner paper-texture">
+            <div class="slide-layout-story">
+              <h2 class="section-title text-center font-serif" data-i18n="slide2_title">Our Vintage Journey</h2>
+              <p class="section-subtitle text-center script-cursive" data-i18n="slide2_subtitle">A story built on film &amp; folk music</p>
+              
+              <div class="story-content-grid">
+                <div class="story-text-column">
+                  <p class="dropcap font-serif" data-i18n="slide2_dropcap">I</p>
+                  <p class="story-paragraph" data-i18n="slide2_para1">
+                    t began in San Francisco, Autumn of 1971. In a candle-lit corner of a small vinyl record shop, we both reached for the same rare Joni Mitchell record. A brief conversation turned into a walk through Golden Gate Park, which soon became a lifetime of shared dreams, acoustic guitars, and road trips down the Pacific Coast Highway.
+                  </p>
+                  <p class="story-paragraph" data-i18n="slide2_para2">
+                    Big Sur became our sanctuary. Among the towering redwoods and the crashing Pacific waves, we promised to always build a life defined by warmth, simple pleasures, and an enduring, romantic love. We cannot wait to write our next chapter in the company of those we cherish most.
+                  </p>
+                </div>
+                
+                <div class="story-graphics-column">
+                  <div class="film-strip">
+                    <div class="film-sprocket-holes"></div>
+                    <div class="film-frame">
+                      <img src="assets/couple_portrait.png" alt="Couple laughing" class="film-photo sepia-saturate">
+                      <span class="frame-number">01A</span>
+                    </div>
+                    <div class="film-frame">
+                      <img src="assets/couple_portrait.png" alt="Couple walking PCH" class="film-photo orange-warm">
+                      <span class="frame-number">02A</span>
+                    </div>
+                    <div class="film-sprocket-holes"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 3: SCHEDULE OF EVENTS -->
+        <article class="projector-slide" id="slide-schedule" data-index="3">
+          <div class="slide-inner paper-texture">
+            <div class="slide-layout-schedule">
+              <h2 class="section-title text-center font-serif" data-i18n="slide3_title">The Schedule of Celebrations</h2>
+              <p class="section-subtitle text-center script-cursive" data-i18n="slide3_subtitle">Saturday, the fourteenth of October</p>
+              
+              <div class="timeline-container">
+                
+                <!-- Event 1 -->
+                <div class="timeline-item">
+                  <div class="timeline-time">
+                    <span class="time-hour" data-i18n="time1_hour">4:00</span>
+                    <span class="time-ampm" data-i18n="time_pm">PM</span>
+                  </div>
+                  <div class="timeline-badge"><div class="badge-dot"></div></div>
+                  <div class="timeline-content">
+                    <h3 class="event-title" data-i18n="event1_title">The Ceremony</h3>
+                    <p class="event-desc" data-i18n="event1_desc">Under the towering redwoods of the Big Sur grove. Light coats recommended for the coastal breeze.</p>
+                    <span class="event-location" data-i18n="event1_loc">The Redwood Grove Sanctuary</span>
+                  </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="timeline-item">
+                  <div class="timeline-time">
+                    <span class="time-hour" data-i18n="time2_hour">5:30</span>
+                    <span class="time-ampm" data-i18n="time_pm">PM</span>
+                  </div>
+                  <div class="timeline-badge"><div class="badge-dot"></div></div>
+                  <div class="timeline-content">
+                    <h3 class="event-title" data-i18n="event2_title">Cocktails &amp; Records</h3>
+                    <p class="event-desc" data-i18n="event2_desc">Artisanal warm cider and whiskey cocktails served to the sounds of classic vinyl records spinning live.</p>
+                    <span class="event-location" data-i18n="event2_loc">The Sunset Ocean Patio</span>
+                  </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="timeline-item">
+                  <div class="timeline-time">
+                    <span class="time-hour" data-i18n="time3_hour">7:00</span>
+                    <span class="time-ampm" data-i18n="time_pm">PM</span>
+                  </div>
+                  <div class="timeline-badge"><div class="badge-dot"></div></div>
+                  <div class="timeline-content">
+                    <h3 class="event-title" data-i18n="event3_title">Dinner &amp; Dancing</h3>
+                    <p class="event-desc" data-i18n="event3_desc">A candlelight dinner featuring locally sourced organic California fare, followed by joyful dancing.</p>
+                    <span class="event-location" data-i18n="event3_loc">The Pavilion Hall</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 4: THE RSVP CARD -->
+        <article class="projector-slide" id="slide-rsvp" data-index="4">
+          <div class="slide-inner paper-texture">
+            <div class="slide-layout-rsvp">
+              <div class="rsvp-card-border">
+                <div class="rsvp-header">
+                  <h2 class="font-serif text-center" data-i18n="rsvp_title">R. S. V. P.</h2>
+                  <p class="rsvp-deadline text-center uppercase spacing-wide" data-i18n="rsvp_deadline">Kindly reply by September 1, 1974</p>
+                </div>
+
+                <form id="rsvp-form" class="rsvp-vintage-form">
+                  <div class="form-row">
+                    <label for="rsvp-name" class="form-label" data-i18n="rsvp_name_label">Name(s)</label>
+                    <input type="text" id="rsvp-name" name="name" class="form-input-vintage" placeholder="M. and Mme. Julian Vane" data-i18n-placeholder="rsvp_name_placeholder" required>
+                  </div>
+
+                  <div class="form-row flex-row justify-between">
+                    <div class="attendance-options">
+                      <label class="custom-radio-container">
+                        <input type="radio" name="attendance" value="accept" checked>
+                        <span class="radio-checkmark"></span>
+                        <span class="radio-label font-serif" data-i18n="rsvp_accept">Joyfully Accepts</span>
+                      </label>
+                      <label class="custom-radio-container">
+                        <input type="radio" name="attendance" value="decline">
+                        <span class="radio-checkmark"></span>
+                        <span class="radio-label font-serif" data-i18n="rsvp_decline">Regretfully Declines</span>
+                      </label>
+                    </div>
+
+                    <div class="guests-count">
+                      <label for="rsvp-guests" class="form-label" data-i18n="rsvp_guests_label">Number of Guests</label>
+                      <select id="rsvp-guests" name="guests" class="form-select-vintage">
+                        <option value="1" data-i18n="rsvp_guest1">1 Guest</option>
+                        <option value="2" selected data-i18n="rsvp_guest2">2 Guests</option>
+                        <option value="3" data-i18n="rsvp_guest3">3 Guests</option>
+                        <option value="4" data-i18n="rsvp_guest4">4 Guests</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <label for="rsvp-diet" class="form-label" data-i18n="rsvp_diet_label">Dietary Notes / Warm Wishes</label>
+                    <textarea id="rsvp-diet" name="diet" class="form-textarea-vintage" placeholder="Any special dietary requirements, or a little note..." data-i18n-placeholder="rsvp_diet_placeholder"></textarea>
+                  </div>
+
+                  <div class="form-submit-row text-center">
+                    <button type="submit" class="btn-velvet-gold">
+                      <span data-i18n="rsvp_submit">Send Response</span>
+                    </button>
+                  </div>
+                </form>
+
+                <div id="rsvp-success-message" class="hidden text-center">
+                  <p class="script-cursive success-title" data-i18n="rsvp_thanks_title">Thank You</p>
+                  <p class="success-body font-serif" data-i18n="rsvp_thanks_body">Your response has been sealed and sent. We look forward to sharing our day with you!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- SLIDE 5: VINYL GUESTBOOK / MUSIC PLAYER -->
+        <article class="projector-slide" id="slide-vinyl" data-index="5">
+          <div class="slide-inner paper-texture">
+            <div class="slide-layout-vinyl">
+              <div class="vinyl-player-section">
+                <h2 class="section-title text-center font-serif" data-i18n="slide5_title">The Wedding Soundtrack</h2>
+                <p class="section-subtitle text-center script-cursive" data-i18n="slide5_subtitle">Interactive Vinyl Player</p>
+                
+                <div class="turntable-container">
+                  <!-- The Record Player Body -->
+                  <div class="turntable-deck">
+                    <div class="platter">
+                      <!-- The Rotating Vinyl -->
+                      <div class="vinyl-disc" id="vinyl-disc">
+                        <img src="assets/vinyl_record.png" alt="Vinyl record label" class="vinyl-record-img">
+                        <div class="vinyl-spindle"></div>
+                      </div>
+                    </div>
+                    
+                    <!-- Turntable Tonearm -->
+                    <div class="tonearm" id="tonearm">
+                      <div class="tonearm-pivot"></div>
+                      <div class="tonearm-arm"></div>
+                      <div class="tonearm-cartridge"></div>
+                    </div>
+
+                    <!-- Subtle power switch/indicator -->
+                    <div class="turntable-switch" id="turntable-switch" data-i18n-title="turntable_title" title="Toggle record spin">
+                      <span class="switch-knob"></span>
+                    </div>
+                    <div class="turntable-light" id="turntable-status-light"></div>
+                  </div>
+                </div>
+
+                <div class="music-caption text-center">
+                  <p class="track-title" id="track-name" data-i18n="track_name">Spinning: Folk Roots &amp; Coast Ballads</p>
+                  <p class="track-hint" data-i18n="track_hint">Click the switch or the vinyl record to play/pause</p>
+                </div>
+              </div>
+
+              <!-- Digital Guestbook (Vinyl Ledger) -->
+              <div class="guestbook-section">
+                <h3 class="font-serif ledger-title" data-i18n="ledger_title">The Digital Ledger</h3>
+                <p class="ledger-subtitle uppercase spacing-wide" data-i18n="ledger_subtitle">Guest Notes &amp; Well Wishes</p>
+                
+                <div class="guestbook-ledger-paper">
+                  <div class="ledger-lines" id="ledger-messages-container">
+                    <!-- Pre-loaded nostalgic wishes -->
+                    <div class="ledger-row" data-ledger-index="0">
+                      <span class="ledger-sender">Eleanor V.</span>
+                      <span class="ledger-text" data-i18n="ledger_msg0">"So happy for you both! Can't wait for redwood breeze."</span>
+                    </div>
+                    <div class="ledger-row" data-ledger-index="1">
+                      <span class="ledger-sender">Thomas &amp; May</span>
+                      <span class="ledger-text" data-i18n="ledger_msg1">"The PCH road trips were just the start. Love always!"</span>
+                    </div>
+                    <div class="ledger-row" data-ledger-index="2">
+                      <span class="ledger-sender">Marcus</span>
+                      <span class="ledger-text" data-i18n="ledger_msg2">"Spin that record! Counting down the days."</span>
+                    </div>
+                  </div>
+
+                  <div class="ledger-input-wrapper">
+                    <input type="text" id="guestbook-name" class="ledger-input-name" placeholder="Your Name" data-i18n-placeholder="ledger_name_ph" required>
+                    <input type="text" id="guestbook-msg" class="ledger-input-msg" placeholder="Leave a sweet note here..." data-i18n-placeholder="ledger_msg_ph" required>
+                    <button id="guestbook-submit-btn" class="btn-ledger-add" aria-label="Add to Ledger">+</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- CAROUSEL SLIDE PROJECTOR CONTROLLER -->
+      <footer class="projector-controls">
+        <div class="controls-inner">
+          <button id="btn-prev-slide" class="control-knob" aria-label="Previous Slide">
+            <span class="knob-face"><span class="arrow-left"></span></span>
+            <span class="knob-label" data-i18n="btn_prev">PREV SLIDE</span>
+          </button>
+          
+          <div class="projector-status">
+            <div class="lens-indicator"></div>
+            <div class="slide-counter">
+              <span class="label" data-i18n="slide_label">SLIDE NO.</span>
+              <span class="number" id="current-slide-num">01</span>
+              <span class="divider">/</span>
+              <span class="total">05</span>
+            </div>
+          </div>
+
+          <button id="btn-next-slide" class="control-knob" aria-label="Next Slide">
+            <span class="knob-face"><span class="arrow-right"></span></span>
+            <span class="knob-label" data-i18n="btn_next">NEXT SLIDE</span>
+          </button>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
