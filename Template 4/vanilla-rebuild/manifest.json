@@ -1,0 +1,16 @@
+{
+  "name": "Romantic Silk — Luxury Invitation",
+  "short_name": "Romantic Silk",
+  "description": "3D Wax Seal Romantic Silk web invitation by Rab6",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#181214",
+  "theme_color": "#D4AF37",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

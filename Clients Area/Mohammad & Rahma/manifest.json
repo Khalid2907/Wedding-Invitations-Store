@@ -1,0 +1,16 @@
+{
+  "name": "Mohammad & Rahma — Wedding Invitation",
+  "short_name": "M & R Wedding",
+  "description": "Custom luxury wedding invitation for Mohammad & Rahma by Rab6",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#120D10",
+  "theme_color": "#E2C374",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

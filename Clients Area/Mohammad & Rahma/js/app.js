@@ -4,7 +4,7 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const fallbackSrc = '/assets/placeholder.svg';
+  const fallbackSrc = 'assets/placeholder.svg';
 
   const bindImageFallbacks = () => {
     const images = Array.from(document.querySelectorAll('img'));

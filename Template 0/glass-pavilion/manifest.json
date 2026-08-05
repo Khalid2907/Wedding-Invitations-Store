@@ -1,0 +1,16 @@
+{
+  "name": "Glass Pavilion — Luxury Invitation",
+  "short_name": "Glass Pavilion",
+  "description": "Glassmorphism architectural web invitation by Rab6",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#D4AF37",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

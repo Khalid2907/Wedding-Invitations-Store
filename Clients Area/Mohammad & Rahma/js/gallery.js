@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = item.querySelector('img');
 
     if (img && lightboxImg) {
-      const resolvedSrc = img.currentSrc || img.src || '/assets/placeholder.svg';
+      const resolvedSrc = img.currentSrc || img.src || 'assets/placeholder.svg';
       lightboxImg.src = resolvedSrc;
       lightboxImg.alt = img.alt || '';
     }

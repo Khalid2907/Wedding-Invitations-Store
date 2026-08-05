@@ -101,6 +101,8 @@ body {
   border-radius: 50%;
   opacity: 0.55;
   mix-blend-mode: screen;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .orb1 {

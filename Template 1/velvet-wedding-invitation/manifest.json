@@ -1,0 +1,16 @@
+{
+  "name": "Velvet Arabic — Luxury Invitation",
+  "short_name": "Velvet Arabic",
+  "description": "Velvet gold Arabic-first web invitation by Rab6",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#120B0E",
+  "theme_color": "#E2C374",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

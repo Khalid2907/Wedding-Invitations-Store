@@ -60,28 +60,48 @@
   --radius-xl: 24px;
   --radius-pill: 9999px;
 
-  /* ── 7. Spring Physics Transitions ── */
+  /* ── 7. Rab6 Unified Motion System Tokens ── */
   --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: 200ms var(--ease-smooth);
-  --transition-normal: 350ms var(--ease-smooth);
-  --transition-slow: 700ms var(--ease-smooth);
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+
+  --dur-micro: 150ms;
+  --dur-button: 220ms;
+  --dur-hover: 300ms;
+  --dur-card: 350ms;
+  --dur-reveal: 700ms;
+  --dur-hero: 1000ms;
+  --dur-envelope: 1400ms;
+
+  --transition-fast: var(--dur-micro) var(--ease-luxury);
+  --transition-normal: var(--dur-hover) var(--ease-luxury);
+  --transition-slow: var(--dur-reveal) var(--ease-cinematic);
 }
 
 /* ── Universal Rab6 Utility Classes ── */
+.rab6-gpu {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
 .rab6-glass-card {
   background: var(--color-glass-bg-medium);
   backdrop-filter: blur(var(--color-glass-blur-md));
   -webkit-backdrop-filter: blur(var(--color-glass-blur-md));
   border: 1px solid var(--color-glass-border-gold);
   border-radius: var(--radius-xl);
-  transition: all var(--transition-normal);
+  transition: transform var(--dur-hover) var(--ease-luxury), box-shadow var(--dur-hover) var(--ease-luxury), background var(--dur-hover) var(--ease-luxury);
+  will-change: transform, box-shadow;
 }
 
 .rab6-glass-card:hover {
   background: var(--color-glass-bg-elevated);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 25px var(--color-glow-gold);
-  transform: translateY(-2px);
+  transform: translate3d(0, -4px, 0);
 }
 
 .rab6-gold-text {
@@ -89,4 +109,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ── Accessibility: Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
