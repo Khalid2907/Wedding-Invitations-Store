@@ -1,0 +1,92 @@
+/* ============================================================
+   RAB6 DESIGN SYSTEM — CENTRAL LUXURY TOKENS & UTILITIES
+   Single source of truth for all Rab6 Invitation Collections
+   ============================================================ */
+
+:root {
+  /* ── 1. Surface Stack (Layer 0 to Layer 3) ── */
+  --color-bg-base: #040D0A;        /* Layer 0: Page background void */
+  --color-bg-surface-1: #0A1D1A;  /* Layer 1: Section containers */
+  --color-bg-surface-2: #122B27;  /* Layer 2: Card elements */
+  --color-bg-surface-3: #1A3833;  /* Layer 3: Popovers & Modals */
+
+  /* ── 2. Glassmorphism & Translucency Tokens ── */
+  --color-glass-bg-subtle: rgba(255, 255, 255, 0.03);
+  --color-glass-bg-medium: rgba(255, 255, 255, 0.06);
+  --color-glass-bg-elevated: rgba(255, 255, 255, 0.12);
+  
+  --color-glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-glass-border-gold: rgba(226, 199, 153, 0.30);
+  --color-glass-border-cyan: rgba(142, 235, 227, 0.25);
+
+  --color-glass-blur-sm: 8px;
+  --color-glass-blur-md: 16px;
+  --color-glass-blur-lg: 24px;
+
+  /* ── 3. Text & Content Tokens ── */
+  --color-text-primary: #F5F9F8;   /* Warm Crystal White — Headlines */
+  --color-text-secondary: #C2D6D3; /* Soft Mint Silver — Body & Subtitles */
+  --color-text-muted: #7A9994;     /* Muted Teal Gray — Metadata & Labels */
+  --color-text-accent: #E2C799;    /* Celestial Gold — Highlights & Links */
+  --color-text-inverted: #040D0A;  /* Dark Text for Light Badges */
+
+  /* ── 4. Metallic Celestial Accents & Gradients ── */
+  --color-gold-50: #FAF5EB;
+  --color-gold-300: #EAD0A6;
+  --color-gold-500: #E2C799;
+  --color-gold-700: #B89762;
+
+  --color-glow-cyan: rgba(142, 235, 227, 0.18);
+  --color-glow-emerald: rgba(52, 211, 153, 0.15);
+  --color-glow-gold: rgba(226, 199, 153, 0.20);
+
+  --gradient-gold-metallic: linear-gradient(135deg, #FAF5EB 0%, #E2C799 50%, #B89762 100%);
+  --gradient-aurora-mesh: radial-gradient(circle at 50% 0%, var(--color-glow-cyan) 0%, var(--color-glow-emerald) 40%, transparent 80%);
+
+  /* ── 5. Fluid Typography Scale ── */
+  --text-xs: clamp(0.70rem, 0.9vw, 0.78rem);
+  --text-sm: clamp(0.82rem, 1.1vw, 0.88rem);
+  --text-base: clamp(0.95rem, 1.3vw, 1.05rem);
+  --text-lg: clamp(1.10rem, 1.7vw, 1.25rem);
+  --text-xl: clamp(1.35rem, 2.3vw, 1.60rem);
+  --text-2xl: clamp(1.75rem, 3.2vw, 2.20rem);
+  --text-3xl: clamp(2.30rem, 4.5vw, 3.20rem);
+  --text-4xl: clamp(3.00rem, 6.5vw, 4.80rem);
+
+  /* ── 6. Border Radius & Radius Tokens ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* ── 7. Spring Physics Transitions ── */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 200ms var(--ease-smooth);
+  --transition-normal: 350ms var(--ease-smooth);
+  --transition-slow: 700ms var(--ease-smooth);
+}
+
+/* ── Universal Rab6 Utility Classes ── */
+.rab6-glass-card {
+  background: var(--color-glass-bg-medium);
+  backdrop-filter: blur(var(--color-glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--color-glass-blur-md));
+  border: 1px solid var(--color-glass-border-gold);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-normal);
+}
+
+.rab6-glass-card:hover {
+  background: var(--color-glass-bg-elevated);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 25px var(--color-glow-gold);
+  transform: translateY(-2px);
+}
+
+.rab6-gold-text {
+  background: var(--gradient-gold-metallic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Image unavailable">
+  <rect width="1200" height="800" fill="#f8efe7"/>
+  <rect x="48" y="48" width="1104" height="704" rx="32" fill="#fffdf9" stroke="#d9b88f" stroke-width="6"/>
+  <path d="M180 600c70-140 164-220 292-220 111 0 210 67 300 190 53 73 123 111 215 123L180 600Z" fill="#e8c79b" opacity="0.35"/>
+  <circle cx="390" cy="330" r="96" fill="#d7b07d" opacity="0.3"/>
+  <rect x="220" y="190" width="760" height="130" rx="24" fill="#f4e5d2"/>
+  <rect x="260" y="228" width="300" height="20" rx="10" fill="#c99855"/>
+  <rect x="260" y="264" width="220" height="16" rx="8" fill="#d9b88f"/>
+  <text x="600" y="470" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="600" fill="#8a6240">Image unavailable</text>
+  <text x="600" y="530" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#9f7a58">The requested image could not be loaded.</text>
+</svg>

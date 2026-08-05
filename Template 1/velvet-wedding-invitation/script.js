@@ -219,6 +219,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Only intercept key presses if invitation is active (envelope is opened)
     if (!appContainer.classList.contains('content-active')) return;
 
+    // Do NOT intercept keys if user is typing in an input, textarea, or select field
+    const activeEl = document.activeElement;
+    if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA' || activeEl.tagName === 'SELECT')) {
+      return;
+    }
+
     if (e.key === 'ArrowRight' || e.key === 'Spacebar' || e.key === ' ') {
       e.preventDefault();
       btnNext.click();
@@ -576,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
-  let currentLang = 'en';
+  let currentLang = 'ar';
 
   /**
    * Applies the given language to the entire page.
@@ -619,9 +625,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const musicBtnText = musicToggleBtn.querySelector('.btn-text');
     musicBtnText.textContent = isPlayingMusic ? t.music_btn_on : t.music_btn;
 
-    // 6. Apply Noto Naskh Arabic body font when in Arabic mode — elegant & refined
+    // 6. Apply Cairo / Tajawal Arabic body font when in Arabic mode
     if (isArabic) {
-      document.body.style.fontFamily = "'Noto Naskh Arabic', 'Cormorant Garamond', Georgia, serif";
+      document.body.style.fontFamily = "'Cairo', 'Tajawal', sans-serif";
     } else {
       document.body.style.fontFamily = '';
     }
@@ -629,9 +635,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // 6. Flip the lang-toggle button label to the opposite language
     const langIcon = document.querySelector('#lang-toggle-btn .lang-icon');
     if (langIcon) {
-      langIcon.textContent = isArabic ? 'A' : 'ع';
+      langIcon.textContent = isArabic ? 'EN' : 'ع';
     }
   }
+
+  // Apply Arabic language by default on load
+  applyLanguage('ar');
 
   // Bind language toggle button
   const langToggleBtn = document.getElementById('lang-toggle-btn');

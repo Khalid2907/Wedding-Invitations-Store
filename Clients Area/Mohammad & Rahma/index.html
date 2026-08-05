@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>محمد & رحمة — دعوة زفاف فاخرة | Mohammad & Rahma</title>
+  <meta name="description"
+    content="يسرنا دعوتكم لحضور حفل زفاف محمد ورحمة يوم السبت ٨ أغسطس ٢٠٢٦. أهلاً وسهلاً بكم في ليلتنا المميزة.">
+  <meta name="theme-color" content="#FAF8F5">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=rab6">
+  <link rel="shortcut icon" type="image/svg+xml" href="favicon.svg?v=rab6">
+  <link rel="apple-touch-icon" href="favicon.svg?v=rab6">
+
+  <!-- Google Fonts: Display & Body Fonts (AR & EN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Tajawal:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Schema.org JSON-LD Event Metadata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Mohammad & Rahma Wedding Ceremony — حفل زفاف محمد ورحمة",
+    "startDate": "2026-08-08T21:00:00+03:00",
+    "endDate": "2026-08-09T00:00:00+03:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Acacia Hall — قاعة أكاسيا",
+      "url": "https://maps.app.goo.gl/8r9ivD9W3H5zatCs7"
+    },
+    "description": "An architectural, light-filled luxury wedding invitation celebration for Mohammad & Rahma."
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Texture Noise & Morning Bloom Background -->
+  <div class="texture-overlay" aria-hidden="true"></div>
+  <div class="morning-bloom" aria-hidden="true"></div>
+
+  <!-- Ambient Light Dust & Floating Petals Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Header Controls (Language Charm & Audio Player) -->
+  <header class="top-header-controls">
+    <button id="lang-toggle-btn" class="glass-charm-btn" aria-label="Switch Language">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" />
+      </svg>
+      <span id="lang-label">English</span>
+    </button>
+
+    <!-- Luxury Floating Audio Controller Dock -->
+    <div id="audio-controller-bar" class="audio-controller-bar" role="region" aria-label="Audio Soundtrack Controller">
+      <!-- Play / Pause Button -->
+      <button id="audio-toggle-btn" class="audio-btn" aria-label="Toggle Music" title="Play / Pause">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </button>
+
+      <!-- Track Information & Scrubbing -->
+      <div class="audio-track-info">
+        <div class="audio-title-row">
+          <span id="audio-track-title" class="audio-track-title">نبتدي منين الحكاية — عبد الحليم حافظ</span>
+          <div class="audio-time-display">
+            <span id="audio-current-time">00:00</span> / <span id="audio-total-time">00:00</span>
+          </div>
+        </div>
+        <div id="audio-progress-bar" class="audio-progress-bar">
+          <div id="audio-progress-fill" class="audio-progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Volume Controls -->
+      <div class="audio-volume-group">
+        <button id="audio-mute-btn" class="audio-sub-btn" aria-label="Mute" title="Mute / Unmute">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+          </svg>
+        </button>
+        <input type="range" id="audio-volume-slider" class="audio-volume-slider" min="0" max="100" value="22"
+          aria-label="Volume Slider">
+      </div>
+
+      <!-- Live Animated Waveform Visualizer -->
+      <div class="visualizer-bars" aria-hidden="true" title="Audio Visualizer">
+        <div class="v-bar"></div>
+        <div class="v-bar"></div>
+        <div class="v-bar"></div>
+        <div class="v-bar"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Architectural Side Scroll Progress Indicator Line (Elysium Edition) -->
+  <aside class="side-scroll-tracker" aria-label="Scene Scroll Progress">
+    <div class="tracker-line-bg"></div>
+    <div id="tracker-fill-line" class="tracker-fill-line"></div>
+    <div id="tracker-runner-orb" class="tracker-runner-orb"></div>
+
+    <div class="tracker-dots-container">
+      <div class="tracker-dot is-active" data-target-scene="scene-hero">
+        <span class="tracker-tooltip">01 Sanctuary</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-story">
+        <span class="tracker-tooltip">02 Story</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-letter">
+        <span class="tracker-tooltip">03 Letter</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-countdown">
+        <span class="tracker-tooltip">04 Countdown</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-schedule">
+        <span class="tracker-tooltip">05 Schedule</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-gallery">
+        <span class="tracker-tooltip">06 Gallery</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-venue">
+        <span class="tracker-tooltip">07 Venue</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-rsvp">
+        <span class="tracker-tooltip">08 RSVP</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-closing">
+        <span class="tracker-tooltip">09 Ceremony</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Preloader: Dior/Cartier-Grade Luxury Product Reveal Envelope Experience -->
+  <div id="preloader" class="luxury-studio-stage" role="dialog" aria-label="Luxury Wedding Envelope Experience">
+    <!-- Atmospheric Lighting & Studio Background Layers -->
+    <div class="studio-sunlight-beam" aria-hidden="true"></div>
+    <div class="studio-vignette" aria-hidden="true"></div>
+    <div id="envelope-shadow-floor" class="envelope-shadow-floor" aria-hidden="true"></div>
+
+    <!-- Main 3D Physical Envelope Stage -->
+    <div id="envelope-wrapper" class="envelope-wrapper-3d" title="Click wax seal to open invitation">
+
+      <!-- Inner Warm Silk Envelope Lining -->
+      <div class="envelope-inner-lining" aria-hidden="true"></div>
+
+      <!-- 3D Paper Thickness Edges & Gold Foil Embossed Border -->
+      <div class="envelope-paper-edge edge-left" aria-hidden="true"></div>
+      <div class="envelope-paper-edge edge-right" aria-hidden="true"></div>
+      <div class="envelope-paper-edge edge-bottom" aria-hidden="true"></div>
+      <div class="gold-foil-embossed-border" aria-hidden="true"></div>
+
+      <!-- Envelope Body Front Pocket -->
+      <div class="envelope-body-pocket"></div>
+
+      <!-- 3D Hinge Envelope Flap -->
+      <div id="envelope-flap" class="envelope-flap-3d">
+        <div class="flap-inner-lining"></div>
+        <div class="flap-gold-trim"></div>
+        <div class="flap-self-shadow"></div>
+      </div>
+
+      <!-- Hero Royal Burgundy Wax Seal -->
+      <div id="wax-seal" class="wax-seal-hero" role="button" tabindex="0"
+        aria-label="Break wax seal and open invitation">
+        <div class="wax-glow-ring" aria-hidden="true"></div>
+        <div class="wax-body">
+          <div class="wax-rim"></div>
+          <div class="wax-split-wrapper">
+            <div class="wax-half wax-left"></div>
+            <div class="wax-half wax-right"></div>
+          </div>
+          <span id="wax-monogram" class="wax-monogram">م & ر</span>
+          <div class="wax-crack-line" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Ceremonial Handmade Cotton Paper Invitation Card -->
+      <div id="envelope-letter" class="envelope-letter-card">
+        <div class="cotton-paper-texture" aria-hidden="true"></div>
+        <div class="card-gold-inner-frame" aria-hidden="true"></div>
+
+        <div class="card-content-wrap">
+          <div class="hero-monogram-badge">م & ر</div>
+          <h2 id="preloader-couple-names" class="calligraphy-reveal-text">محمد & رحمة</h2>
+          <p id="wax-prompt-text" class="envelope-prompt ceremonial-prompt">انقر لكسر الشمع وفتح الدعوة</p>
+
+          <div id="audio-prompt-toast" class="audio-prompt-toast is-visible"
+            title="Enable soundtrack for full experience">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+            </svg>
+            <span id="audio-prompt-text">تشغيل الموسيقى لإكمال التجربة ✨</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main Invitation Journey -->
+  <main>
+
+    <!-- CHAPTER 01: HERO SECTION -->
+    <section id="scene-hero" class="cinematic-scene">
+      <div class="hero-vogue-container">
+        <div class="hero-portrait-stack">
+          <div class="portrait-card portrait-groom reveal-init reveal-right">
+            <img src="assets/mohammad.jpg" alt="Mohammad - Groom" fetchpriority="high">
+            <div class="portrait-ambient-halo"></div>
+          </div>
+          <div class="portrait-card portrait-bride reveal-init reveal-left">
+            <img src="assets/rahma.jpg" alt="Rahma - Bride" fetchpriority="high">
+            <div class="portrait-ambient-halo"></div>
+          </div>
+          <!-- Gold Light Sweep -->
+          <div class="hero-gold-sweep" aria-hidden="true"></div>
+        </div>
+
+        <div class="hero-text-block">
+          <div class="hero-monogram-badge reveal-init reveal-scale">م &amp; ر</div>
+          <h1 class="hero-names">
+            <span id="hero-ampersand" class="hero-ampersand reveal-init reveal-scale">&amp;</span>
+            <span id="hero-name-groom" class="hero-name-part reveal-init">محمد</span>
+            <span id="hero-names-text" class="hero-name-separator" aria-hidden="true"> &amp; </span>
+            <span id="hero-name-bride" class="hero-name-part reveal-init">رحمة</span>
+          </h1>
+          <p id="hero-sub-text" class="hero-subheading reveal-init">
+            يسرّنا دعوتكم لمشاركتنا أجمل لحظات العمر واحتفالنا بعقد قراننا في ليلة تشرق فيها المحبة.
+          </p>
+          <div class="hero-date-badge reveal-init">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span id="hero-date-text">٠٨ / ٠٨ / ٢٠٢٦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 02: COUPLE STORY -->
+    <section id="scene-story" class="cinematic-scene">
+      <div class="chapter-title-group reveal-init">
+        <p id="story-eyebrow" class="chapter-eyebrow">حكايتنا</p>
+        <h2 id="story-heading" class="chapter-main-heading">فصول من الحب والجمال</h2>
+      </div>
+
+      <div class="story-timeline-container">
+        <!-- Interactive Central Timeline Spine -->
+        <div class="story-timeline-spine">
+          <div id="story-timeline-fill" class="story-timeline-fill"></div>
+        </div>
+
+        <div class="story-grid">
+          <!-- Story Milestone 1 — 11 July 2025 -->
+          <article class="story-milestone-item story-card align-right reveal-init" data-milestone="0">
+            <div class="milestone-node-wrap">
+              <div class="story-milestone-node">
+                <div class="node-inner-orb"></div>
+              </div>
+            </div>
+            <div class="story-card-wrapper">
+              <div class="story-img-wrap">
+                <img src="assets/first-look.jpg" alt="First Hello" loading="lazy">
+                <div class="story-img-glow"></div>
+              </div>
+              <div class="story-content">
+                <div class="story-year-badge">
+                  <span id="story-year-0" class="story-year">١١ يوليو ٢٠٢٥</span>
+                </div>
+                <h3 id="story-title-0" class="story-title">أوّل لقاء</h3>
+                <p id="story-body-0" class="story-body">
+                  بدأت الحكاية بنظرة وشغف صادق، حيث تلاقت الأرواح لتكتب بداية فصل جديد من العشق والود والمودة.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Story Milestone 2 — 20 July 2025 -->
+          <article class="story-milestone-item story-card align-left reverse reveal-init" data-milestone="1">
+            <div class="milestone-node-wrap">
+              <div class="story-milestone-node">
+                <div class="node-inner-orb"></div>
+              </div>
+            </div>
+            <div class="story-card-wrapper">
+              <div class="story-img-wrap">
+                <img src="assets/first-date.jpg" alt="Growing Together" loading="lazy">
+                <div class="story-img-glow"></div>
+              </div>
+              <div class="story-content">
+                <div class="story-year-badge">
+                  <span id="story-year-1" class="story-year">٢٠ يوليو ٢٠٢٥</span>
+                </div>
+                <h3 id="story-title-1" class="story-title">نظرة العمر</h3>
+                <p id="story-body-1" class="story-body">
+                  أيام عشناها سوية، نتعلم فيها معاني الصدق والاهتمام، ونبني أحلام الغد بخطوات ثابتة وقلوب نابضة.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Story Milestone 3 — 5 August 2025 -->
+          <article class="story-milestone-item story-card align-right reveal-init" data-milestone="2">
+            <div class="milestone-node-wrap">
+              <div class="story-milestone-node">
+                <div class="node-inner-orb"></div>
+              </div>
+            </div>
+            <div class="story-card-wrapper">
+              <div class="story-img-wrap">
+                <img src="assets/cairo-surprise.jpg" alt="Our New Beginning" loading="eager" decoding="async">
+                <div class="story-img-glow"></div>
+              </div>
+              <div class="story-content">
+                <div class="story-year-badge">
+                  <span id="story-year-2" class="story-year">٥ أغسطس ٢٠٢٥</span>
+                </div>
+                <h3 id="story-title-2" class="story-title">فرحة الشروق</h3>
+                <p id="story-body-2" class="story-body">
+                  وها نحن اليوم نقف عند أعتاب ليلتنا الكبرى، لنبدأ معاً رحلة العمر الأبدي بحضوركم الكريم.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Story Milestone 4 — 15 August 2025 -->
+          <article class="story-milestone-item story-card align-left reverse reveal-init" data-milestone="3">
+            <div class="milestone-node-wrap">
+              <div class="story-milestone-node">
+                <div class="node-inner-orb"></div>
+              </div>
+            </div>
+            <div class="story-card-wrapper">
+              <div class="story-img-wrap">
+                <img src="assets/from-memory.jpg" alt="Cherished Memories" loading="eager" decoding="async">
+                <div class="story-img-glow"></div>
+              </div>
+              <div class="story-content">
+                <div class="story-year-badge">
+                  <span id="story-year-3" class="story-year">١٥ أغسطس ٢٠٢٥</span>
+                </div>
+                <h3 id="story-title-3" class="story-title">ذكريات من القلب</h3>
+                <p id="story-body-3" class="story-body">
+                  لحظات سحرية جمعتنا تحت سماء واحدة، وعدنا فيها أن نظل معاً يداً بيد في السراء والضراء.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 03: LOVE LETTER -->
+    <section id="scene-letter" class="cinematic-scene">
+      <div class="letter-card reveal-init">
+        <p id="letter-eyebrow" class="chapter-eyebrow" style="margin-bottom: 1.5rem;">رسالة حب</p>
+        <blockquote id="letter-quote" class="letter-quote">
+          «وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
+          مَّوَدَّةً وَرَحْمَةً»
+        </blockquote>
+        <div id="letter-sign" class="letter-signature">— محمد ورحمة</div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 04: COUNTDOWN -->
+    <section id="scene-countdown" class="cinematic-scene">
+      <div class="chapter-title-group reveal-init">
+        <p id="countdown-eyebrow" class="chapter-eyebrow">العد التنازلي</p>
+        <h2 id="countdown-heading" class="chapter-main-heading">نترقب اللقاء بكافة الشوق</h2>
+      </div>
+
+      <div class="countdown-grid reveal-init">
+        <div class="countdown-card">
+          <div id="days-val" class="countdown-val">00</div>
+          <div id="days-label" class="countdown-label">أيام</div>
+        </div>
+        <div class="countdown-card">
+          <div id="hours-val" class="countdown-val">00</div>
+          <div id="hours-label" class="countdown-label">ساعات</div>
+        </div>
+        <div class="countdown-card">
+          <div id="minutes-val" class="countdown-val">00</div>
+          <div id="minutes-label" class="countdown-label">دقائق</div>
+        </div>
+        <div class="countdown-card">
+          <div id="seconds-val" class="countdown-val">00</div>
+          <div id="seconds-label" class="countdown-label">ثوانٍ</div>
+        </div>
+      </div>
+
+      <div class="calendar-cta-group reveal-init">
+        <button id="add-google-cal" class="btn-luxury">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+            <line x1="12" y1="14" x2="12" y2="18" />
+            <line x1="10" y1="16" x2="14" y2="16" />
+          </svg>
+          <span id="btn-add-google">إضافة لتقويم Google</span>
+        </button>
+
+        <button id="download-ics" class="btn-luxury btn-luxury-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          <span id="btn-download-ics">تحميل الملف التقويمي (.ics)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 05: SCHEDULE & DETAILS -->
+    <section id="scene-schedule" class="cinematic-scene">
+      <div class="chapter-title-group reveal-init">
+        <p id="schedule-eyebrow" class="chapter-eyebrow">تفاصيل الحفل</p>
+        <h2 id="schedule-heading" class="chapter-main-heading">برنامج الليلة السعيدة</h2>
+      </div>
+
+      <div class="timeline-flow reveal-init">
+        <div class="timeline-item">
+          <div id="sched-time-0" class="timeline-time">٠٩:٠٠ مساءً</div>
+          <div class="timeline-info">
+            <h3 id="sched-title-0">استقبال الضيوف الكرام</h3>
+            <p id="sched-desc-0">ترحيب حار ومشروبات ضيافة منعشة عند الوصول</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div id="sched-time-1" class="timeline-time">١٠:٠٠ مساءً</div>
+          <div class="timeline-info">
+            <h3 id="sched-title-1">مراسم الزفاف وعقد القران</h3>
+            <p id="sched-desc-1">لحظة الدخول الملكي وإشهار عقد القران المبارك</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div id="sched-time-2" class="timeline-time">١٠:٤٥ مساءً</div>
+          <div class="timeline-info">
+            <h3 id="sched-title-2">العشاء الفاخر</h3>
+            <p id="sched-desc-2">مأدبة عشاء ملكية تحت ضوء الشموع والأنغام</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div id="sched-time-3" class="timeline-time">١١:٣٠ مساءً</div>
+          <div class="timeline-info">
+            <h3 id="sched-title-3">الاحتفال والموسيقى</h3>
+            <p id="sched-desc-3">ليلة مليئة بالفرح والرقص حتى منتصف الليل</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 06: PHOTO GALLERY -->
+    <section id="scene-gallery" class="cinematic-scene">
+      <div class="chapter-title-group reveal-init">
+        <p id="gallery-eyebrow" class="chapter-eyebrow">معرض الصور</p>
+        <h2 id="gallery-heading" class="chapter-main-heading">لحظات وثّقها الزمان</h2>
+      </div>
+
+      <div class="gallery-editorial-grid reveal-init">
+        <div class="gallery-item item-portrait reveal-init" data-index="0">
+          <img src="assets/photo-1.jpg" alt="Special Moment 1" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="gallery-item item-landscape reveal-init" data-index="1">
+          <img src="assets/photo-2.jpg" alt="Special Moment 2" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="gallery-item item-tall reveal-init" data-index="2">
+          <img src="assets/photo-3.jpg" alt="Special Moment 3" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="gallery-item item-feature reveal-init" data-index="3">
+          <img src="assets/photo-4.jpg" alt="Special Moment 4" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="gallery-item item-portrait reveal-init" data-index="4">
+          <img src="assets/photo-5.jpg" alt="Special Moment 5" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="gallery-item item-square reveal-init" data-index="5">
+          <img src="assets/photo-6.jpg" alt="Special Moment 6" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="gallery-item item-tall reveal-init" data-index="6">
+          <img src="assets/photo-7.jpg" alt="Special Moment 7" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="gallery-item item-landscape reveal-init" data-index="7">
+          <img src="assets/photo-8.jpg" alt="Special Moment 8" loading="lazy">
+          <div class="gallery-glass-overlay">
+            <span class="gallery-zoom-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-label="Photo Viewer">
+      <div class="lightbox-backdrop"></div>
+      <button id="lightbox-close" class="lightbox-close-btn" aria-label="Close photo viewer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <button id="lightbox-prev" class="lightbox-nav-btn lightbox-prev-btn" aria-label="Previous photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="assets/placeholder.svg" alt="Full Resolution Photo">
+      </div>
+      <button id="lightbox-next" class="lightbox-nav-btn lightbox-next-btn" aria-label="Next photo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+      <div id="lightbox-counter" class="lightbox-counter">1 / 8</div>
+    </div>
+
+    <!-- CHAPTER 07: VENUE & MAP -->
+    <section id="scene-venue" class="cinematic-scene">
+      <div class="chapter-title-group reveal-init">
+        <p id="venue-eyebrow" class="chapter-eyebrow">موقع الحفل</p>
+        <h2 id="venue-heading" class="chapter-main-heading">مكان اللقاء</h2>
+      </div>
+
+      <div class="venue-card reveal-init">
+        <div class="venue-map-img">
+          <img src="assets/location.jpg" alt="Venue Location Map" loading="lazy">
+        </div>
+        <div class="story-content">
+          <h3 id="venue-title" class="story-title" style="font-size: 1.8rem;">قاعة أكاسيا</h3>
+          <p id="venue-desc" class="story-body">
+            يسعدنا حضوركم ومشاركتنا فرحتنا في هذا المكان المميز.
+          </p>
+          <a href="https://maps.app.goo.gl/8r9ivD9W3H5zatCs7" target="_blank" rel="noopener noreferrer"
+            class="btn-luxury" style="margin-top: 1rem; width: fit-content;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span id="btn-google-maps">فتح في خرائط Google</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 08: RSVP -->
+    <section id="scene-rsvp" class="cinematic-scene">
+      <div class="chapter-title-group reveal-init">
+        <p id="rsvp-eyebrow" class="chapter-eyebrow">تأكيد الحضور</p>
+        <h2 id="rsvp-heading" class="chapter-main-heading">يسعدنا حضورك</h2>
+      </div>
+
+      <div class="rsvp-card reveal-init">
+        <div id="rsvp-card-content">
+          <form id="rsvp-form">
+            <div class="form-group">
+              <label id="rsvp-name-label" for="rsvp-name">الاسم الكريم</label>
+              <input type="text" id="rsvp-name" class="form-control" required placeholder="أدخل اسمك الكريم">
+            </div>
+
+            <div class="form-group">
+              <label id="rsvp-attendance-label">تأكيد الحضور</label>
+              <div style="display: flex; gap: 1.5rem; margin-top: 0.4rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <input type="radio" name="attendance" value="attending" checked>
+                  <span id="rsvp-attending-text">يشرفني الحضور بكل حب</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <input type="radio" name="attendance" value="declining">
+                  <span id="rsvp-declining-text">أعتذر لعدم الإمكانية</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label id="rsvp-guests-label" for="rsvp-guests">عدد المرافقين</label>
+              <select id="rsvp-guests" class="form-control">
+                <option value="1">١ (شخص واحد)</option>
+                <option value="2">٢ (شخصان)</option>
+                <option value="3">٣ (ثلاثة أشخاص)</option>
+                <option value="4">٤ (أربعة أشخاص)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-luxury" style="width: 100%; justify-content: center; margin-top: 1.5rem;">
+              <span id="rsvp-submit-btn">إرسال التأكيد</span>
+            </button>
+          </form>
+        </div>
+
+        <div id="rsvp-success-state" style="display: none; text-align: center; padding: 2rem 1rem;">
+          <div style="font-size: 3rem; color: var(--color-gold-500); margin-bottom: 1rem;">✨</div>
+          <h3 id="rsvp-success-msg"
+            style="font-family: var(--font-display); font-size: 1.6rem; color: var(--color-text-primary);">
+            تم استلام تأكيدكم بنجاح! ننتظركم بشوق.
+          </h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 09: CLOSING -->
+    <section id="scene-closing" class="cinematic-scene">
+      <div class="reveal-init">
+        <div class="closing-monogram">م & ر</div>
+        <p id="closing-text" class="closing-text">نشكركم من أعماق القلوب على مشاركتنا فرحتنا</p>
+        <h2 id="closing-names" class="hero-names shimmer-text" style="font-size: 2.8rem;">محمد & رحمة</h2>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JavaScript Modules -->
+  <script src="js/language.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/envelope.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>

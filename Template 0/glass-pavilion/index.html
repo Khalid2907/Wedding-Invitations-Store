@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elena & Marcus — Glass Pavilion Wedding Invitation</title>
-  <meta name="description" content="Elena & Marcus invite you to celebrate their union at the Glass Pavilion. Step into a modern, ethereal digital invitation and RSVP online.">
+  <title>Elena & Marcus — Glass Pavilion Digital Wedding Invitation</title>
+  <meta name="description" content="Elena & Marcus invite you to celebrate their union at the Glass Pavilion. A modern, ethereal digital invitation experience with RSVP, music, and interactive memories.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Cormorant Garamond, Playfair Display, Outfit, Inter & Arabic Fonts (Cairo, Amiri, Aref Ruqaa) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
   
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Stardust Interactive Canvas -->
+  <canvas id="stardust-canvas"></canvas>
 
   <!-- Liquid Mesh Background -->
   <div class="mesh-container">
@@ -20,28 +31,126 @@
     <div class="mesh-orb orb2"></div>
     <div class="mesh-orb orb3"></div>
     <div class="mesh-orb orb4"></div>
+    <div class="aurora-beam"></div>
   </div>
 
   <!-- Frosting overlay for depth -->
   <div class="glass-overlay"></div>
 
-  <!-- Main Scrollable Content -->
+  <!-- FLOATING TOP CHARMS BAR -->
+  <div class="top-charms-bar">
+    <!-- Language Toggle Charm -->
+    <button class="charm-btn" id="lang-toggle-btn" aria-label="Toggle Language (English / العربية)" title="Language / اللغة">
+      <i class="fa-solid fa-globe"></i>
+      <span id="lang-label">العربية</span>
+    </button>
+
+    <!-- Music Toggle Charm -->
+    <button class="charm-btn" id="music-toggle-btn" aria-label="Toggle Background Music" title="Play Music / تشغيل الموسيقى">
+      <div class="vinyl-icon" id="vinyl-icon">
+        <i class="fa-solid fa-compact-disc"></i>
+      </div>
+      <span id="music-label" data-i18n="music_play">Music</span>
+    </button>
+
+    <!-- Re-open Envelope Charm -->
+    <button class="charm-btn" id="envelope-reopen-btn" aria-label="View Envelope" title="Envelope / الظرف">
+      <i class="fa-solid fa-envelope-open-text"></i>
+      <span data-i18n="nav_envelope">Envelope</span>
+    </button>
+  </div>
+
+  <!-- SIDE SECTION SCROLL INDICATOR LINE -->
+  <nav class="side-scroll-nav" id="side-scroll-nav" aria-label="Section Navigation">
+    <div class="side-nav-track">
+      <div class="side-nav-fill" id="side-nav-fill"></div>
+    </div>
+    <div class="side-nav-dots">
+      <a href="#hero-section" class="side-dot active" data-section="hero-section" aria-label="Save the Date">
+        <span class="side-dot-pip"></span>
+        <span class="side-dot-tooltip" data-i18n="badge_save_date">Save the Date</span>
+      </a>
+      <a href="#story-section" class="side-dot" data-section="story-section" aria-label="Our Story">
+        <span class="side-dot-pip"></span>
+        <span class="side-dot-tooltip" data-i18n="story_title">Our Story</span>
+      </a>
+      <a href="#details-section" class="side-dot" data-section="details-section" aria-label="The Celebration">
+        <span class="side-dot-pip"></span>
+        <span class="side-dot-tooltip" data-i18n="details_title">The Celebration</span>
+      </a>
+      <a href="#countdown-section" class="side-dot" data-section="countdown-section" aria-label="Countdown">
+        <span class="side-dot-pip"></span>
+        <span class="side-dot-tooltip" data-i18n="countdown_title">Countdown</span>
+      </a>
+      <a href="#gallery-section" class="side-dot" data-section="gallery-section" aria-label="Gallery">
+        <span class="side-dot-pip"></span>
+        <span class="side-dot-tooltip" data-i18n="gallery_title">Gallery</span>
+      </a>
+      <a href="#wishwall-section" class="side-dot" data-section="wishwall-section" aria-label="Messages of Love">
+        <span class="side-dot-pip"></span>
+        <span class="side-dot-tooltip" data-i18n="wishwall_title">Messages of Love</span>
+      </a>
+      <a href="#rsvp-section" class="side-dot" data-section="rsvp-section" aria-label="RSVP">
+        <span class="side-dot-pip"></span>
+        <span class="side-dot-tooltip" data-i18n="rsvp_title">RSVP</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- INTERACTIVE WAX SEAL ENVELOPE OVERLAY -->
+  <div class="envelope-overlay active" id="envelope-overlay">
+    <div class="envelope-container" id="envelope-container">
+      <div class="envelope-flap" id="envelope-flap"></div>
+      
+      <!-- Inner Invitation Card (revealed when unsealed) -->
+      <div class="envelope-inner-card" id="envelope-inner-card">
+        <span class="env-eyebrow" data-i18n="env_invitation">Save The Date</span>
+        <h2 class="env-couple-title" data-i18n="env_couple_names">Elena &amp; Marcus</h2>
+        <p class="env-date" data-i18n="env_date">10 . 10 . 2026</p>
+        <span class="env-venue" data-i18n="hero_venue">The Glass Pavilion</span>
+      </div>
+
+      <!-- Wax Seal & Hint Card Wrapper (Disappears after clicking) -->
+      <div class="envelope-seal-wrapper" id="envelope-seal-wrapper">
+        <button class="wax-seal-btn" id="wax-seal-btn" aria-label="Break Wax Seal to Open Invitation">
+          <div class="seal-glow"></div>
+          <div class="seal-content">
+            <span class="seal-monogram">E&amp;M</span>
+            <i class="fa-solid fa-crown seal-crown"></i>
+          </div>
+        </button>
+        
+        <div class="seal-hint-card" id="seal-hint-card">
+          <i class="fa-solid fa-hand-pointer seal-hint-icon"></i>
+          <span data-i18n="seal_hint">Click to Unseal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio Element for Romantic & Viby Wedding Background Music -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="https://upload.wikimedia.org/wikipedia/commons/3/30/Nocturne_in_E_flat_major%2C_Op._9_no._2.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=piano-moment-114408.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MAIN SCROLLABLE CONTENT -->
   <main>
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero-section">
-      <div class="badge-save-the-date">Save the Date</div>
+      <div class="badge-save-the-date" data-i18n="badge_save_date">Save the Date</div>
       
       <div class="hero-couple">
         <h1 class="couple-names">
-          Elena 
-          <div class="couple-ampersand">&</div> 
-          Marcus
+          <span data-i18n="bride_name">Elena</span>
+          <div class="couple-ampersand">&amp;</div> 
+          <span data-i18n="groom_name">Marcus</span>
         </h1>
       </div>
 
       <div class="hero-details">
-        10.10.2026 ✦ The Glass Pavilion
+        <span>10.10.2026</span> ✦ <span data-i18n="hero_venue">The Glass Pavilion</span>
       </div>
 
       <div class="star-divider">
@@ -49,24 +158,25 @@
       </div>
 
       <a href="#story-section" class="hero-scroll-indicator" id="scroll-link">
-        <span>Explore Our World</span>
+        <span data-i18n="hero_explore">Explore Our World</span>
         <i class="fa-solid fa-chevron-down"></i>
       </a>
     </section>
 
     <!-- OUR STORY SECTION -->
     <section class="story container" id="story-section">
-      <h2 class="section-title reveal">Our Story</h2>
+      <h2 class="section-title reveal" data-i18n="story_title">Our Story</h2>
       
       <div class="timeline">
-        <div class="timeline-progress" id="timeline-progress"></div>
+        <span class="timeline-progress" id="timeline-progress"></span>
+        
         <!-- Story item 1 -->
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content glass-panel">
-            <span class="timeline-date">May 14, 2021</span>
-            <h3 class="timeline-h">The First Encounter</h3>
-            <p>Our paths crossed on a rain-swept afternoon in the heart of London. Sheltering beneath the glass canopy of a botanical greenhouse, a shared cup of coffee blossomed into a conversation that lasted until twilight. We knew then that something rare had begun.</p>
+            <span class="timeline-date" data-i18n="story1_date">May 14, 2021</span>
+            <h3 class="timeline-h" data-i18n="story1_title">The First Encounter</h3>
+            <p data-i18n="story1_text">Our paths crossed on a rain-swept afternoon in the heart of London. Sheltering beneath the glass canopy of a botanical greenhouse, a shared cup of coffee blossomed into a conversation that lasted until twilight. We knew then that something rare had begun.</p>
           </div>
         </div>
 
@@ -74,9 +184,9 @@
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content glass-panel">
-            <span class="timeline-date">October 22, 2023</span>
-            <h3 class="timeline-h">The Shared Horizon</h3>
-            <p>From hiking alpine peaks to wandering quiet museum galleries, we built a shared life of curiosity and comfort. We learned that love is not just looking at each other, but looking outward in the same direction.</p>
+            <span class="timeline-date" data-i18n="story2_date">October 22, 2023</span>
+            <h3 class="timeline-h" data-i18n="story2_title">The Shared Horizon</h3>
+            <p data-i18n="story2_text">From hiking alpine peaks to wandering quiet museum galleries, we built a shared life of curiosity and comfort. We learned that love is not just looking at each other, but looking outward in the same direction.</p>
           </div>
         </div>
 
@@ -84,9 +194,9 @@
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
           <div class="timeline-content glass-panel">
-            <span class="timeline-date">December 25, 2025</span>
-            <h3 class="timeline-h">The Proposal</h3>
-            <p>Under a dome of starlight and surrounded by frosty geometric reflections in the Swiss Alps, Marcus asked Elena to share a lifetime of adventures. With tears of joy and the mountains as our silent witnesses, we promised our forevers.</p>
+            <span class="timeline-date" data-i18n="story3_date">December 25, 2025</span>
+            <h3 class="timeline-h" data-i18n="story3_title">The Proposal</h3>
+            <p data-i18n="story3_text">Under a dome of starlight and surrounded by frosty geometric reflections in the Swiss Alps, Marcus asked Elena to share a lifetime of adventures. With tears of joy and the mountains as our silent witnesses, we promised our forevers.</p>
           </div>
         </div>
       </div>
@@ -94,7 +204,8 @@
 
     <!-- EVENT DETAILS SECTION -->
     <section class="details container" id="details-section">
-      <h2 class="section-title reveal">The Celebration</h2>
+      <div class="section-bg-glow details-glow"></div>
+      <h2 class="section-title reveal" data-i18n="details_title">The Celebration</h2>
 
       <div class="details-grid">
         <!-- Ceremony -->
@@ -103,12 +214,12 @@
             <div class="details-icon">
               <i class="fa-solid fa-church"></i>
             </div>
-            <h3>The Ceremony</h3>
-            <p>Three o'clock in the afternoon</p>
-            <p>The Grand Sanctuary</p>
-            <p>Reflecting pool courtyard</p>
+            <h3 data-i18n="ceremony_title">The Ceremony</h3>
+            <p data-i18n="ceremony_time">Three o'clock in the afternoon</p>
+            <p data-i18n="ceremony_loc">The Grand Sanctuary</p>
+            <p data-i18n="ceremony_sub">Reflecting pool courtyard</p>
           </div>
-          <div class="details-meta">October 10, 2026</div>
+          <div class="details-meta" data-i18n="event_date">October 10, 2026</div>
         </div>
 
         <!-- Reception -->
@@ -117,12 +228,12 @@
             <div class="details-icon">
               <i class="fa-solid fa-champagne-glasses"></i>
             </div>
-            <h3>The Reception</h3>
-            <p>Five o'clock in the evening</p>
-            <p>The Glass Pavilion</p>
-            <p>Dining & Dancing under the stars</p>
+            <h3 data-i18n="reception_title">The Reception</h3>
+            <p data-i18n="reception_time">Five o'clock in the evening</p>
+            <p data-i18n="reception_loc">The Glass Pavilion</p>
+            <p data-i18n="reception_sub">Dining &amp; Dancing under the stars</p>
           </div>
-          <div class="details-meta">October 10, 2026</div>
+          <div class="details-meta" data-i18n="event_date">October 10, 2026</div>
         </div>
 
         <!-- Dress Code -->
@@ -131,12 +242,12 @@
             <div class="details-icon">
               <i class="fa-solid fa-user-tie"></i>
             </div>
-            <h3>Dress Code</h3>
-            <p>Ethereal Formal</p>
-            <p>Palettes of blush, soft sage, cream, lavender, and neutrals are welcomed.</p>
-            <p>Ensure comfort for an outdoor evening terrace.</p>
+            <h3 data-i18n="dresscode_title">Dress Code</h3>
+            <p data-i18n="dresscode_style">Ethereal Formal</p>
+            <p data-i18n="dresscode_colors">Palettes of blush, soft sage, cream, lavender, and gold neutrals are welcomed.</p>
+            <p data-i18n="dresscode_note">Ensure comfort for an outdoor evening terrace.</p>
           </div>
-          <div class="details-meta">Formal Attire</div>
+          <div class="details-meta" data-i18n="dresscode_meta">Formal Attire</div>
         </div>
       </div>
 
@@ -144,147 +255,192 @@
       <div class="widgets-container reveal">
         <button class="wallet-widget" id="btn-apple-wallet">
           <i class="fa-brands fa-apple"></i>
-          <span>Add to Apple Wallet</span>
+          <span data-i18n="widget_apple">Add to Apple / iCal Calendar</span>
         </button>
         <button class="wallet-widget" id="btn-google-calendar">
           <i class="fa-solid fa-calendar-plus"></i>
-          <span>Add to Google Calendar</span>
+          <span data-i18n="widget_google">Add to Google Calendar</span>
         </button>
       </div>
     </section>
 
     <!-- COUNTDOWN TIMER SECTION -->
     <section class="countdown-section container" id="countdown-section">
-      <h2 class="section-title reveal">Counting the Moments</h2>
+      <div class="section-bg-glow countdown-glow"></div>
+      <div class="star-divider reveal">
+        <span class="star-motif">✦</span>
+      </div>
+      <h2 class="section-title reveal" data-i18n="countdown_title">Counting the Moments</h2>
       
       <div class="countdown-grid reveal">
         <div class="countdown-item glass-panel">
           <div class="countdown-number" id="timer-days">00</div>
-          <div class="countdown-label">Days</div>
+          <div class="countdown-label" data-i18n="timer_days">Days</div>
         </div>
         <div class="countdown-item glass-panel">
           <div class="countdown-number" id="timer-hours">00</div>
-          <div class="countdown-label">Hours</div>
+          <div class="countdown-label" data-i18n="timer_hours">Hours</div>
         </div>
         <div class="countdown-item glass-panel">
           <div class="countdown-number" id="timer-minutes">00</div>
-          <div class="countdown-label">Minutes</div>
+          <div class="countdown-label" data-i18n="timer_minutes">Minutes</div>
         </div>
         <div class="countdown-item glass-panel">
           <div class="countdown-number" id="timer-seconds">00</div>
-          <div class="countdown-label">Seconds</div>
+          <div class="countdown-label" data-i18n="timer_seconds">Seconds</div>
         </div>
       </div>
     </section>
 
     <!-- MASONRY GALLERY SECTION -->
     <section class="gallery-section container" id="gallery-section">
-      <h2 class="section-title reveal">Gallery</h2>
+      <div class="section-bg-glow gallery-glow"></div>
+      <div class="star-divider reveal">
+        <span class="star-motif">✦</span>
+      </div>
+      <h2 class="section-title reveal" data-i18n="gallery_title">Gallery</h2>
       
       <div class="gallery-container reveal">
-        <!-- Item 1: Venue generated image -->
-        <div class="gallery-item">
+        <!-- Item 1: Venue -->
+        <div class="gallery-item" data-index="0" data-caption="The Glass Pavilion">
           <img src="assets/hero_venue.png" alt="Ethereal Glass Pavilion Wedding Venue">
           <div class="gallery-overlay">
-            <span class="gallery-caption">The Glass Pavilion</span>
+            <span class="gallery-caption" data-i18n="gal1_cap">The Glass Pavilion</span>
           </div>
         </div>
         
         <!-- Item 2: Sunset romance -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-index="1" data-caption="Golden Hour Joy">
           <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Couple Walking Down the Aisle">
           <div class="gallery-overlay">
-            <span class="gallery-caption">Golden Hour Joy</span>
+            <span class="gallery-caption" data-i18n="gal2_cap">Golden Hour Joy</span>
           </div>
         </div>
 
         <!-- Item 3: Portraits -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-index="2" data-caption="Our Shared Laughter">
           <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800" alt="Elena and Marcus Portrait">
           <div class="gallery-overlay">
-            <span class="gallery-caption">Our Shared Laughter</span>
+            <span class="gallery-caption" data-i18n="gal3_cap">Our Shared Laughter</span>
           </div>
         </div>
 
         <!-- Item 4: Hands / Detail -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-index="3" data-caption="The Promise">
           <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&q=80&w=800" alt="Close up of hands showing ring">
           <div class="gallery-overlay">
-            <span class="gallery-caption">The Promise</span>
+            <span class="gallery-caption" data-i18n="gal4_cap">The Promise</span>
           </div>
         </div>
 
         <!-- Item 5: Flowers / Dining Setup -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-index="4" data-caption="Ethereal Styling">
           <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=800" alt="Ethereal Floral Arrangements">
           <div class="gallery-overlay">
-            <span class="gallery-caption">Ethereal Styling</span>
+            <span class="gallery-caption" data-i18n="gal5_cap">Ethereal Styling</span>
           </div>
         </div>
 
         <!-- Item 6: Dining / Lantern Setup -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-index="5" data-caption="Midnight Glow">
           <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&q=80&w=800" alt="Outdoor Evening Wedding Reception Setup">
           <div class="gallery-overlay">
-            <span class="gallery-caption">Midnight Glow</span>
+            <span class="gallery-caption" data-i18n="gal6_cap">Midnight Glow</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- GUESTBOOK / WISH WALL SECTION -->
+    <section class="wishwall-section container" id="wishwall-section">
+      <div class="section-bg-glow wishwall-glow"></div>
+      <div class="star-divider reveal">
+        <span class="star-motif">✦</span>
+      </div>
+      <h2 class="section-title reveal" data-i18n="wishwall_title">Messages of Love</h2>
+      <p class="section-subtext reveal" data-i18n="wishwall_sub">Leave your heartfelt wishes for Elena &amp; Marcus</p>
+
+      <!-- Wish Form -->
+      <div class="wish-form-card glass-panel reveal">
+        <form id="wish-form">
+          <div class="form-row">
+            <input type="text" id="wish-name" class="rsvp-input" placeholder="Your Name" required data-i18n-ph="wish_ph_name">
+            <input type="text" id="wish-relation" class="rsvp-input" placeholder="Relation (e.g. Best Friend, Cousin)" data-i18n-ph="wish_ph_relation">
+          </div>
+          <div class="rsvp-form-group">
+            <textarea id="wish-message" class="rsvp-textarea" rows="3" placeholder="Write your warm wish here..." required data-i18n-ph="wish_ph_msg"></textarea>
+          </div>
+          <button type="submit" class="btn-glass wish-submit-btn">
+            <span data-i18n="wish_btn_send">Post Wish</span>
+            <i class="fa-solid fa-heart"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Wishes Grid -->
+      <div class="wishes-grid reveal" id="wishes-grid">
+        <!-- Dynamic wishes rendered here -->
+      </div>
+    </section>
+
     <!-- RSVP SECTION -->
     <section class="rsvp-section container" id="rsvp-section">
-      <h2 class="section-title reveal">RSVP</h2>
+      <div class="section-bg-glow rsvp-glow"></div>
+      <div class="star-divider reveal">
+        <span class="star-motif">✦</span>
+      </div>
+      <h2 class="section-title reveal" data-i18n="rsvp_title">RSVP</h2>
+      <p class="section-subtext reveal" data-i18n="rsvp_sub">Please confirm your presence to celebrate with us</p>
       
       <div class="rsvp-container glass-panel reveal">
         <form id="wedding-rsvp-form">
           
           <div class="rsvp-form-group">
-            <label class="rsvp-label" for="rsvp-name">Your Full Name</label>
-            <input type="text" id="rsvp-name" class="rsvp-input" placeholder="Elena Rostova" required>
+            <label class="rsvp-label" for="rsvp-name" data-i18n="rsvp_label_name">Your Full Name</label>
+            <input type="text" id="rsvp-name" class="rsvp-input" placeholder="Elena Rostova" required data-i18n-ph="rsvp_ph_name">
           </div>
 
           <div class="rsvp-form-group">
-            <label class="rsvp-label" for="rsvp-email">Email Address</label>
-            <input type="email" id="rsvp-email" class="rsvp-input" placeholder="elena@example.com" required>
+            <label class="rsvp-label" for="rsvp-email" data-i18n="rsvp_label_email">Email Address</label>
+            <input type="email" id="rsvp-email" class="rsvp-input" placeholder="elena@example.com" required data-i18n-ph="rsvp_ph_email">
           </div>
 
           <div class="rsvp-form-group">
-            <label class="rsvp-label">Will you join us?</label>
+            <label class="rsvp-label" data-i18n="rsvp_label_join">Will you join us?</label>
             <div class="rsvp-radio-group">
               <label class="rsvp-radio-label">
                 <input type="radio" name="attendance" value="attending" checked id="attendance-yes">
                 <span class="rsvp-radio-custom"></span>
-                <span>Attending with Joy</span>
+                <span data-i18n="rsvp_opt_yes">Attending with Joy</span>
               </label>
               <label class="rsvp-radio-label">
                 <input type="radio" name="attendance" value="declining" id="attendance-no">
                 <span class="rsvp-radio-custom"></span>
-                <span>Declined with Regret</span>
+                <span data-i18n="rsvp_opt_no">Declined with Regret</span>
               </label>
             </div>
           </div>
 
           <div class="rsvp-form-group" id="guests-group">
-            <label class="rsvp-label" for="rsvp-guests">Number of Guests</label>
+            <label class="rsvp-label" for="rsvp-guests" data-i18n="rsvp_label_guests">Number of Guests</label>
             <select id="rsvp-guests" class="rsvp-select">
-              <option value="1">1 (Just me)</option>
-              <option value="2">2 (Plus guest)</option>
+              <option value="1" data-i18n="rsvp_opt_g1">1 (Just me)</option>
+              <option value="2" data-i18n="rsvp_opt_g2">2 (Plus guest)</option>
             </select>
           </div>
 
           <div class="rsvp-form-group" id="dietary-group">
-            <label class="rsvp-label" for="rsvp-dietary">Dietary Preferences</label>
-            <input type="text" id="rsvp-dietary" class="rsvp-input" placeholder="None, Vegetarian, Gluten-Free, etc.">
+            <label class="rsvp-label" for="rsvp-dietary" data-i18n="rsvp_label_diet">Dietary Preferences</label>
+            <input type="text" id="rsvp-dietary" class="rsvp-input" placeholder="None, Vegetarian, Gluten-Free, etc." data-i18n-ph="rsvp_ph_diet">
           </div>
 
           <div class="rsvp-form-group">
-            <label class="rsvp-label" for="rsvp-notes">A Message for the Couple (Optional)</label>
-            <textarea id="rsvp-notes" class="rsvp-textarea" rows="4" placeholder="Share your warm wishes or notes here..."></textarea>
+            <label class="rsvp-label" for="rsvp-notes" data-i18n="rsvp_label_notes">A Message for the Couple (Optional)</label>
+            <textarea id="rsvp-notes" class="rsvp-textarea" rows="4" placeholder="Share your warm wishes or notes here..." data-i18n-ph="rsvp_ph_notes"></textarea>
           </div>
 
           <button type="submit" class="btn-glass rsvp-submit-btn" id="rsvp-submit-btn">
-            <span>Send RSVP</span>
+            <span data-i18n="rsvp_btn_send">Send RSVP</span>
             <i class="fa-solid fa-paper-plane"></i>
           </button>
 
@@ -297,11 +453,22 @@
       <div class="star-divider">
         <span class="star-motif">✦</span>
       </div>
-      <p>Elena & Marcus — October 10, 2026</p>
-      <p>Created with love, styled under glass.</p>
+      <p>Elena &amp; Marcus — October 10, 2026</p>
+      <p data-i18n="footer_sub">Created with love, styled under glass.</p>
     </footer>
 
   </main>
+
+  <!-- GALLERY LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="lightbox-nav next" id="lightbox-next" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+  </div>
 
   <!-- TOAST NOTIFICATION -->
   <div class="toast-msg glass-panel" id="toast-notification">

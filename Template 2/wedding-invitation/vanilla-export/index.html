@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-full antialiased scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layla & Omar — The Wedding Invitation</title>
+  <meta name="description" content="Join us in celebrating the love and marriage of Layla and Omar. December 20, 2026 | Al Bustan, Cairo. Please RSVP by November 20, 2026." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF7F2',
+            'cream-dark': '#F4EDE0',
+            charcoal: '#121A17',
+            'charcoal-light': '#22302A',
+            'romantic-red': '#8F253B',
+            'romantic-red-dark': '#6E1A2B',
+            gold: '#C5A059',
+            'gold-light': '#E4D8C1',
+            'gold-dark': '#9D7B3C',
+            emerald: '#0A2520',
+            'emerald-light': '#16463C',
+            'emerald-dark': '#051412',
+          },
+          fontFamily: {
+            sans: ['Outfit', 'Cairo', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'Amiri', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-full flex flex-col bg-cream text-charcoal selection:bg-romantic-red/10 selection:text-romantic-red relative select-none overflow-x-hidden">
+
+  <!-- Paper Texture Grain Overlay -->
+  <div class="bg-grain-overlay"></div>
+
+  <!-- Floating Language Toggle Button (Visible after invitation opened) -->
+  <button
+    id="lang-toggle-btn"
+    onclick="toggleLanguage()"
+    class="btn-hidden fixed top-6 start-6 z-50 flex h-10 px-5 items-center justify-center rounded-full bg-emerald text-cream hover:bg-gold hover:text-emerald border border-gold/30 shadow-[0_4px_15px_rgba(10,37,32,0.25)] hover:shadow-[0_8px_20px_rgba(197,160,89,0.3)] hover:-translate-y-0.5 transition-all duration-300 text-[10px] font-bold tracking-[0.2em] font-sans uppercase cursor-pointer"
+  >
+    <span id="lang-btn-text">العربية</span>
+  </button>
+
+  <!-- Envelope Preloader Screen Overlay -->
+  <div
+    id="preloader"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-cream p-4 md:p-8 overflow-hidden"
+  >
+    <!-- Background Dot Pattern -->
+    <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+    <!-- Envelope Card (Luxury Paper Envelope) -->
+    <div class="relative w-full max-w-xl aspect-[3/4] md:aspect-[4/3] flex flex-col items-center justify-center border border-gold/25 bg-cream-dark/20 backdrop-blur-md p-8 md:p-12 text-center shadow-[0_20px_50px_rgba(197,160,89,0.15)] rounded-lg">
+      
+      <!-- Double Gold Filigree Corner Borders -->
+      <div class="absolute top-3 left-3 w-10 h-10 border-t border-l border-gold/30 rounded-tl-sm pointer-events-none"></div>
+      <div class="absolute top-3 right-3 w-10 h-10 border-t border-r border-gold/30 rounded-tr-sm pointer-events-none"></div>
+      <div class="absolute bottom-3 left-3 w-10 h-10 border-b border-l border-gold/30 rounded-bl-sm pointer-events-none"></div>
+      <div class="absolute bottom-3 right-3 w-10 h-10 border-b border-r border-gold/30 rounded-br-sm pointer-events-none"></div>
+      
+      <div class="absolute top-4 left-4 w-8 h-8 border-t border-l border-gold/15 rounded-tl-sm pointer-events-none"></div>
+      <div class="absolute top-4 right-4 w-8 h-8 border-t border-r border-gold/15 rounded-tr-sm pointer-events-none"></div>
+      <div class="absolute bottom-4 left-4 w-8 h-8 border-b border-l border-gold/15 rounded-bl-sm pointer-events-none"></div>
+      <div class="absolute bottom-4 right-4 w-8 h-8 border-b border-r border-gold/15 rounded-br-sm pointer-events-none"></div>
+
+      <!-- Decorative Header -->
+      <div data-i18n="preloader.invitation" class="text-[10px] md:text-xs tracking-[0.3em] text-gold uppercase mb-6 font-semibold font-sans">
+        ✦ The Invitation ✦
+      </div>
+
+      <!-- Monogram Circle with Rotating Ring -->
+      <div class="relative w-24 h-24 rounded-full border border-gold/30 flex items-center justify-center mb-8 bg-cream bg-[radial-gradient(rgba(197,160,89,0.05)_1px,transparent_1px)] [background-size:8px_8px] shadow-[inset_0_4px_12px_rgba(197,160,89,0.05)]">
+        <div class="absolute inset-[-4px] rounded-full border border-dashed border-gold/20 animate-spin-slow"></div>
+        <span data-i18n="preloader.monogram" class="font-serif text-3xl italic font-light text-charcoal tracking-wide">L &amp; O</span>
+      </div>
+
+      <!-- Envelope Text -->
+      <h1 data-i18n="preloader.title" class="font-serif text-3xl md:text-5xl text-charcoal mb-4 leading-tight font-light tracking-wide">
+        The Union of Layla &amp; Omar
+      </h1>
+
+      <p data-i18n="preloader.desc" class="text-xs md:text-sm tracking-wide text-charcoal/60 max-w-md mx-auto mb-10 font-sans font-light leading-relaxed">
+        Within this digital envelope lies the story of our love and the celebration of our forever. We would be honored by your presence.
+      </p>
+
+      <!-- Luxury Wax Seal Open Button -->
+      <div class="relative flex flex-col items-center gap-3">
+        <button
+          onclick="openInvitation()"
+          class="w-20 h-20 rounded-full bg-romantic-red flex items-center justify-center shadow-[inset_0_4px_10px_rgba(255,255,255,0.2),_0_12px_30px_rgba(143,37,59,0.4)] relative cursor-pointer transition-all duration-500 border-4 border-romantic-red-dark/30 hover:scale-105 active:scale-95 group overflow-hidden"
+        >
+          <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></span>
+          
+          <div class="w-14 h-14 rounded-full border border-dashed border-gold/45 flex flex-col items-center justify-center text-gold-light select-none">
+            <!-- MailOpen SVG -->
+            <svg class="w-5 h-5 text-gold-light/95 mb-0.5 animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"/>
+              <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"/>
+            </svg>
+            <span data-i18n="preloader.openText" class="text-[7px] tracking-wider uppercase font-sans font-bold">OPEN</span>
+          </div>
+        </button>
+        <span data-i18n="preloader.openBtn" class="text-[9px] tracking-widest text-gold font-sans uppercase font-medium mt-1 animate-pulse">
+          Open Invitation
+        </span>
+      </div>
+
+      <span data-i18n="preloader.location" class="text-[9px] tracking-[0.2em] uppercase text-charcoal/50 mt-8 font-sans font-semibold opacity-40">
+        cairo, egypt
+      </span>
+    </div>
+  </div>
+
+  <!-- Main Single Page Web App -->
+  <main id="main-content" class="hidden-content transition-opacity duration-1000 ease-in-out">
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-emerald-dark">
+      <!-- Background Image -->
+      <div 
+        class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+        style="background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1920&q=80');"
+      ></div>
+      
+      <!-- Overlay Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-t from-emerald-dark via-emerald/75 to-emerald-dark/90 opacity-95"></div>
+      
+      <!-- Double Border Frame -->
+      <div class="absolute inset-4 md:inset-8 border border-gold/20 pointer-events-none z-20 rounded-sm">
+        <div class="absolute inset-1 border border-gold/10 pointer-events-none rounded-sm"></div>
+      </div>
+
+      <!-- Grain overlay -->
+      <div class="absolute inset-0 bg-grain-overlay opacity-[0.035] pointer-events-none"></div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center justify-center h-full text-cream">
+        <!-- Accent Header -->
+        <p class="text-[10px] md:text-xs tracking-[0.45em] text-gold uppercase font-semibold mb-6 flex items-center gap-2 font-sans">
+          <span class="text-[8px] animate-pulse">✦</span>
+          <span data-i18n="hero.saveDate">Save the date</span>
+          <span class="text-[8px] animate-pulse">✦</span>
+        </p>
+
+        <!-- Couple Names -->
+        <h1 data-i18n="hero.names" data-i18n-html="true" class="font-serif text-5xl sm:text-7xl md:text-8xl lg:text-9xl mb-8 tracking-wide font-light leading-none">
+          Layla <span class="font-serif italic font-light text-gold-light opacity-90">&amp;</span> Omar
+        </h1>
+
+        <div class="w-24 h-[1px] bg-gold/40 mb-8"></div>
+
+        <!-- Subtitle / Grid Details -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-2 w-full max-w-2xl text-center items-center text-xs md:text-sm tracking-[0.25em] font-sans font-light text-cream/90">
+          <div class="px-4 py-2 border-b md:border-b-0 md:border-e border-gold/20 flex flex-col gap-1">
+            <span data-i18n="hero.whenLabel" class="text-[9px] uppercase tracking-widest text-gold/60 font-semibold">WHEN</span>
+            <span data-i18n="hero.date" class="font-medium text-cream">DECEMBER 20, 2026</span>
+          </div>
+          <div class="px-4 py-2 border-b md:border-b-0 md:border-e border-gold/20 flex flex-col gap-1">
+            <span data-i18n="hero.timeLabel" class="text-[9px] uppercase tracking-widest text-gold/60 font-semibold">TIME</span>
+            <span data-i18n="hero.time" class="font-medium text-cream">8:00 PM</span>
+          </div>
+          <div class="px-4 py-2 flex flex-col gap-1">
+            <span data-i18n="hero.whereLabel" class="text-[9px] uppercase tracking-widest text-gold/60 font-semibold">WHERE</span>
+            <span data-i18n="hero.venue" class="font-medium text-cream">AL BUSTAN, CAIRO</span>
+          </div>
+        </div>
+
+        <div class="w-full max-w-lg h-[1px] bg-[radial-gradient(ellipse_at_center,_var(--color-gold-light)_0%,_transparent_70%)] opacity-30 mt-10 mb-14"></div>
+
+        <!-- Scroll Indicator -->
+        <div
+          class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-gold/70 cursor-pointer hover:text-gold transition-colors duration-300"
+          onclick="document.getElementById('our-story').scrollIntoView({ behavior: 'smooth' });"
+        >
+          <span data-i18n="hero.scrollDown" class="text-[9px] tracking-[0.25em] uppercase font-sans font-bold mb-1">
+            Scroll Down
+          </span>
+          <div class="relative w-[1px] h-10 bg-gold/20 overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent to-gold animate-line-scroll"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TIMELINE SECTION -->
+    <section id="our-story" class="py-28 md:py-40 bg-cream border-b border-gold/15 relative overflow-hidden">
+      <div class="absolute top-10 left-10 w-44 h-44 rounded-full border border-gold/5 pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-64 h-64 rounded-full border border-gold/5 pointer-events-none"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/[0.03] rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-6 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-24 md:mb-32 reveal">
+          <p data-i18n="timeline.tag" class="text-[10px] md:text-xs tracking-[0.3em] text-gold uppercase mb-3 font-semibold font-sans opacity-60">
+            Our Journey
+          </p>
+          <h2 data-i18n="timeline.title" class="font-serif text-4xl md:text-6xl text-charcoal font-light tracking-wide">
+            How it all began
+          </h2>
+          <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mt-6"></div>
+        </div>
+
+        <!-- Timeline Track -->
+        <div class="relative">
+          <!-- Central Line -->
+          <div class="absolute start-4 md:start-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-gold/10 via-gold/30 to-gold/10 -translate-x-1/2 rtl:translate-x-1/2"></div>
+
+          <!-- Nodes -->
+          <div class="space-y-16 md:space-y-28">
+            <!-- Milestone 1 -->
+            <div class="flex flex-col md:flex-row-reverse relative items-start reveal">
+              <div class="absolute start-4 md:start-1/2 top-2 -translate-x-1/2 rtl:translate-x-1/2 z-20">
+                <div class="w-8 h-8 rounded-full bg-cream border border-gold flex items-center justify-center shadow-[0_0_15px_rgba(197,160,89,0.2)] relative">
+                  <div class="absolute inset-0 rounded-full border border-gold/30 pointer-events-none animate-pulse-subtle"></div>
+                  <!-- Heart SVG -->
+                  <svg class="w-3.5 h-3.5 text-romantic-red fill-romantic-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 ps-12 md:ps-0 md:px-12">
+                <div class="deckled-card p-8 sm:p-10 rounded-lg hover:shadow-[0_15px_45px_-5px_rgba(197,160,89,0.18)] transition-all duration-500 group md:text-end relative">
+                  <div class="absolute top-3 left-3 w-4 h-4 border-t border-l border-gold/25 pointer-events-none"></div>
+                  <div class="absolute top-3 right-3 w-4 h-4 border-t border-r border-gold/25 pointer-events-none"></div>
+                  <div class="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-gold/25 pointer-events-none"></div>
+                  <div class="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-gold/25 pointer-events-none"></div>
+
+                  <span id="timeline-year-0" class="font-serif text-4xl md:text-5xl italic font-extralight tracking-widest text-gold group-hover:text-gold-dark transition-colors duration-300 mb-3 block">
+                    2021
+                  </span>
+                  <h3 id="timeline-title-0" class="font-serif text-xl md:text-2xl text-charcoal font-medium mb-3 tracking-wide">
+                    The First Chapter
+                  </h3>
+                  <div class="w-12 h-[1px] bg-gold/20 my-4 md:ms-auto"></div>
+                  <p id="timeline-desc-0" class="text-sm font-sans font-light text-charcoal/75 leading-relaxed italic">
+                    "Hands found each other before words did. A simple coffee shop afternoon that turned into hours of shared dreams and stories."
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:block w-1/2"></div>
+            </div>
+
+            <!-- Milestone 2 -->
+            <div class="flex flex-col md:flex-row relative items-start reveal">
+              <div class="absolute start-4 md:start-1/2 top-2 -translate-x-1/2 rtl:translate-x-1/2 z-20">
+                <div class="w-8 h-8 rounded-full bg-cream border border-gold flex items-center justify-center shadow-[0_0_15px_rgba(197,160,89,0.2)] relative">
+                  <div class="absolute inset-0 rounded-full border border-gold/30 pointer-events-none animate-pulse-subtle"></div>
+                  <svg class="w-3.5 h-3.5 text-romantic-red fill-romantic-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 ps-12 md:ps-0 md:px-12">
+                <div class="deckled-card p-8 sm:p-10 rounded-lg hover:shadow-[0_15px_45px_-5px_rgba(197,160,89,0.18)] transition-all duration-500 group md:text-start relative">
+                  <div class="absolute top-3 left-3 w-4 h-4 border-t border-l border-gold/25 pointer-events-none"></div>
+                  <div class="absolute top-3 right-3 w-4 h-4 border-t border-r border-gold/25 pointer-events-none"></div>
+                  <div class="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-gold/25 pointer-events-none"></div>
+                  <div class="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-gold/25 pointer-events-none"></div>
+
+                  <span id="timeline-year-1" class="font-serif text-4xl md:text-5xl italic font-extralight tracking-widest text-gold group-hover:text-gold-dark transition-colors duration-300 mb-3 block">
+                    2022
+                  </span>
+                  <h3 id="timeline-title-1" class="font-serif text-xl md:text-2xl text-charcoal font-medium mb-3 tracking-wide">
+                    The Promise
+                  </h3>
+                  <div class="w-12 h-[1px] bg-gold/20 my-4 md:me-auto"></div>
+                  <p id="timeline-desc-1" class="text-sm font-sans font-light text-charcoal/75 leading-relaxed italic">
+                    "A promise under the stars. Surrounded by quiet mountains, we promised to hold onto each other through every passing season."
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:block w-1/2"></div>
+            </div>
+
+            <!-- Milestone 3 -->
+            <div class="flex flex-col md:flex-row-reverse relative items-start reveal">
+              <div class="absolute start-4 md:start-1/2 top-2 -translate-x-1/2 rtl:translate-x-1/2 z-20">
+                <div class="w-8 h-8 rounded-full bg-cream border border-gold flex items-center justify-center shadow-[0_0_15px_rgba(197,160,89,0.2)] relative">
+                  <div class="absolute inset-0 rounded-full border border-gold/30 pointer-events-none animate-pulse-subtle"></div>
+                  <svg class="w-3.5 h-3.5 text-romantic-red fill-romantic-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="w-full md:w-1/2 ps-12 md:ps-0 md:px-12">
+                <div class="deckled-card p-8 sm:p-10 rounded-lg hover:shadow-[0_15px_45px_-5px_rgba(197,160,89,0.18)] transition-all duration-500 group md:text-end relative">
+                  <div class="absolute top-3 left-3 w-4 h-4 border-t border-l border-gold/25 pointer-events-none"></div>
+                  <div class="absolute top-3 right-3 w-4 h-4 border-t border-r border-gold/25 pointer-events-none"></div>
+                  <div class="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-gold/25 pointer-events-none"></div>
+                  <div class="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-gold/25 pointer-events-none"></div>
+
+                  <span id="timeline-year-2" class="font-serif text-4xl md:text-5xl italic font-extralight tracking-widest text-gold group-hover:text-gold-dark transition-colors duration-300 mb-3 block">
+                    2024
+                  </span>
+                  <h3 id="timeline-title-2" class="font-serif text-xl md:text-2xl text-charcoal font-medium mb-3 tracking-wide">
+                    The Decision
+                  </h3>
+                  <div class="w-12 h-[1px] bg-gold/20 my-4 md:ms-auto"></div>
+                  <p id="timeline-desc-2" class="text-sm font-sans font-light text-charcoal/75 leading-relaxed italic">
+                    "Forever decided. A quiet evening overlook in the heart of Cairo, where two paths formally joined to form a single destination."
+                  </p>
+                </div>
+              </div>
+              <div class="hidden md:block w-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. COUNTDOWN & VENUE SECTION -->
+    <section class="py-24 md:py-36 bg-cream-dark/50 relative overflow-hidden border-b border-gold/10">
+      <div class="absolute inset-0 bg-grain-overlay opacity-[0.02] pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-4 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+          <!-- Left Column: Countdown -->
+          <div class="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-start reveal">
+            <p data-i18n="countdown.tag" class="text-xs tracking-[0.25em] text-charcoal uppercase mb-3 font-semibold opacity-60">
+              The Countdown
+            </p>
+            <h2 data-i18n="countdown.title" class="font-serif text-4xl md:text-5xl text-charcoal mb-8">
+              Counting down to forever
+            </h2>
+
+            <div class="w-full max-w-lg">
+              <div class="grid grid-cols-4 gap-4 md:gap-6">
+                <!-- Days -->
+                <div class="flex flex-col items-center bg-cream border border-gold/20 p-4 md:p-6 rounded-lg shadow-sm">
+                  <span id="countdown-days" class="font-serif text-3xl md:text-5xl font-light text-romantic-red notranslate">00</span>
+                  <span data-i18n="countdown.days" class="text-[10px] md:text-xs tracking-widest uppercase text-charcoal/55 mt-2 font-medium">Days</span>
+                </div>
+                <!-- Hours -->
+                <div class="flex flex-col items-center bg-cream border border-gold/20 p-4 md:p-6 rounded-lg shadow-sm">
+                  <span id="countdown-hours" class="font-serif text-3xl md:text-5xl font-light text-romantic-red notranslate">00</span>
+                  <span data-i18n="countdown.hours" class="text-[10px] md:text-xs tracking-widest uppercase text-charcoal/55 mt-2 font-medium">Hours</span>
+                </div>
+                <!-- Minutes -->
+                <div class="flex flex-col items-center bg-cream border border-gold/20 p-4 md:p-6 rounded-lg shadow-sm">
+                  <span id="countdown-minutes" class="font-serif text-3xl md:text-5xl font-light text-romantic-red notranslate">00</span>
+                  <span data-i18n="countdown.minutes" class="text-[10px] md:text-xs tracking-widest uppercase text-charcoal/55 mt-2 font-medium">Minutes</span>
+                </div>
+                <!-- Seconds -->
+                <div class="flex flex-col items-center bg-cream border border-gold/20 p-4 md:p-6 rounded-lg shadow-sm">
+                  <span id="countdown-seconds" class="font-serif text-3xl md:text-5xl font-light text-romantic-red notranslate">00</span>
+                  <span data-i18n="countdown.secs" class="text-[10px] md:text-xs tracking-widest uppercase text-charcoal/55 mt-2 font-medium">Secs</span>
+                </div>
+              </div>
+            </div>
+
+            <p data-i18n="countdown.footnote" class="text-xs italic text-charcoal/60 mt-6 max-w-sm opacity-50">
+              * In the quiet elegance of Cairo, Egypt, under the warmth of winter skies.
+            </p>
+          </div>
+
+          <!-- Right Column: Venue Card -->
+          <div class="lg:col-span-6 reveal">
+            <div class="bg-cream border border-gold/25 rounded-lg overflow-hidden shadow-[0_15px_45px_rgba(26,26,26,0.04)]">
+              <!-- Venue Image -->
+              <div 
+                class="h-64 sm:h-80 w-full bg-cover bg-center rounded-sm border border-charcoal/5"
+                style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=80');"
+              ></div>
+
+              <!-- Venue Info Panel -->
+              <div class="p-8 sm:p-10">
+                <div class="flex items-center gap-2 mb-4">
+                  <span data-i18n="countdown.venueTag" class="px-3 py-1 bg-gold/10 text-gold text-[10px] tracking-widest uppercase font-semibold rounded-full">
+                    Ceremony &amp; Reception
+                  </span>
+                </div>
+
+                <h3 data-i18n="countdown.venueTitle" class="font-serif text-2xl md:text-3xl text-charcoal mb-6">
+                  Al Bustan Estate
+                </h3>
+
+                <!-- Details List -->
+                <div class="space-y-4 text-sm font-sans font-light text-charcoal/70 mb-8 border-b border-charcoal/5 pb-6">
+                  <div class="flex items-start gap-3">
+                    <!-- Calendar SVG -->
+                    <svg class="w-4 h-4 text-gold shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <span data-i18n="countdown.venueDate">Sunday, December 20, 2026</span>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <!-- Clock SVG -->
+                    <svg class="w-4 h-4 text-gold shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span data-i18n="countdown.venueTime">8:00 PM (Cairo Standard Time)</span>
+                  </div>
+
+                  <div class="flex items-start gap-3">
+                    <!-- MapPin SVG -->
+                    <svg class="w-4 h-4 text-gold shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span data-i18n="countdown.venueAddress" class="leading-relaxed">
+                      El-Giza Road, Al Bustan District, Cairo, Egypt
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Map Link -->
+                <div class="text-end">
+                  <a
+                    href="https://maps.google.com/?q=Al+Bustan+Cairo+Egypt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center gap-2 px-6 py-3 text-[10px] font-sans tracking-widest uppercase font-semibold text-cream bg-emerald hover:bg-gold hover:text-emerald border border-gold/30 rounded-full shadow-[0_10px_25px_rgba(10,37,32,0.15)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.25)] hover:-translate-y-0.5 transition-all duration-300"
+                  >
+                    <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                      <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span data-i18n="countdown.mapLink">open in maps →</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. GALLERY SECTION -->
+    <section class="py-28 md:py-40 bg-cream border-b border-gold/15 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 mb-20 text-center reveal">
+        <p data-i18n="gallery.tag" class="text-[10px] md:text-xs tracking-[0.3em] text-gold uppercase mb-3 font-semibold font-sans opacity-60">
+          Visual Memories
+        </p>
+        <h2 data-i18n="gallery.title" class="font-serif text-4xl md:text-5xl text-charcoal mb-4 font-light tracking-wide">
+          Frozen in time
+        </h2>
+        <p data-i18n="gallery.instruction" class="text-[10px] md:text-xs tracking-widest font-serif italic text-gold uppercase mt-2 font-medium opacity-50">
+          ← drag or swipe to explore →
+        </p>
+      </div>
+
+      <!-- Horizontal Carousel Container -->
+      <div class="w-full relative px-4 md:px-12">
+        <div 
+          id="gallery-carousel"
+          class="flex gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar py-6 scroll-smooth cursor-grab active:cursor-grabbing"
+        >
+          <!-- Item 1 -->
+          <div class="w-[280px] sm:w-[350px] md:w-[400px] shrink-0 snap-center">
+            <div class="deckled-card p-4 sm:p-5 rounded shadow-[0_12px_35px_rgba(26,38,32,0.04)] hover:shadow-[0_20px_45px_rgba(197,160,89,0.15)] hover:-translate-y-1 transition-all duration-500 relative">
+              <div class="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-gold/20 pointer-events-none"></div>
+
+              <div class="relative aspect-[3/4] w-full overflow-hidden bg-cream mb-4 border border-gold/15">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/25 to-transparent z-10 pointer-events-none"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80"
+                  alt="The details that bind us"
+                  class="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                  loading="lazy"
+                />
+                <span id="gallery-category-1" class="absolute top-3 start-3 z-20 px-2 py-0.5 bg-cream/90 backdrop-blur-xs border border-gold/25 text-[8px] tracking-widest uppercase font-bold text-charcoal rounded-sm shadow-xs">
+                  Details
+                </span>
+              </div>
+
+              <div class="pt-2 pb-1 text-center">
+                <p id="gallery-caption-1" class="font-serif italic text-base sm:text-lg text-charcoal/95 tracking-wide">
+                  "The details that bind us"
+                </p>
+                <span data-i18n="gallery.credits" class="block text-[9px] tracking-widest text-gold font-bold uppercase mt-3 font-sans">
+                  Layla &amp; Omar • 2026
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="w-[280px] sm:w-[350px] md:w-[400px] shrink-0 snap-center">
+            <div class="deckled-card p-4 sm:p-5 rounded shadow-[0_12px_35px_rgba(26,38,32,0.04)] hover:shadow-[0_20px_45px_rgba(197,160,89,0.15)] hover:-translate-y-1 transition-all duration-500 relative">
+              <div class="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-gold/20 pointer-events-none"></div>
+
+              <div class="relative aspect-[3/4] w-full overflow-hidden bg-cream mb-4 border border-gold/15">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/25 to-transparent z-10 pointer-events-none"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=800&q=80"
+                  alt="Walking into our future"
+                  class="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                  loading="lazy"
+                />
+                <span id="gallery-category-2" class="absolute top-3 start-3 z-20 px-2 py-0.5 bg-cream/90 backdrop-blur-xs border border-gold/25 text-[8px] tracking-widest uppercase font-bold text-charcoal rounded-sm shadow-xs">
+                  Moments
+                </span>
+              </div>
+
+              <div class="pt-2 pb-1 text-center">
+                <p id="gallery-caption-2" class="font-serif italic text-base sm:text-lg text-charcoal/95 tracking-wide">
+                  "Walking into our future"
+                </p>
+                <span data-i18n="gallery.credits" class="block text-[9px] tracking-widest text-gold font-bold uppercase mt-3 font-sans">
+                  Layla &amp; Omar • 2026
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="w-[280px] sm:w-[350px] md:w-[400px] shrink-0 snap-center">
+            <div class="deckled-card p-4 sm:p-5 rounded shadow-[0_12px_35px_rgba(26,38,32,0.04)] hover:shadow-[0_20px_45px_rgba(197,160,89,0.15)] hover:-translate-y-1 transition-all duration-500 relative">
+              <div class="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-gold/20 pointer-events-none"></div>
+
+              <div class="relative aspect-[3/4] w-full overflow-hidden bg-cream mb-4 border border-gold/15">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/25 to-transparent z-10 pointer-events-none"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80"
+                  alt="Holding onto forever"
+                  class="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                  loading="lazy"
+                />
+                <span id="gallery-category-3" class="absolute top-3 start-3 z-20 px-2 py-0.5 bg-cream/90 backdrop-blur-xs border border-gold/25 text-[8px] tracking-widest uppercase font-bold text-charcoal rounded-sm shadow-xs">
+                  Promises
+                </span>
+              </div>
+
+              <div class="pt-2 pb-1 text-center">
+                <p id="gallery-caption-3" class="font-serif italic text-base sm:text-lg text-charcoal/95 tracking-wide">
+                  "Holding onto forever"
+                </p>
+                <span data-i18n="gallery.credits" class="block text-[9px] tracking-widest text-gold font-bold uppercase mt-3 font-sans">
+                  Layla &amp; Omar • 2026
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="w-[280px] sm:w-[350px] md:w-[400px] shrink-0 snap-center">
+            <div class="deckled-card p-4 sm:p-5 rounded shadow-[0_12px_35px_rgba(26,38,32,0.04)] hover:shadow-[0_20px_45px_rgba(197,160,89,0.15)] hover:-translate-y-1 transition-all duration-500 relative">
+              <div class="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-gold/20 pointer-events-none"></div>
+
+              <div class="relative aspect-[3/4] w-full overflow-hidden bg-cream mb-4 border border-gold/15">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/25 to-transparent z-10 pointer-events-none"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=800&q=80"
+                  alt="A toast to our love"
+                  class="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                  loading="lazy"
+                />
+                <span id="gallery-category-4" class="absolute top-3 start-3 z-20 px-2 py-0.5 bg-cream/90 backdrop-blur-xs border border-gold/25 text-[8px] tracking-widest uppercase font-bold text-charcoal rounded-sm shadow-xs">
+                  Celebrations
+                </span>
+              </div>
+
+              <div class="pt-2 pb-1 text-center">
+                <p id="gallery-caption-4" class="font-serif italic text-base sm:text-lg text-charcoal/95 tracking-wide">
+                  "A toast to our love"
+                </p>
+                <span data-i18n="gallery.credits" class="block text-[9px] tracking-widest text-gold font-bold uppercase mt-3 font-sans">
+                  Layla &amp; Omar • 2026
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="w-[280px] sm:w-[350px] md:w-[400px] shrink-0 snap-center">
+            <div class="deckled-card p-4 sm:p-5 rounded shadow-[0_12px_35px_rgba(26,38,32,0.04)] hover:shadow-[0_20px_45px_rgba(197,160,89,0.15)] hover:-translate-y-1 transition-all duration-500 relative">
+              <div class="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-gold/20 pointer-events-none"></div>
+              <div class="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-gold/20 pointer-events-none"></div>
+
+              <div class="relative aspect-[3/4] w-full overflow-hidden bg-cream mb-4 border border-gold/15">
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal/25 to-transparent z-10 pointer-events-none"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=80"
+                  alt="Under the golden light"
+                  class="w-full h-full object-cover transition-transform duration-1000 ease-out hover:scale-105"
+                  loading="lazy"
+                />
+                <span id="gallery-category-5" class="absolute top-3 start-3 z-20 px-2 py-0.5 bg-cream/90 backdrop-blur-xs border border-gold/25 text-[8px] tracking-widest uppercase font-bold text-charcoal rounded-sm shadow-xs">
+                  Scenery
+                </span>
+              </div>
+
+              <div class="pt-2 pb-1 text-center">
+                <p id="gallery-caption-5" class="font-serif italic text-base sm:text-lg text-charcoal/95 tracking-wide">
+                  "Under the golden light"
+                </p>
+                <span data-i18n="gallery.credits" class="block text-[9px] tracking-widest text-gold font-bold uppercase mt-3 font-sans">
+                  Layla &amp; Omar • 2026
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div id="gallery-dots" class="flex justify-center items-center gap-3 mt-10">
+          <button onclick="scrollToSlide(0)" class="gallery-dot h-[3px] rounded-full transition-all duration-500 cursor-pointer w-10 bg-gold" aria-label="Go to slide 1"></button>
+          <button onclick="scrollToSlide(1)" class="gallery-dot h-[3px] rounded-full transition-all duration-500 cursor-pointer w-4 bg-gold/20 hover:bg-gold/40" aria-label="Go to slide 2"></button>
+          <button onclick="scrollToSlide(2)" class="gallery-dot h-[3px] rounded-full transition-all duration-500 cursor-pointer w-4 bg-gold/20 hover:bg-gold/40" aria-label="Go to slide 3"></button>
+          <button onclick="scrollToSlide(3)" class="gallery-dot h-[3px] rounded-full transition-all duration-500 cursor-pointer w-4 bg-gold/20 hover:bg-gold/40" aria-label="Go to slide 4"></button>
+          <button onclick="scrollToSlide(4)" class="gallery-dot h-[3px] rounded-full transition-all duration-500 cursor-pointer w-4 bg-gold/20 hover:bg-gold/40" aria-label="Go to slide 5"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. RSVP SECTION -->
+    <section id="rsvp" class="py-24 md:py-36 bg-cream-dark/30 relative overflow-hidden border-b border-gold/10">
+      <div class="absolute inset-0 bg-grain-overlay opacity-[0.025] pointer-events-none"></div>
+      
+      <div class="max-w-3xl mx-auto px-4 relative z-10">
+        
+        <!-- Header -->
+        <div class="text-center mb-16 reveal">
+          <p data-i18n="rsvp.tag" class="text-xs tracking-[0.25em] text-charcoal uppercase mb-3 font-semibold opacity-60">
+            R.S.V.P
+          </p>
+          <h2 data-i18n="rsvp.title" class="font-serif text-4xl md:text-5xl text-charcoal">
+            Be our guest
+          </h2>
+          <p data-i18n="rsvp.deadline" class="text-xs italic text-charcoal/60 mt-3 opacity-50">
+            Kindly reply by November 20, 2026
+          </p>
+          <div class="w-12 h-[1px] bg-gold mx-auto mt-6"></div>
+        </div>
+
+        <!-- RSVP Deckled Card Container -->
+        <div class="deckled-card p-8 md:p-14 rounded-lg shadow-[0_25px_60px_rgba(26,38,32,0.08)] relative reveal">
+          <div class="absolute inset-2 border border-gold/15 pointer-events-none rounded-sm"></div>
+          <div class="absolute inset-3 border border-gold/5 pointer-events-none rounded-sm"></div>
+
+          <!-- Double Gold Filigree Corner Borders -->
+          <div class="absolute top-4 left-4 w-6 h-6 border-t border-l border-gold/25 pointer-events-none"></div>
+          <div class="absolute top-4 right-4 w-6 h-6 border-t border-r border-gold/25 pointer-events-none"></div>
+          <div class="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-gold/25 pointer-events-none"></div>
+          <div class="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-gold/25 pointer-events-none"></div>
+
+          <!-- Form State -->
+          <div id="rsvp-form-wrapper">
+            <form id="rsvp-form" class="space-y-8 relative z-10">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Name Input -->
+                <div class="flex flex-col">
+                  <label htmlFor="rsvp-name" data-i18n="rsvp.nameLabel" class="text-[10px] tracking-[0.2em] uppercase text-gold font-semibold mb-2">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="rsvp-name"
+                    required
+                    data-i18n="rsvp.namePlaceholder"
+                    placeholder="e.g. Sofia Smith"
+                    class="bg-transparent border-b border-gold/25 py-2.5 text-sm text-charcoal focus:outline-none focus:border-gold transition-colors duration-300 placeholder:text-charcoal/30 font-sans font-light"
+                  />
+                </div>
+
+                <!-- Email Input -->
+                <div class="flex flex-col">
+                  <label htmlFor="rsvp-email" data-i18n="rsvp.emailLabel" class="text-[10px] tracking-[0.2em] uppercase text-gold font-semibold mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="rsvp-email"
+                    required
+                    data-i18n="rsvp.emailPlaceholder"
+                    placeholder="e.g. sofia@example.com"
+                    class="bg-transparent border-b border-gold/25 py-2.5 text-sm text-charcoal focus:outline-none focus:border-gold transition-colors duration-300 placeholder:text-charcoal/30 font-sans font-light"
+                  />
+                </div>
+              </div>
+
+              <!-- Attendance Selection -->
+              <div class="flex flex-col">
+                <span data-i18n="rsvp.attendLabel" class="text-[10px] tracking-[0.2em] uppercase text-gold font-semibold mb-3">
+                  Will you attend?
+                </span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Accepts -->
+                  <label class="flex items-center gap-3 p-4 rounded border transition-all duration-500 cursor-pointer border-gold bg-gold/5 shadow-[0_4px_20px_rgba(197,160,89,0.12)]">
+                    <input
+                      type="radio"
+                      name="attendance"
+                      id="attendance-yes"
+                      value="yes"
+                      checked
+                      class="accent-gold h-4 w-4"
+                    />
+                    <div class="flex flex-col">
+                      <span data-i18n="rsvp.acceptTitle" class="text-sm font-semibold text-charcoal tracking-wide">Accepts with Pleasure</span>
+                      <span data-i18n="rsvp.acceptSub" class="text-[9px] text-charcoal/55 font-light font-sans tracking-wide mt-0.5">I will be there to celebrate</span>
+                    </div>
+                  </label>
+
+                  <!-- Declines -->
+                  <label class="flex items-center gap-3 p-4 rounded border transition-all duration-500 cursor-pointer border-gold/15 bg-cream-dark/10 hover:bg-cream-dark/20">
+                    <input
+                      type="radio"
+                      name="attendance"
+                      id="attendance-no"
+                      value="no"
+                      class="accent-gold h-4 w-4"
+                    />
+                    <div class="flex flex-col">
+                      <span data-i18n="rsvp.declineTitle" class="text-sm font-semibold text-charcoal tracking-wide">Declines with Regret</span>
+                      <span data-i18n="rsvp.declineSub" class="text-[9px] text-charcoal/55 font-light font-sans tracking-wide mt-0.5">Celebrating from afar</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Guests Selection -->
+              <div id="guests-container" class="flex flex-col">
+                <label htmlFor="rsvp-guests" data-i18n="rsvp.guestsLabel" class="text-[10px] tracking-[0.2em] uppercase text-gold font-semibold mb-2">
+                  Number of Guests
+                </label>
+                <select
+                  id="rsvp-guests"
+                  class="bg-transparent border-b border-gold/25 py-2.5 text-sm text-charcoal focus:outline-none focus:border-gold transition-colors duration-300 font-sans cursor-pointer font-light"
+                >
+                  <option id="guest-opt-1" value="1" class="bg-cream">1 Guest (Just me)</option>
+                  <option id="guest-opt-2" value="2" class="bg-cream">2 Guests (Me &amp; Plus One)</option>
+                  <option id="guest-opt-3" value="3" class="bg-cream">3 Guests</option>
+                  <option id="guest-opt-4" value="4" class="bg-cream">4 Guests</option>
+                </select>
+              </div>
+
+              <!-- Message Input -->
+              <div class="flex flex-col">
+                <label htmlFor="rsvp-message" data-i18n="rsvp.wishesLabel" class="text-[10px] tracking-[0.2em] uppercase text-gold font-semibold mb-2">
+                  Wishes or dietary requirements
+                </label>
+                <textarea
+                  id="rsvp-message"
+                  rows="4"
+                  data-i18n="rsvp.wishesPlaceholder"
+                  placeholder="Send a warm note to the couple..."
+                  class="bg-cream-dark/10 border border-gold/20 p-4 text-sm text-charcoal rounded focus:outline-none focus:border-gold transition-colors duration-300 resize-none placeholder:text-charcoal/30 font-sans font-light"
+                ></textarea>
+              </div>
+
+              <!-- Submit button -->
+              <div class="text-center pt-4">
+                <button
+                  type="submit"
+                  id="rsvp-submit-btn"
+                  class="relative px-12 py-4 rounded-full bg-emerald hover:bg-gold text-cream hover:text-emerald font-sans font-bold text-xs tracking-[0.2em] uppercase transition-all duration-500 border border-gold/30 hover:border-gold flex items-center justify-center gap-3 w-full sm:w-auto mx-auto cursor-pointer disabled:opacity-50 shadow-[0_10px_25px_rgba(10,37,32,0.2)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.35)] hover:-translate-y-0.5 overflow-hidden group"
+                >
+                  <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out"></span>
+                  
+                  <!-- Loader Spinner SVG (hidden by default) -->
+                  <svg id="rsvp-submit-spinner" class="w-4 h-4 animate-spin text-cream hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+
+                  <!-- Send SVG -->
+                  <svg id="rsvp-submit-icon" class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                  </svg>
+
+                  <span id="rsvp-submit-text" data-i18n="rsvp.sendBtn">Send Response</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Success State Card (Hidden by default) -->
+          <div id="rsvp-success-card" class="hidden text-center py-12 flex flex-col items-center justify-center relative z-10">
+            <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/25 flex items-center justify-center mb-8 shadow-[0_8px_20px_rgba(197,160,89,0.1)]">
+              <svg class="w-9 h-9 text-romantic-red fill-romantic-red animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+            </div>
+            
+            <h3 data-i18n="rsvp.successTitle" class="font-serif text-3xl text-charcoal mb-4 italic font-light tracking-wide">
+              ♥ Thank you, beautifully received.
+            </h3>
+            
+            <p data-i18n="rsvp.successDesc" class="text-xs md:text-sm font-sans font-light text-charcoal/60 max-w-md leading-relaxed mb-10 tracking-wide">
+              Your response has been registered. We are incredibly excited to share our special day with you!
+            </p>
+
+            <button
+              onclick="resetRSVPForm()"
+              data-i18n="rsvp.editBtn"
+              class="text-[10px] font-sans font-bold tracking-[0.2em] text-gold hover:text-romantic-red transition-all duration-300 uppercase underline cursor-pointer"
+            >
+              Edit response
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. FOOTER SECTION -->
+    <footer class="py-24 bg-emerald-dark text-cream-dark relative overflow-hidden border-t border-gold/20">
+      <!-- Top Gold foil divider border -->
+      <div class="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
+      
+      <!-- Grain overlay -->
+      <div class="absolute inset-0 bg-grain-overlay opacity-[0.025] pointer-events-none"></div>
+      
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10 flex flex-col items-center reveal">
+        <!-- Monogram Badge -->
+        <div class="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-8 bg-emerald shadow-[inset_0_4px_12px_rgba(0,0,0,0.3),_0_0_20px_rgba(197,160,89,0.15)] relative group">
+          <div class="absolute inset-[-3px] rounded-full border border-dashed border-gold/15 pointer-events-none group-hover:rotate-45 transition-transform duration-1000"></div>
+          <span data-i18n="footer.monogram" class="font-serif text-base italic text-gold font-light tracking-wide">L &amp; O</span>
+        </div>
+
+        <!-- Closing Sentiment -->
+        <p data-i18n="footer.love" class="font-serif italic text-lg sm:text-xl text-cream-dark/95 mb-6 font-light tracking-wide">
+          with all our love
+        </p>
+
+        <!-- Date & Place details -->
+        <p class="text-xs sm:text-sm tracking-[0.25em] uppercase text-gold font-semibold max-w-md leading-relaxed border-t border-gold/20 pt-6 px-4">
+          <span data-i18n="footer.details">forever, beginning december twenty</span> <br />
+          <span data-i18n="footer.subDetails" class="text-[10px] sm:text-xs text-cream-dark/50 tracking-[0.2em] block mt-2 font-normal">
+            cairo · 2026
+          </span>
+        </p>
+
+        <!-- Small copyright/credits -->
+        <div data-i18n="footer.credits" class="mt-20 text-[8px] tracking-[0.18em] text-cream-dark/25 font-sans uppercase">
+          © 2026 Layla &amp; Omar • Made with love
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Script File -->
+  <script src="script.js"></script>
+</body>
+</html>

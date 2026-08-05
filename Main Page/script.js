@@ -35,7 +35,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
    Toggles [data-theme="light"] on <html>.
    ============================================================ */
 (function initThemeToggle() {
-  const btn  = $('#theme-toggle-btn');
+  const btn = $('#theme-toggle-btn');
   const root = document.documentElement;
   if (!btn) return;
 
@@ -64,7 +64,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
   // Toggle on click
   btn.addEventListener('click', () => {
     const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    const next    = current === 'light' ? 'dark' : 'light';
+    const next = current === 'light' ? 'dark' : 'light';
     localStorage.setItem('theme', next);
     apply(next);
   });
@@ -131,282 +131,276 @@ const lerp = (a, b, t) => a + (b - a) * t;
   const dictionary = {
     en: {
       /* ── Navigation ── */
-      nav_process:  'Process',
-      nav_designs:  'Designs',
-      nav_pricing:  'Pricing',
-      nav_why_us:   'Why Us',
-      nav_contact:  'Contact',
+      nav_process: 'Process',
+      nav_designs: 'Designs',
+      nav_pricing: 'Pricing',
+      nav_why_us: 'Why Us',
+      nav_contact: 'Contact',
 
       /* ── Hero ── */
-      hero_eyebrow:  'Luxury Digital Invitations',
-      hero_title_1:  'A Memory Worth',
-      hero_title_2:  'Keeping.',
-      hero_desc:     'Crafting your story with the finest details and the luxury of modern design.',
-      hero_btn_1:    'Begin Your Memory',
-      hero_btn_2:    'Explore Designs',
+      hero_eyebrow: 'Luxury Digital Invitations',
+      hero_title_1: 'A Memory Worth',
+      hero_title_2: 'Keeping.',
+      hero_desc: 'Crafting your story with the finest details and the luxury of modern design.',
+      hero_btn_1: 'Begin Your Memory',
+      hero_btn_2: 'Explore Designs',
 
       /* ── Collection ── */
-      collection_eyebrow:  'Our Portfolio',
-      collection_title:    'The Collection:',
+      collection_eyebrow: 'Our Portfolio',
+      collection_title: 'The Collection:',
       collection_title_em: 'Designs Worthy of Your Story.',
-      collection_desc:     'Each template is handcrafted with cinematic detail. Browse, fall in love, and make it yours.',
+      collection_desc: 'Each template is handcrafted with cinematic detail. Browse, fall in love, and make it yours.',
       collection_standard: 'Standard Collection',
-      collection_premium:  'Premium Collection',
+      collection_premium: 'Premium Collection',
 
       /* Cards */
-      card_try_demo:  'Try Demo',
-      card_01_name:   'Template Name 01',
-      card_01_meta:   'Wedding · Elegant',
-      card_01_desc:   'Fun, warm and full of personality. Perfect for couples who want their invitation to feel alive.',
-      card_02_name:   'Template Name 02',
-      card_02_meta:   'Wedding · Modern',
-      card_02_desc:   'A modern, funky vibe with individual portraits and a totally different layout.',
-      card_03_name:   'Template Name 03',
-      card_03_meta:   'Wedding · Minimal',
-      card_03_desc:   'Refined, calm, and beautifully simple. For couples who prefer elegance with no excess.',
-      card_04_name:   'Template Name 04',
-      card_04_meta:   'Engagement · Classic',
-      card_04_desc:   'Our best-selling template. Elegant, calm, and cinematic with an Eastern soul.',
-      card_05_name:   'Template Name 05',
-      card_05_meta:   'Wedding · Luxury',
-      card_05_desc:   'A stunning and deeply elegant template, tailored for those who appreciate fine details.',
-      card_06_name:   'Template Name 06',
-      card_06_meta:   'Anniversary · Romantic',
-      card_06_desc:   'One of our finest premium templates. Deeply crafted and loved by everyone who sees it.',
-      card_07_name:   'Template Name 07',
-      card_07_meta:   'Wedding · Coastal',
-      card_07_desc:   'Calm, beautiful, and perfect for beach or coastal celebrations. A peaceful elegance.',
-      card_08_name:   'Template Name 08',
-      card_08_meta:   'Wedding · Outdoor',
-      card_08_desc:   'Stunning, bold, and breathtaking — perfect for any couple celebrating in a beautiful outdoor venue.',
+      card_try_demo: 'Try Demo',
+      card_00_name: 'Glass Pavilion (T0)',
+      card_00_meta: 'Ethereal Glassmorphism · Stardust',
+      card_00_desc: 'Luminous glass tilt cards, ambient stardust, and delicate gold typography for dreamy celebrations.',
+      card_01_name: 'Velvet Arabic (T1)',
+      card_01_meta: 'Burgundy Velvet · Calligraphy',
+      card_01_desc: 'Deep burgundy tones, intricate gold foil arabesque borders, and authentic calligraphic monograms.',
+      card_02_name: 'Pure Minimalist (T2)',
+      card_02_meta: 'Refined Minimalism · Modern',
+      card_02_desc: 'Clean lines, high-contrast serif typography, and uncompromised focus on your love story.',
+      card_03_name: 'Digital Product (T3)',
+      card_03_meta: 'Interactive Components · RSVP',
+      card_03_desc: 'Interactive RSVP step flows, audio controller, and responsive gallery grid with light accents.',
+      card_04_name: 'Romantic Silk (T4)',
+      card_04_meta: '3D Interactive Envelope · Wax Seal',
+      card_04_desc: 'Flagship interactive 3D envelope with custom wax seal break, letter slide physics, and rose petal glow.',
+      card_05_name: 'Noir Soirée (T5)',
+      card_05_meta: 'Obsidian Night · Rose Gold',
+      card_05_desc: 'High-fashion black-tie aesthetics with deep obsidian gradients, dynamic lighting, and cinematic story cards.',
+      card_06_name: 'Elysium Flagship (T6)',
+      card_06_meta: 'Northern Lights · Crystal Shader',
+      card_06_desc: 'The pinnacle of digital luxury. Volumetric background shaders, audio spectrum, dynamic countdown & interactive venue.',
 
       /* ── Preview ── */
-      preview_eyebrow:       'Live Preview',
-      preview_title:         'Your Design,',
-      preview_title_em:      'In Every Hand.',
-      preview_desc:          'Switch between devices to see exactly how your invitation looks across every screen.',
+      preview_eyebrow: 'Live Preview',
+      preview_title: 'Your Design,',
+      preview_title_em: 'In Every Hand.',
+      preview_desc: 'Switch between devices to see exactly how your invitation looks across every screen.',
       preview_device_mobile: '📱 Mobile',
       preview_device_tablet: '⬜ Tablet',
-      preview_device_desktop:'🖥 Desktop',
+      preview_device_desktop: '🖥 Desktop',
 
       /* ── Process ── */
-      process_eyebrow:    'How It Works',
-      process_title:      'Your Journey',
-      process_title_em:   'with Us.',
+      process_eyebrow: 'How It Works',
+      process_title: 'Your Journey',
+      process_title_em: 'with Us.',
       process_1_label: 'Get in Touch',
-      process_1_sub:   'Reach out via WhatsApp to confirm your booking.',
+      process_1_sub: 'Reach out via WhatsApp to confirm your booking.',
       process_1_title: 'Contact Us',
-      process_1_desc:  'Send us a message and we\'ll help you choose the perfect starting point.',
+      process_1_desc: 'Send us a message and we\'ll help you choose the perfect starting point.',
       process_2_title: 'Choose Your Design',
-      process_2_desc:  'Browse our collection and fall in love with the template that speaks your story.',
+      process_2_desc: 'Browse our collection and fall in love with the template that speaks your story.',
       process_3_label: 'Fill in Your Details',
-      process_3_sub:   'We\'ll send you a form for your event info and photos.',
+      process_3_sub: 'We\'ll send you a form for your event info and photos.',
       process_3_title: 'Personalize It',
-      process_3_desc:  'Share your details and the personal touches that make the moment uniquely yours.',
+      process_3_desc: 'Share your details and the personal touches that make the moment uniquely yours.',
       process_4_title: 'Receive Your Link',
-      process_4_desc:  'Get your final invitation link — ready to share instantly with all your guests.',
+      process_4_desc: 'Get your final invitation link — ready to share instantly with all your guests.',
 
       /* ── Features ── */
-      features_eyebrow:  'The Difference',
-      features_title:    'Why Choose',
+      features_eyebrow: 'The Difference',
+      features_title: 'Why Choose',
       features_title_em: 'Us.',
-      feature_1_title:   'Bespoke Artistry',
-      feature_1_desc:    'Every template is crafted with a jeweller\'s precision — balancing beauty, hierarchy, and emotion in perfect proportion.',
-      feature_2_title:   'Perfect Harmony',
-      feature_2_desc:    'Typography, color, and spacing converge seamlessly across every device, creating an experience that feels truly native.',
-      feature_3_title:   'Instant Delivery',
-      feature_3_desc:    'From checkout to shareable link in moments. No waiting, no complexity — just effortless elegance, immediately.',
-      feature_4_title:   'Fully Responsive',
-      feature_4_desc:    'Each design is meticulously tested on mobile, tablet, and desktop to guarantee a flawless guest experience everywhere.',
-      feature_5_title:   'Effortless Sharing',
-      feature_5_desc:    'One elegant link. Share directly via WhatsApp, Instagram, or email — no app required for your guests.',
-      feature_6_title:   'Lasting Legacy',
-      feature_6_desc:    'Your invitation remains live and accessible long after the event — a digital keepsake as timeless as the memory itself.',
+      feature_1_title: 'Bespoke Artistry',
+      feature_1_desc: 'Every template is crafted with a jeweller\'s precision — balancing beauty, hierarchy, and emotion in perfect proportion.',
+      feature_2_title: 'Perfect Harmony',
+      feature_2_desc: 'Typography, color, and spacing converge seamlessly across every device, creating an experience that feels truly native.',
+      feature_3_title: 'Instant Delivery',
+      feature_3_desc: 'From checkout to shareable link in moments. No waiting, no complexity — just effortless elegance, immediately.',
+      feature_4_title: 'Fully Responsive',
+      feature_4_desc: 'Each design is meticulously tested on mobile, tablet, and desktop to guarantee a flawless guest experience everywhere.',
+      feature_5_title: 'Effortless Sharing',
+      feature_5_desc: 'One elegant link. Share directly via WhatsApp, Instagram, or email — no app required for your guests.',
+      feature_6_title: 'Lasting Legacy',
+      feature_6_desc: 'Your invitation remains live and accessible long after the event — a digital keepsake as timeless as the memory itself.',
 
       /* ── Pricing ── */
-      pricing_eyebrow:      'Pricing Packages',
-      pricing_title:        'Choose Your',
-      pricing_title_em:     'Experience.',
-      pricing_offer:        'Offer until 30 July',
-      pricing_cta_start:    'Get Started',
-      pricing_cta_contact:  'Contact Us',
-      pricing_std_name:     'Standard Plan',
-      pricing_std_savings:  'save 400 EGP',
-      pricing_std_f1:       'Pick a template from our collection',
-      pricing_std_f2:       'Your information and colors applied to the design',
-      pricing_std_f3:       'Personalized background music of your choice',
-      pricing_std_f4:       'Add or remove sections (Countdown, Location, Guidelines & Gallery)',
-      pricing_popular_badge:'✦ Most couples choose this',
-      pricing_prm_name:     'Premium Plan',
-      pricing_prm_savings:  'save 500 EGP',
-      pricing_prm_f1:       'Pick a template from our premium collection',
-      pricing_prm_f2:       'Animated Preloader & Cinematic Hero Section',
-      pricing_prm_f3:       'Your information and colors applied to the design',
-      pricing_prm_f4:       'Personalized background music of your choice',
-      pricing_prm_f5:       'Priority delivery within 12 hours',
-      pricing_cst_badge:    '◈ 100% Unique Design',
-      pricing_cst_name:     'Customized Plan',
-      pricing_cst_price:    'Tailored Cost',
-      pricing_cst_note:     'Depends on the details',
-      pricing_cst_f1:       '100% fully customized design built from scratch',
-      pricing_cst_f2:       'Add any custom sections tailored exactly to your needs',
-      pricing_cst_f3:       'We bring any theme, idea, or concept to life',
-      pricing_cst_f4:       'Highly personalized details matching your unique love story',
-      pricing_cst_f5:       'Unlimited revisions until it matches your exact vision',
+      pricing_eyebrow: 'Pricing Packages',
+      pricing_title: 'Choose Your',
+      pricing_title_em: 'Experience.',
+      pricing_offer: 'Offer until 30 July',
+      pricing_cta_start: 'Get Started',
+      pricing_cta_contact: 'Contact Us',
+      pricing_std_name: 'Standard Plan',
+      pricing_std_savings: 'save 400 EGP',
+      pricing_std_f1: 'Pick a template from our collection',
+      pricing_std_f2: 'Your information and colors applied to the design',
+      pricing_std_f3: 'Personalized background music of your choice',
+      pricing_std_f4: 'Add or remove sections (Countdown, Location, Guidelines & Gallery)',
+      pricing_popular_badge: '✦ Most couples choose this',
+      pricing_prm_name: 'Premium Plan',
+      pricing_prm_savings: 'save 500 EGP',
+      pricing_prm_f1: 'Pick a template from our premium collection',
+      pricing_prm_f2: 'Animated Preloader & Cinematic Hero Section',
+      pricing_prm_f3: 'Your information and colors applied to the design',
+      pricing_prm_f4: 'Personalized background music of your choice',
+      pricing_prm_f5: 'Priority delivery within 12 hours',
+      pricing_cst_badge: '◈ 100% Unique Design',
+      pricing_cst_name: 'Customized Plan',
+      pricing_cst_price: 'Tailored Cost',
+      pricing_cst_note: 'Depends on the details',
+      pricing_cst_f1: '100% fully customized design built from scratch',
+      pricing_cst_f2: 'Add any custom sections tailored exactly to your needs',
+      pricing_cst_f3: 'We bring any theme, idea, or concept to life',
+      pricing_cst_f4: 'Highly personalized details matching your unique love story',
+      pricing_cst_f5: 'Unlimited revisions until it matches your exact vision',
 
       /* ── Testimonials ── */
-      testimonials_eyebrow:  'Client Stories',
-      testimonials_title:    'Loved by Our',
+      testimonials_eyebrow: 'Client Stories',
+      testimonials_title: 'Loved by Our',
       testimonials_title_em: 'Clients.',
-      testimonials_desc:     'Real words from real couples who trusted us with their most special moments.',
+      testimonials_desc: 'Real words from real couples who trusted us with their most special moments.',
 
       /* ── Pre-footer CTA ── */
-      cta_eyebrow:       'Begin Today',
-      cta_title:         'Let Us Craft',
-      cta_title_em:      'Yours.',
-      cta_subtitle:      'Every great story deserves a cinematic beginning.',
-      cta_btn_whatsapp:  'Start on WhatsApp',
-      cta_btn_browse:    'Browse Designs',
+      cta_eyebrow: 'Begin Today',
+      cta_title: 'Let Us Craft',
+      cta_title_em: 'Yours.',
+      cta_subtitle: 'Every great story deserves a cinematic beginning.',
+      cta_btn_whatsapp: 'Start on WhatsApp',
+      cta_btn_browse: 'Browse Designs',
     },
 
     ar: {
       /* ── Navigation ── */
-      nav_process:  'كيف نعمل',
-      nav_designs:  'التصاميم',
-      nav_pricing:  'الأسعار',
-      nav_why_us:   'لماذا نحن',
-      nav_contact:  'تواصل معنا',
+      nav_process: 'كيف نعمل',
+      nav_designs: 'التصاميم',
+      nav_pricing: 'الأسعار',
+      nav_why_us: 'لماذا نحن',
+      nav_contact: 'تواصل معنا',
 
       /* ── Hero ── */
-      hero_eyebrow:  'دعوات رقمية فاخرة',
-      hero_title_1:  'ذكرى تستحق',
-      hero_title_2:  'الاحتفاظ بها.',
-      hero_desc:     'نصيغ قصتك بأدق التفاصيل وفخامة التصميم الحديث.',
-      hero_btn_1:    'ابدأ ذكراك',
-      hero_btn_2:    'استكشف التصاميم',
+      hero_eyebrow: 'دعوات رقمية فاخرة',
+      hero_title_1: 'ذكرى تستحق',
+      hero_title_2: 'الاحتفاظ بها.',
+      hero_desc: 'نصيغ قصتك بأدق التفاصيل وفخامة التصميم الحديث.',
+      hero_btn_1: 'ابدأ ذكراك',
+      hero_btn_2: 'استكشف التصاميم',
 
       /* ── Collection ── */
-      collection_eyebrow:  'معرض أعمالنا',
-      collection_title:    'المجموعة:',
+      collection_eyebrow: 'معرض أعمالنا',
+      collection_title: 'المجموعة:',
       collection_title_em: 'تصاميم تليق بقصتك.',
-      collection_desc:     'كل قالب مصنوع بعناية سينمائية. تصفّح، أحبّ، واجعله ملكك.',
+      collection_desc: 'كل قالب مصنوع بعناية سينمائية. تصفّح، أحبّ، واجعله ملكك.',
       collection_standard: 'المجموعة الأساسية',
-      collection_premium:  'المجموعة المميزة',
+      collection_premium: 'المجموعة المميزة',
 
       /* Cards */
-      card_try_demo:  'جرّب العرض',
-      card_01_name:   'اسم القالب 01',
-      card_01_meta:   'زفاف · أنيق',
-      card_01_desc:   'مرح، دافئ، وممتلئ بالشخصية. مثالي للأزواج الذين يريدون دعوة تشعر بالحياة.',
-      card_02_name:   'اسم القالب 02',
-      card_02_meta:   'زفاف · عصري',
-      card_02_desc:   'أجواء عصرية مميزة مع صور فردية وتصميم مختلف كليًا.',
-      card_03_name:   'اسم القالب 03',
-      card_03_meta:   'زفاف · بسيط',
-      card_03_desc:   'رقيق، هادئ، وبسيط بشكل جميل. للأزواج الذين يفضلون الأناقة بلا زيادة.',
-      card_04_name:   'اسم القالب 04',
-      card_04_meta:   'خطوبة · كلاسيكي',
-      card_04_desc:   'قالبنا الأكثر مبيعًا. أنيق، هادئ، وسينمائي بروح شرقية أصيلة.',
-      card_05_name:   'اسم القالب 05',
-      card_05_meta:   'زفاف · فاخر',
-      card_05_desc:   'قالب مذهل وبالغ الأناقة، مصمم لمن يقدّرون أجمل التفاصيل الدقيقة.',
-      card_06_name:   'اسم القالب 06',
-      card_06_meta:   'ذكرى سنوية · رومانسي',
-      card_06_desc:   'من أرقى قوالبنا المميزة. مصنوع بعمق ويُحبّه كل من يراه.',
-      card_07_name:   'اسم القالب 07',
-      card_07_meta:   'زفاف · ساحلي',
-      card_07_desc:   'هادئ وجميل ومثالي للاحتفالات الشاطئية والساحلية. أناقة مريحة.',
-      card_08_name:   'اسم القالب 08',
-      card_08_meta:   'زفاف · خارجي',
-      card_08_desc:   'مذهل وجريء ومبهر — مثالي لكل زوجين يحتفلان في مكان خارجي جميل.',
+      card_try_demo: 'جرّب العرض',
+      card_00_name: 'الجناح الزجاجي (T0)',
+      card_00_meta: 'زجاج مضيء · غبار النجوم',
+      card_00_desc: 'بطاقات زجاجية تفاعلية، غبار نجوم ساحر، وخطوط ذهبية راقية للمناسبات الحالمة.',
+      card_01_name: 'الخمل المخملي (T1)',
+      card_01_meta: 'مخمل عِنابي · خط عربي',
+      card_01_desc: 'ألوان عِنابية عميقة، إطارات رقش ذهبية، وشعارات خطية عربية أصيلة.',
+      card_02_name: 'البساطة الراقية (T2)',
+      card_02_meta: 'تصميم حديث · بساطة متبعة',
+      card_02_desc: 'خطوط ناعمة، تباين فاخر، وتركيز كامل على قصة حبكما الساحرة.',
+      card_03_name: 'التصميم التفاعلي (T3)',
+      card_03_meta: 'مكونات تفاعلية · تأكيد حضور',
+      card_03_desc: 'خطوات تأكيد حضور تفاعلية، مشغل صوتيات، ومعرض صور متجاوب.',
+      card_04_name: 'الحرير الرومانسي (T4)',
+      card_04_meta: 'ظرف ثلاثي الأبعاد · ختم شمعي',
+      card_04_desc: 'تجربة الظرف التفاعلي ثلاثي الأبعاد مع كسر الختم الشمعي وانزلاق الرسالة وتناثر البتلات.',
+      card_05_name: 'أمسية نوار (T5)',
+      card_05_meta: 'سواد العقيق · ذهب وردي',
+      card_05_desc: 'طابع راقٍ باللون الأسود العميق والذهب الوردي مع إضاءات سينمائية.',
+      card_06_name: 'إليزيوم الراية (T6)',
+      card_06_meta: 'الشفق قطبي · ظلال الكريستال',
+      card_06_desc: 'قمة الفخامة الرقمية. خلفية الشفق التفاعلية، طيف الصوت، العداد التنازلي والموقع الجغرافي.',
 
       /* ── Preview ── */
-      preview_eyebrow:       'معاينة مباشرة',
-      preview_title:         'تصميمك،',
-      preview_title_em:      'في كل يد.',
-      preview_desc:          'بدّل بين الأجهزة لترى كيف تبدو دعوتك على كل شاشة بالضبط.',
+      preview_eyebrow: 'معاينة مباشرة',
+      preview_title: 'تصميمك،',
+      preview_title_em: 'في كل يد.',
+      preview_desc: 'بدّل بين الأجهزة لترى كيف تبدو دعوتك على كل شاشة بالضبط.',
       preview_device_mobile: '📱 جوال',
       preview_device_tablet: '⬜ لوحي',
-      preview_device_desktop:'🖥 كمبيوتر',
+      preview_device_desktop: '🖥 كمبيوتر',
 
       /* ── Process ── */
-      process_eyebrow:    'كيف نعمل',
-      process_title:      'رحلتك',
-      process_title_em:   'معنا.',
+      process_eyebrow: 'كيف نعمل',
+      process_title: 'رحلتك',
+      process_title_em: 'معنا.',
       process_1_label: 'تواصل معنا',
-      process_1_sub:   'تواصل عبر واتساب لتأكيد حجزك.',
+      process_1_sub: 'تواصل عبر واتساب لتأكيد حجزك.',
       process_1_title: 'تواصل معنا',
-      process_1_desc:  'أرسل لنا رسالة وسنساعدك في اختيار نقطة البداية المثالية.',
+      process_1_desc: 'أرسل لنا رسالة وسنساعدك في اختيار نقطة البداية المثالية.',
       process_2_title: 'اختر تصميمك',
-      process_2_desc:  'تصفح مجموعتنا واعثر على القالب الذي يعبّر عن قصتك.',
+      process_2_desc: 'تصفح مجموعتنا واعثر على القالب الذي يعبّر عن قصتك.',
       process_3_label: 'أدخل بياناتك',
-      process_3_sub:   'سنرسل لك نموذجًا لبيانات مناسبتك وصورك.',
+      process_3_sub: 'سنرسل لك نموذجًا لبيانات مناسبتك وصورك.',
       process_3_title: 'أضف لمستك',
-      process_3_desc:  'شاركنا تفاصيلك واللمسات الشخصية التي تجعل اللحظة فريدة لك.',
+      process_3_desc: 'شاركنا تفاصيلك واللمسات الشخصية التي تجعل اللحظة فريدة لك.',
       process_4_title: 'استلم الرابط',
-      process_4_desc:  'احصل على رابط دعوتك النهائي — جاهز للمشاركة فورًا مع ضيوفك.',
+      process_4_desc: 'احصل على رابط دعوتك النهائي — جاهز للمشاركة فورًا مع ضيوفك.',
 
       /* ── Features ── */
-      features_eyebrow:  'ما يميّزنا',
-      features_title:    'لماذا تختارنا',
+      features_eyebrow: 'ما يميّزنا',
+      features_title: 'لماذا تختارنا',
       features_title_em: 'نحن.',
-      feature_1_title:   'فن حصري',
-      feature_1_desc:    'كل قالب مصنوع بدقة الصائغ — يجمع بين الجمال والتسلسل والعاطفة في توازن مثالي.',
-      feature_2_title:   'تناسق تام',
-      feature_2_desc:    'الخطوط والألوان والمسافات تتلاقى بسلاسة على كل جهاز، مما يخلق تجربة تبدو طبيعية تمامًا.',
-      feature_3_title:   'تسليم فوري',
-      feature_3_desc:    'من الطلب إلى الرابط القابل للمشاركة في لحظات. لا انتظار، لا تعقيد — فقط أناقة سهلة فورًا.',
-      feature_4_title:   'يعمل على كل جهاز',
-      feature_4_desc:    'كل تصميم مُختبر بعناية على الجوال والجهاز اللوحي والكمبيوتر لضمان تجربة ضيف مثالية في كل مكان.',
-      feature_5_title:   'مشاركة سهلة',
-      feature_5_desc:    'رابط أنيق واحد. شاركه مباشرةً عبر واتساب أو إنستغرام أو البريد — لا يحتاج ضيفك لأي تطبيق.',
-      feature_6_title:   'إرث دائم',
-      feature_6_desc:    'دعوتك تبقى حية ويمكن الوصول إليها طويلًا بعد الحفل — تذكار رقمي لا يفنى مثل الذكرى نفسها.',
+      feature_1_title: 'فن حصري',
+      feature_1_desc: 'كل قالب مصنوع بدقة الصائغ — يجمع بين الجمال والتسلسل والعاطفة في توازن مثالي.',
+      feature_2_title: 'تناسق تام',
+      feature_2_desc: 'الخطوط والألوان والمسافات تتلاقى بسلاسة على كل جهاز، مما يخلق تجربة تبدو طبيعية تمامًا.',
+      feature_3_title: 'تسليم فوري',
+      feature_3_desc: 'من الطلب إلى الرابط القابل للمشاركة في لحظات. لا انتظار، لا تعقيد — فقط أناقة سهلة فورًا.',
+      feature_4_title: 'يعمل على كل جهاز',
+      feature_4_desc: 'كل تصميم مُختبر بعناية على الجوال والجهاز اللوحي والكمبيوتر لضمان تجربة ضيف مثالية في كل مكان.',
+      feature_5_title: 'مشاركة سهلة',
+      feature_5_desc: 'رابط أنيق واحد. شاركه مباشرةً عبر واتساب أو إنستغرام أو البريد — لا يحتاج ضيفك لأي تطبيق.',
+      feature_6_title: 'إرث دائم',
+      feature_6_desc: 'دعوتك تبقى حية ويمكن الوصول إليها طويلًا بعد الحفل — تذكار رقمي لا يفنى مثل الذكرى نفسها.',
 
       /* ── Pricing ── */
-      pricing_eyebrow:      'باقات الأسعار',
-      pricing_title:        'اختر',
-      pricing_title_em:     'تجربتك.',
-      pricing_offer:        'عرض حتى 30 يوليو',
-      pricing_cta_start:    'ابدأ الآن',
-      pricing_cta_contact:  'تواصل معنا',
-      pricing_std_name:     'الباقة الأساسية',
-      pricing_std_savings:  'وفّر 400 جنيه',
-      pricing_std_f1:       'اختر قالبًا من مجموعتنا',
-      pricing_std_f2:       'بياناتك وألوانك مطبّقة على التصميم',
-      pricing_std_f3:       'موسيقى خلفية شخصية من اختيارك',
-      pricing_std_f4:       'إضافة أو إزالة أقسام (عداد، الموقع، التعليمات والمعرض)',
-      pricing_popular_badge:'✦ الخيار الأكثر شيوعًا',
-      pricing_prm_name:     'الباقة المميزة',
-      pricing_prm_savings:  'وفّر 500 جنيه',
-      pricing_prm_f1:       'اختر قالبًا من مجموعتنا المميزة',
-      pricing_prm_f2:       'شاشة تحميل متحركة وقسم بطولي سينمائي',
-      pricing_prm_f3:       'بياناتك وألوانك مطبّقة على التصميم',
-      pricing_prm_f4:       'موسيقى خلفية شخصية من اختيارك',
-      pricing_prm_f5:       'تسليم ذو أولوية خلال 12 ساعة',
-      pricing_cst_badge:    '◈ تصميم فريد 100%',
-      pricing_cst_name:     'الباقة المخصصة',
-      pricing_cst_price:    'سعر مخصص',
-      pricing_cst_note:     'يعتمد على التفاصيل',
-      pricing_cst_f1:       'تصميم فريد 100% مبني من الصفر',
-      pricing_cst_f2:       'إضافة أي أقسام مخصصة تناسب احتياجاتك تمامًا',
-      pricing_cst_f3:       'نُحيي أي فكرة أو مفهوم أو طابع تطلبه',
-      pricing_cst_f4:       'تفاصيل شخصية عالية الدقة تعكس قصة حبك الفريدة',
-      pricing_cst_f5:       'تعديلات غير محدودة حتى يطابق رؤيتك بالضبط',
+      pricing_eyebrow: 'باقات الأسعار',
+      pricing_title: 'اختر',
+      pricing_title_em: 'تجربتك.',
+      pricing_offer: 'عرض حتى 30 يوليو',
+      pricing_cta_start: 'ابدأ الآن',
+      pricing_cta_contact: 'تواصل معنا',
+      pricing_std_name: 'الباقة الأساسية',
+      pricing_std_savings: 'وفّر 400 جنيه',
+      pricing_std_f1: 'اختر قالبًا من مجموعتنا',
+      pricing_std_f2: 'بياناتك وألوانك مطبّقة على التصميم',
+      pricing_std_f3: 'موسيقى خلفية شخصية من اختيارك',
+      pricing_std_f4: 'إضافة أو إزالة أقسام (عداد، الموقع، التعليمات والمعرض)',
+      pricing_popular_badge: '✦ الخيار الأكثر شيوعًا',
+      pricing_prm_name: 'الباقة المميزة',
+      pricing_prm_savings: 'وفّر 500 جنيه',
+      pricing_prm_f1: 'اختر قالبًا من مجموعتنا المميزة',
+      pricing_prm_f2: 'شاشة تحميل متحركة وقسم بطولي سينمائي',
+      pricing_prm_f3: 'بياناتك وألوانك مطبّقة على التصميم',
+      pricing_prm_f4: 'موسيقى خلفية شخصية من اختيارك',
+      pricing_prm_f5: 'تسليم ذو أولوية خلال 12 ساعة',
+      pricing_cst_badge: '◈ تصميم فريد 100%',
+      pricing_cst_name: 'الباقة المخصصة',
+      pricing_cst_price: 'سعر مخصص',
+      pricing_cst_note: 'يعتمد على التفاصيل',
+      pricing_cst_f1: 'تصميم فريد 100% مبني من الصفر',
+      pricing_cst_f2: 'إضافة أي أقسام مخصصة تناسب احتياجاتك تمامًا',
+      pricing_cst_f3: 'نُحيي أي فكرة أو مفهوم أو طابع تطلبه',
+      pricing_cst_f4: 'تفاصيل شخصية عالية الدقة تعكس قصة حبك الفريدة',
+      pricing_cst_f5: 'تعديلات غير محدودة حتى يطابق رؤيتك بالضبط',
 
       /* ── Testimonials ── */
-      testimonials_eyebrow:  'قصص عملائنا',
-      testimonials_title:    'أحبّنا',
+      testimonials_eyebrow: 'قصص عملائنا',
+      testimonials_title: 'أحبّنا',
       testimonials_title_em: 'عملاؤنا.',
-      testimonials_desc:     'كلمات حقيقية من أزواج حقيقيين وثقوا بنا في أجمل لحظاتهم.',
+      testimonials_desc: 'كلمات حقيقية من أزواج حقيقيين وثقوا بنا في أجمل لحظاتهم.',
 
       /* ── Pre-footer CTA ── */
-      cta_eyebrow:       'ابدأ اليوم',
-      cta_title:         'دعنا نصنع',
-      cta_title_em:      'قصتك.',
-      cta_subtitle:      'كل قصة عظيمة تستحق بداية سينمائية.',
-      cta_btn_whatsapp:  'ابدأ عبر واتساب',
-      cta_btn_browse:    'تصفح التصاميم',
+      cta_eyebrow: 'ابدأ اليوم',
+      cta_title: 'دعنا نصنع',
+      cta_title_em: 'قصتك.',
+      cta_subtitle: 'كل قصة عظيمة تستحق بداية سينمائية.',
+      cta_btn_whatsapp: 'ابدأ عبر واتساب',
+      cta_btn_browse: 'تصفح التصاميم',
     }
   };
 
@@ -491,20 +485,20 @@ const lerp = (a, b, t) => a + (b - a) * t;
     el.setAttribute('aria-hidden', 'true');
 
     // Random position across full document width/height
-    el.style.left   = `${Math.random() * 100}vw`;
-    el.style.top    = `${Math.random() * 100}vh`;
+    el.style.left = `${Math.random() * 100}vw`;
+    el.style.top = `${Math.random() * 100}vh`;
 
     // Random animation
-    const duration  = 4 + Math.random() * 10;  // 4–14s
-    const delay     = -Math.random() * duration; // staggered start
-    const opacity   = 0.1 + Math.random() * 0.4;
-    const scale     = 0.5 + Math.random() * 1.5;
-    const fontSize  = 0.3 + Math.random() * 0.5;
+    const duration = 4 + Math.random() * 10;  // 4–14s
+    const delay = -Math.random() * duration; // staggered start
+    const opacity = 0.1 + Math.random() * 0.4;
+    const scale = 0.5 + Math.random() * 1.5;
+    const fontSize = 0.3 + Math.random() * 0.5;
 
-    el.style.fontSize        = `${fontSize}rem`;
-    el.style.opacity         = opacity;
-    el.style.animationDuration  = `${duration}s`;
-    el.style.animationDelay     = `${delay}s`;
+    el.style.fontSize = `${fontSize}rem`;
+    el.style.opacity = opacity;
+    el.style.animationDuration = `${duration}s`;
+    el.style.animationDelay = `${delay}s`;
     el.style.color = Math.random() > 0.7 ? 'var(--color-gold-light)' : 'var(--color-gold)';
 
     container.appendChild(el);
@@ -513,17 +507,19 @@ const lerp = (a, b, t) => a + (b - a) * t;
 
 
 /* ============================================================
-   8. DEVICE PREVIEW TOGGLE
+   8. DEVICE PREVIEW TOGGLE & TEMPLATE LOAD
    ============================================================ */
 (function initDevicePreview() {
   const toggleButtons = $$('.device-toggle');
-  const frame = $('.preview-frame');
-  if (!toggleButtons.length || !frame) return;
+  const frame = $('#preview-frame');
+  const iframe = $('#preview-iframe');
+  const frameTitle = $('#preview-frame-title');
+  if (!frame) return;
 
   const widthMap = {
-    mobile:  '375px',
-    tablet:  '768px',
-    desktop: '1100px',
+    mobile: '375px',
+    tablet: '768px',
+    desktop: '100%',
   };
 
   const setDevice = (device) => {
@@ -534,20 +530,33 @@ const lerp = (a, b, t) => a + (b - a) * t;
 
     frame.dataset.device = device;
     frame.style.maxWidth = widthMap[device] ?? '375px';
-
-    const label = $('.preview-frame__label p', frame);
-    if (label) {
-      const labels = {
-        mobile:  'Mobile View — 375px',
-        tablet:  'Tablet View — 768px',
-        desktop: 'Desktop View — 1100px'
-      };
-      label.textContent = labels[device] ?? '';
-    }
   };
 
   toggleButtons.forEach(btn => {
     btn.addEventListener('click', () => setDevice(btn.dataset.device));
+  });
+
+  // Handle template "Live Preview" buttons from template cards
+  const previewButtons = $$('.btn-preview-template');
+  previewButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const url = btn.dataset.templateUrl;
+      const name = btn.dataset.templateName;
+
+      if (iframe && url) {
+        iframe.src = url;
+      }
+      if (frameTitle && name) {
+        frameTitle.textContent = name;
+      }
+
+      // Smooth scroll to preview section
+      const previewSec = $('#preview');
+      if (previewSec) {
+        previewSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   });
 
   setDevice('mobile');
@@ -573,7 +582,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
   });
 
   track.addEventListener('mouseleave', () => { isDown = false; });
-  track.addEventListener('mouseup',    () => {
+  track.addEventListener('mouseup', () => {
     isDown = false;
     track.style.userSelect = '';
   });
@@ -604,13 +613,13 @@ const lerp = (a, b, t) => a + (b - a) * t;
    10. TESTIMONIAL DOT INDICATORS + AUTO-PLAY
    ============================================================ */
 (function initTestimonialDots() {
-  const track  = $('.testimonials__track');
-  const dots   = $$('.dot');
-  const cards  = $$('.quote-card', track);
+  const track = $('.testimonials__track');
+  const dots = $$('.dot');
+  const cards = $$('.quote-card', track);
   if (!track || !dots.length || !cards.length) return;
 
   let autoPlayTimer = null;
-  let currentIndex  = 0;
+  let currentIndex = 0;
 
   const scrollToCard = (index) => {
     if (index < 0) index = cards.length - 1;
@@ -623,7 +632,7 @@ const lerp = (a, b, t) => a + (b - a) * t;
   const updateDots = () => {
     const scrolled = track.scrollLeft;
     let closest = 0;
-    let minDist  = Infinity;
+    let minDist = Infinity;
 
     cards.forEach((card, i) => {
       const dist = Math.abs(card.offsetLeft - scrolled);
@@ -657,9 +666,9 @@ const lerp = (a, b, t) => a + (b - a) * t;
 
   // Pause auto-play on hover/touch
   track.addEventListener('mouseenter', stopAutoPlay);
-  track.addEventListener('touchstart',  stopAutoPlay, { passive: true });
+  track.addEventListener('touchstart', stopAutoPlay, { passive: true });
   track.addEventListener('mouseleave', startAutoPlay);
-  track.addEventListener('touchend',   startAutoPlay, { passive: true });
+  track.addEventListener('touchend', startAutoPlay, { passive: true });
 
   startAutoPlay();
   updateDots();
@@ -684,13 +693,13 @@ const lerp = (a, b, t) => a + (b - a) * t;
     card.style.transition = 'transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.3s, box-shadow 0.3s';
 
     card.addEventListener('mousemove', (e) => {
-      const rect   = card.getBoundingClientRect();
-      const cx     = rect.left + rect.width  / 2;
-      const cy     = rect.top  + rect.height / 2;
-      const dx     = (e.clientX - cx) / (rect.width  / 2);
-      const dy     = (e.clientY - cy) / (rect.height / 2);
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
       const rotateX = -dy * INTENSITY;
-      const rotateY =  dx * INTENSITY;
+      const rotateY = dx * INTENSITY;
 
       card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
     });

@@ -1,0 +1,127 @@
+/* ==========================================================================
+   ELYSIUM — Design System Tokens & Custom Properties
+   Rab6 Studio Flagship Collection | "Where time stands still."
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1. Color Palette & Material Tokens
+     ------------------------------------------------------------------------ */
+  /* Void & Architectural Base Layers */
+  --color-elysium-void: #070913;          /* Midnight Blue Void (Layer 0) */
+  --color-elysium-abyss: #0B0E1B;         /* Dark Sanctuary (Layer 1) */
+  --color-elysium-surface: #121626;       /* Card Surface (Layer 2) */
+  --color-elysium-surface-elevated: #1A1F33; /* Modal / Floating Surface */
+  
+  /* Primary Metallic & Light Palette */
+  --color-pearl-white: #F8F9FA;           /* Primary Display Headings */
+  --color-warm-ivory: #FAF6F0;            /* Body Text & Subtitles */
+  --color-champagne-gold: #E6C786;        /* Primary Gold Accent */
+  --color-champagne-glow: rgba(230, 199, 134, 0.25);
+  --color-brushed-brass: #D4AF37;         /* Metal Pins & Monograms */
+  --color-marble-gray: #E5E7EB;           /* Slab Edges & Dividers */
+  --color-concrete-gray: #2A2D34;         /* Monolithic Structure */
+  --color-soft-beige: #F2EBE4;            /* Soft Pill Badges */
+
+  /* Text & Content Tokens */
+  --color-text-primary: var(--color-pearl-white);
+  --color-text-secondary: var(--color-warm-ivory);
+  --color-text-muted: rgba(250, 246, 240, 0.60);
+  --color-text-accent: var(--color-champagne-gold);
+  --color-text-inverted: var(--color-elysium-void);
+
+  /* Glassmorphism & Translucency Tokens */
+  --color-glass-bg-subtle: rgba(255, 255, 255, 0.03);
+  --color-glass-bg-medium: rgba(255, 255, 255, 0.06);
+  --color-glass-bg-elevated: rgba(255, 255, 255, 0.12);
+  
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-border-gold: rgba(230, 199, 134, 0.30);
+  --glass-border-highlight: rgba(255, 255, 255, 0.20);
+  
+  --glass-blur-sm: 8px;
+  --glass-blur-md: 16px;
+  --glass-blur-lg: 28px;
+  --glass-backdrop-filter: blur(24px) saturate(180%);
+  --glass-shadow-ambient: 0 30px 60px -12px rgba(0, 0, 0, 0.56);
+  --glass-shadow-gold: 0 20px 40px -10px rgba(230, 199, 134, 0.20);
+
+  /* Gradients */
+  --gradient-gold-metallic: linear-gradient(135deg, #FAF5EB 0%, #E6C786 50%, #B89762 100%);
+  --gradient-sunbeam: radial-gradient(circle at 50% 0%, rgba(230, 199, 134, 0.22) 0%, rgba(248, 249, 250, 0.08) 45%, transparent 80%);
+  --gradient-marble-overlay: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.2) 100%);
+
+  /* ------------------------------------------------------------------------
+     2. Typography System & Fluid Scales
+     ------------------------------------------------------------------------ */
+  /* Font Families */
+  --font-en-display: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-en-body: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ar-display: 'Amiri', 'Aref Ruqaa', Georgia, serif;
+  --font-ar-body: 'Cairo', 'Tajawal', sans-serif;
+
+  /* Active Font Variables (Set dynamically by JS or dir="rtl") */
+  --font-display: var(--font-en-display);
+  --font-body: var(--font-en-body);
+
+  /* Fluid Typography Scale (clamp min 375px viewport to max 1440px viewport) */
+  --text-xs: clamp(0.70rem, 0.85vw, 0.80rem);
+  --text-sm: clamp(0.82rem, 1.05vw, 0.90rem);
+  --text-base: clamp(0.95rem, 1.25vw, 1.08rem);
+  --text-lg: clamp(1.10rem, 1.50vw, 1.30rem);
+  --text-xl: clamp(1.35rem, 2.10vw, 1.75rem);
+  --text-2xl: clamp(1.65rem, 2.90vw, 2.30rem);
+  --text-3xl: clamp(2.20rem, 4.20vw, 3.40rem);
+  --text-4xl: clamp(3.00rem, 6.20vw, 5.00rem);
+  --text-5xl: clamp(4.00rem, 8.80vw, 7.50rem);
+
+  /* Line Heights */
+  --leading-tight: 1.15;
+  --leading-normal: 1.60;
+  --leading-relaxed: 1.85; /* Required for Arabic Tashkeel */
+
+  /* ------------------------------------------------------------------------
+     3. Spatial Scale (4px Base Grid) & Radius
+     ------------------------------------------------------------------------ */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.50rem;   /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1.00rem;   /* 16px */
+  --space-6: 1.50rem;   /* 24px */
+  --space-8: 2.00rem;   /* 32px */
+  --space-12: 3.00rem;  /* 48px */
+  --space-16: 4.00rem;  /* 64px */
+  --space-24: 6.00rem;  /* 96px */
+  --space-32: 8.00rem;  /* 128px */
+
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.75rem;  /* 12px */
+  --radius-lg: 1.25rem;  /* 20px */
+  --radius-xl: 2.00rem;  /* 32px */
+  --radius-full: 9999px;
+
+  /* ------------------------------------------------------------------------
+     4. Physics Spring & Easing Constants
+     ------------------------------------------------------------------------ */
+  --ease-heavy-stone: cubic-bezier(0.16, 1, 0.3, 1);       /* Heavy architectural doors */
+  --ease-silk-flow: cubic-bezier(0.22, 1, 0.36, 1);         /* Smooth text reveals */
+  --ease-glass-float: cubic-bezier(0.075, 0.82, 0.165, 1);  /* Panel rising */
+  --ease-micro: cubic-bezier(0.2, 0.8, 0.2, 1);             /* Buttons & toggles */
+
+  /* ------------------------------------------------------------------------
+     5. Z-Index Layer Stack
+     ------------------------------------------------------------------------ */
+  --z-canvas: 0;
+  --z-background-walls: 10;
+  --z-content: 20;
+  --z-nav: 30;
+  --z-doors-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+}
+
+/* RTL Typography Overrides */
+[dir="rtl"] {
+  --font-display: var(--font-ar-display);
+  --font-body: var(--font-ar-body);
+}

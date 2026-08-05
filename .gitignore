@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Builds & Next.js
+.next/
+dist/
+out/
+build/
+
+# Temp & Archives
+.tmp.driveupload/
+*.zip
+*.log

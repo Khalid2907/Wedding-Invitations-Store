@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Ahmed & Menna — A Love Letter from the Nile</title>
+  <meta name="description" content="You are gently invited to celebrate the wedding of Ahmed and Menna — a romantic evening in a garden above the Nile in Aswan, Egypt." />
+  <meta property="og:title" content="Ahmed & Menna — A Love Letter from the Nile" />
+  <meta property="og:description" content="An intimate garden celebration at sunset on the banks of the Nile in Aswan." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Jost:wght@200;300;400;500&family=Pinyon+Script&family=Marhey:wght@400;500;700&display=swap"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Antigravity Particle Canvas ─────────────────────── -->
+  <canvas id="antigravity-canvas"></canvas>
+
+  <!-- ── Language Toggle (Glass Charm) ──────────────────── -->
+  <button id="lang-toggle" class="glass-charm floating-element" aria-label="Switch language">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>
+    </svg>
+    <span class="lang-label">العربية</span>
+  </button>
+
+  <!-- ── Preloader (3D Antigravity Floating Envelope) ────── -->
+  <div id="preloader" aria-label="Open invitation"></div>
+
+  <!-- ── Floating Petals & Debris ────────────────────────── -->
+  <div id="petals-container" aria-hidden="true"></div>
+
+  <!-- ── Main Invitation ────────────────────────────────── -->
+  <main>
+
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <section id="hero">
+      <div id="hero-bg">
+        <img src="assets/hero-flacon.jpg" alt="" fetchpriority="high" />
+        <div id="hero-overlay"></div>
+      </div>
+
+      <svg viewBox="0 0 60 100" class="hero-sprig-left sway-slow" aria-hidden="true">
+        <g style="fill:currentColor;stroke:currentColor;stroke-width:0.6;opacity:0.8">
+          <path d="M30 0 L30 100" fill="none"/>
+          <ellipse cx="20" cy="20" rx="8" ry="4" transform="rotate(-30 20 20)" fill-opacity="0.5"/>
+          <ellipse cx="40" cy="30" rx="8" ry="4" transform="rotate(30 40 30)"  fill-opacity="0.5"/>
+          <ellipse cx="18" cy="45" rx="8" ry="4" transform="rotate(-30 18 45)" fill-opacity="0.5"/>
+          <ellipse cx="42" cy="55" rx="8" ry="4" transform="rotate(30 42 55)"  fill-opacity="0.5"/>
+          <ellipse cx="22" cy="72" rx="7" ry="3.5" transform="rotate(-30 22 72)" fill-opacity="0.5"/>
+          <ellipse cx="38" cy="82" rx="7" ry="3.5" transform="rotate(30 38 82)"  fill-opacity="0.5"/>
+        </g>
+      </svg>
+      <svg viewBox="0 0 60 100" class="hero-sprig-right sway-slow" aria-hidden="true">
+        <g style="fill:currentColor;stroke:currentColor;stroke-width:0.6;opacity:0.8">
+          <path d="M30 0 L30 100" fill="none"/>
+          <ellipse cx="20" cy="20" rx="8" ry="4" transform="rotate(-30 20 20)" fill-opacity="0.5"/>
+          <ellipse cx="40" cy="30" rx="8" ry="4" transform="rotate(30 40 30)"  fill-opacity="0.5"/>
+          <ellipse cx="18" cy="45" rx="8" ry="4" transform="rotate(-30 18 45)" fill-opacity="0.5"/>
+          <ellipse cx="42" cy="55" rx="8" ry="4" transform="rotate(30 42 55)"  fill-opacity="0.5"/>
+          <ellipse cx="22" cy="72" rx="7" ry="3.5" transform="rotate(-30 22 72)" fill-opacity="0.5"/>
+          <ellipse cx="38" cy="82" rx="7" ry="3.5" transform="rotate(30 38 82)"  fill-opacity="0.5"/>
+        </g>
+      </svg>
+
+      <div id="hero-content" class="fade-up card-stock floating-element">
+        <p id="hero-eyebrow" class="eyebrow"></p>
+
+        <div class="hero-divider">
+          <span></span>
+          <!-- Velvet-textured floating black heart pearl -->
+          <div class="velvet-heart-pearl pulse-glow" aria-hidden="true">
+            <svg class="svg-heart" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/>
+            </svg>
+          </div>
+          <span></span>
+        </div>
+
+        <h1>
+          <span id="hero-title" class="hero-title shimmer-text"></span>
+          <span id="hero-sub" class="eyebrow hero-sub"></span>
+        </h1>
+
+        <p id="hero-poem">
+          <span id="hero-poem1"></span><br/>
+          <span id="hero-poem2"></span><br/>
+          <span id="hero-poem3"></span>
+          <span id="hero-poem-love" class="poem-love"></span>
+        </p>
+
+        <!-- Line-art Egyptian Lotus & Nile Sun Motif -->
+        <div class="ornament egyptian-motif" aria-hidden="true">
+          <span class="ornament-line-left"></span>
+          <svg width="54" height="44" viewBox="0 0 60 44" class="ornament-icon sway-slow">
+            <g fill="none" stroke="currentColor" stroke-width="1">
+              <!-- Egyptian Sun Disc & Rays -->
+              <circle cx="30" cy="16" r="6" fill="rgba(197,155,108,0.2)"/>
+              <path d="M30 4 V10 M20 10 L24 14 M40 10 L36 14"/>
+              <!-- Lotus Petals -->
+              <path d="M30 38 C 22 28, 14 30, 10 20 C 18 22, 26 28, 30 38 Z" fill="rgba(74,21,37,0.08)"/>
+              <path d="M30 38 C 38 28, 46 30, 50 20 C 42 22, 34 28, 30 38 Z" fill="rgba(74,21,37,0.08)"/>
+              <path d="M30 38 C 26 26, 26 18, 30 14 C 34 18, 34 26, 30 38 Z" fill="rgba(197,155,108,0.3)"/>
+            </g>
+          </svg>
+          <span class="ornament-line-right"></span>
+        </div>
+
+        <p id="hero-date" class="hero-date shimmer-text"></p>
+        <p id="hero-place" class="eyebrow" style="margin-top:0.75rem;"></p>
+
+        <div id="hero-scroll-hint">
+          <span id="scroll-hint-text"></span>
+          <span class="scroll-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── THEIR STORY ────────────────────────────────────── -->
+    <section id="story">
+      <div id="story-inner">
+        <div id="story-header" data-reveal="up">
+          <p id="story-eyebrow" class="eyebrow"></p>
+          <h2>
+            <span id="story-title-a" class="story-script shimmer-text"></span>
+            <span id="story-title-b"></span>
+          </h2>
+          <div class="ornament" aria-hidden="true">
+            <span class="ornament-line-left"></span>
+            <svg width="44" height="44" viewBox="0 0 44 44" class="ornament-icon sway-slow">
+              <g fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M22 8 C 16 14, 12 18, 12 24 C 12 30, 16 34, 22 34 C 28 34, 32 30, 32 24 C 32 18, 28 14, 22 8 Z"/>
+                <path d="M22 14 C 19 18, 17 21, 17 24 C 17 28, 19 30, 22 30 C 25 30, 27 28, 27 24 C 27 21, 25 18, 22 14 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="22" cy="24" r="2" fill="currentColor"/>
+              </g>
+            </svg>
+            <span class="ornament-line-right"></span>
+          </div>
+        </div>
+
+        <!-- Story chapters filled by JS -->
+        <div id="story-list"></div>
+      </div>
+    </section>
+
+    <!-- ── COUNTDOWN ─────────────────────────────────────── -->
+    <section id="countdown">
+      <div id="countdown-inner">
+        <div data-reveal="up">
+          <p id="cd-eyebrow" class="eyebrow"></p>
+          <h2>
+            <span id="cd-title"></span>
+            <span id="cd-script" class="countdown-script shimmer-text"></span>
+          </h2>
+          <div class="ornament" aria-hidden="true">
+            <span class="ornament-line-left"></span>
+            <svg width="44" height="44" viewBox="0 0 44 44" class="ornament-icon sway-slow">
+              <g fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M22 8 C 16 14, 12 18, 12 24 C 12 30, 16 34, 22 34 C 28 34, 32 30, 32 24 C 32 18, 28 14, 22 8 Z"/>
+                <path d="M22 14 C 19 18, 17 21, 17 24 C 17 28, 19 30, 22 30 C 25 30, 27 28, 27 24 C 27 21, 25 18, 22 14 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="22" cy="24" r="2" fill="currentColor"/>
+              </g>
+            </svg>
+            <span class="ornament-line-right"></span>
+          </div>
+        </div>
+
+        <div id="countdown-grid">
+          <div class="countdown-cell" data-reveal="up" data-delay="0">
+            <div class="countdown-card">
+              <div id="cd-d-num" class="countdown-number">00</div>
+              <div id="cd-d-lbl" class="countdown-label eyebrow"></div>
+            </div>
+            <span class="countdown-sep heartbeat">♡</span>
+          </div>
+          <div class="countdown-cell" data-reveal="up" data-delay="120">
+            <div class="countdown-card">
+              <div id="cd-h-num" class="countdown-number">00</div>
+              <div id="cd-h-lbl" class="countdown-label eyebrow"></div>
+            </div>
+            <span class="countdown-sep heartbeat">♡</span>
+          </div>
+          <div class="countdown-cell" data-reveal="up" data-delay="240">
+            <div class="countdown-card">
+              <div id="cd-m-num" class="countdown-number">00</div>
+              <div id="cd-m-lbl" class="countdown-label eyebrow"></div>
+            </div>
+            <span class="countdown-sep heartbeat">♡</span>
+          </div>
+          <div class="countdown-cell" data-reveal="up" data-delay="360">
+            <div class="countdown-card">
+              <div id="cd-s-num" class="countdown-number">00</div>
+              <div id="cd-s-lbl" class="countdown-label eyebrow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LETTER ─────────────────────────────────────────── -->
+    <section id="letter">
+      <div id="letter-inner">
+        <div data-reveal="up">
+          <p id="letter-eyebrow" class="eyebrow"></p>
+          <h2 id="letter-title"></h2>
+          <div class="ornament" aria-hidden="true">
+            <span class="ornament-line-left"></span>
+            <svg width="44" height="44" viewBox="0 0 44 44" class="ornament-icon sway-slow">
+              <g fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M22 8 C 16 14, 12 18, 12 24 C 12 30, 16 34, 22 34 C 28 34, 32 30, 32 24 C 32 18, 28 14, 22 8 Z"/>
+                <path d="M22 14 C 19 18, 17 21, 17 24 C 17 28, 19 30, 22 30 C 25 30, 27 28, 27 24 C 27 21, 25 18, 22 14 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="22" cy="24" r="2" fill="currentColor"/>
+              </g>
+            </svg>
+            <span class="ornament-line-right"></span>
+          </div>
+          <p id="letter-body">
+            <span id="letter-p1a"></span><em id="letter-p1b"></em><span id="letter-p1c"></span>
+            <br/><br/>
+            <span id="letter-p2a"></span><em id="letter-p2b"></em>
+          </p>
+          <div id="letter-sign" class="letter-sign"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── JOURNEY ────────────────────────────────────────── -->
+    <section id="journey">
+      <div id="journey-inner">
+        <div id="journey-header" data-reveal="up">
+          <p id="journey-eyebrow" class="eyebrow"></p>
+          <h2>
+            <span id="journey-title-a" class="journey-script shimmer-text"></span>
+            <span id="journey-title-b"></span>
+          </h2>
+          <div class="ornament" aria-hidden="true">
+            <span class="ornament-line-left"></span>
+            <svg width="44" height="44" viewBox="0 0 44 44" class="ornament-icon sway-slow">
+              <g fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M22 8 C 16 14, 12 18, 12 24 C 12 30, 16 34, 22 34 C 28 34, 32 30, 32 24 C 32 18, 28 14, 22 8 Z"/>
+                <path d="M22 14 C 19 18, 17 21, 17 24 C 17 28, 19 30, 22 30 C 25 30, 27 28, 27 24 C 27 21, 25 18, 22 14 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="22" cy="24" r="2" fill="currentColor"/>
+              </g>
+            </svg>
+            <span class="ornament-line-right"></span>
+          </div>
+        </div>
+        <div id="journey-list"></div>
+      </div>
+    </section>
+
+    <!-- ── VENUE ──────────────────────────────────────────── -->
+    <section id="venue">
+      <div id="venue-inner">
+        <div data-reveal="left">
+          <p id="venue-eyebrow" class="eyebrow"></p>
+          <h2>
+            <span id="venue-title-a"></span><br/>
+            <span id="venue-title-b" class="venue-script shimmer-text"></span>
+          </h2>
+          <div class="ornament" aria-hidden="true">
+            <span class="ornament-line-left"></span>
+            <svg width="44" height="44" viewBox="0 0 44 44" class="ornament-icon sway-slow">
+              <g fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M22 8 C 16 14, 12 18, 12 24 C 12 30, 16 34, 22 34 C 28 34, 32 30, 32 24 C 32 18, 28 14, 22 8 Z"/>
+                <path d="M22 14 C 19 18, 17 21, 17 24 C 17 28, 19 30, 22 30 C 25 30, 27 28, 27 24 C 27 21, 25 18, 22 14 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="22" cy="24" r="2" fill="currentColor"/>
+              </g>
+            </svg>
+            <span class="ornament-line-right"></span>
+          </div>
+          <p id="venue-body">
+            <span id="venue-p1a"></span><em id="venue-p1b"></em><span id="venue-p1c"></span>
+            <br/><br/>
+            <span id="venue-p2"></span>
+          </p>
+          <p id="venue-address"></p>
+          <a id="venue-map-link" href="https://maps.google.com/?q=Sofitel+Legend+Old+Cataract+Aswan" target="_blank" rel="noreferrer">
+            <svg class="svg-heart" style="width:0.75rem;height:0.75rem;flex-shrink:0" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/>
+            </svg>
+            <span id="venue-map"></span>
+          </a>
+        </div>
+
+        <div class="venue-img-wrap" data-reveal="right">
+          <div class="venue-corner-tl"></div>
+          <img src="assets/venue.jpg" alt="" loading="lazy" width="1600" height="1104" />
+          <div class="venue-corner-br"></div>
+          <svg viewBox="0 0 60 100" class="venue-sprig sway-slow" aria-hidden="true">
+            <g style="fill:currentColor;stroke:currentColor;stroke-width:0.6;opacity:0.8">
+              <path d="M30 0 L30 100" fill="none"/>
+              <ellipse cx="20" cy="20" rx="8" ry="4" transform="rotate(-30 20 20)" fill-opacity="0.5"/>
+              <ellipse cx="40" cy="30" rx="8" ry="4" transform="rotate(30 40 30)"  fill-opacity="0.5"/>
+              <ellipse cx="18" cy="45" rx="8" ry="4" transform="rotate(-30 18 45)" fill-opacity="0.5"/>
+              <ellipse cx="42" cy="55" rx="8" ry="4" transform="rotate(30 42 55)"  fill-opacity="0.5"/>
+              <ellipse cx="22" cy="72" rx="7" ry="3.5" transform="rotate(-30 22 72)" fill-opacity="0.5"/>
+              <ellipse cx="38" cy="82" rx="7" ry="3.5" transform="rotate(30 38 82)"  fill-opacity="0.5"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GUIDELINES ─────────────────────────────────────── -->
+    <section id="guidelines">
+      <div id="guidelines-inner">
+        <div data-reveal="up">
+          <p id="guidelines-eyebrow" class="eyebrow"></p>
+          <h2>
+            <span id="guidelines-title-a" class="guidelines-script shimmer-text"></span>
+            <span id="guidelines-title-b"></span>
+          </h2>
+          <div class="ornament" aria-hidden="true">
+            <span class="ornament-line-left"></span>
+            <svg width="44" height="44" viewBox="0 0 44 44" class="ornament-icon sway-slow">
+              <g fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M22 8 C 16 14, 12 18, 12 24 C 12 30, 16 34, 22 34 C 28 34, 32 30, 32 24 C 32 18, 28 14, 22 8 Z"/>
+                <path d="M22 14 C 19 18, 17 21, 17 24 C 17 28, 19 30, 22 30 C 25 30, 27 28, 27 24 C 27 21, 25 18, 22 14 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="22" cy="24" r="2" fill="currentColor"/>
+              </g>
+            </svg>
+            <span class="ornament-line-right"></span>
+          </div>
+        </div>
+        <div id="guidelines-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── RSVP ───────────────────────────────────────────── -->
+    <section id="rsvp">
+      <div id="rsvp-inner">
+        <div data-reveal="up">
+          <div class="rsvp-hearts">
+            <svg class="svg-heart float-slow" style="width:1.25rem;height:1.25rem;" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/>
+            </svg>
+            <svg class="svg-heart float-slow heartbeat" style="width:1.75rem;height:1.75rem;animation-delay:0.5s;" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/>
+            </svg>
+            <svg class="svg-heart float-slow" style="width:1.25rem;height:1.25rem;animation-delay:1s;" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/>
+            </svg>
+          </div>
+
+          <h2><span id="rsvp-title" class="rsvp-title shimmer-text"></span></h2>
+          <p id="rsvp-by"></p>
+
+          <div class="ornament" aria-hidden="true">
+            <span class="ornament-line-left"></span>
+            <svg width="44" height="44" viewBox="0 0 44 44" class="ornament-icon sway-slow">
+              <g fill="none" stroke="currentColor" stroke-width="0.8">
+                <path d="M22 8 C 16 14, 12 18, 12 24 C 12 30, 16 34, 22 34 C 28 34, 32 30, 32 24 C 32 18, 28 14, 22 8 Z"/>
+                <path d="M22 14 C 19 18, 17 21, 17 24 C 17 28, 19 30, 22 30 C 25 30, 27 28, 27 24 C 27 21, 25 18, 22 14 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="22" cy="24" r="2" fill="currentColor"/>
+              </g>
+            </svg>
+            <span class="ornament-line-right"></span>
+          </div>
+
+          <a id="rsvp-btn" href="mailto:ahmed.menna.wedding@example.com">
+            <svg class="svg-heart heartbeat" style="width:1rem;height:1rem;flex-shrink:0" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/>
+            </svg>
+            <span id="rsvp-btn-text"></span>
+          </a>
+
+          <p id="rsvp-foot" class="rsvp-foot"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────── -->
+    <footer id="footer">
+      <span id="footer-pre"></span>
+      <svg class="footer-heart svg-heart heartbeat" viewBox="0 0 24 24" aria-hidden="true" style="color:oklch(0.62 0.11 20 / 0.6)">
+        <path d="M12 21s-7-4.35-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23 8.5 21.5 12 19 16.65 12 21 12 21z"/>
+      </svg>
+      <span id="footer-tail"></span>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1192 @@
+/* ============================================================
+   RAB6 MASTER RESPONSIVE ARCHITECTURE — ELYSIUM MORNING EDITION
+   Complete multi-breakpoint layout system: 320px to 4K Displays
+   ============================================================ */
+
+/* ── 0. UNIVERSAL MOBILE & TABLET BASE RULES (< 1024px) ── */
+@media (max-width: 1024px) {
+  /* Prevent horizontal scroll leakage */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Universal Image Responsiveness Guarantee */
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Preloader Stage Viewport Fit */
+  #preloader.luxury-studio-stage {
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* 3D Envelope Responsive Container System */
+  .envelope-wrapper-3d {
+    position: relative;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    max-width: 90vw;
+  }
+
+  /* Prevent Letter Card Overflow & Enforce Strict Containment */
+  .envelope-letter-card {
+    position: absolute;
+    width: 84% !important;
+    left: 8% !important;
+    right: 8% !important;
+    max-width: 84% !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Wax Seal Centering Integrity */
+  .wax-seal-hero {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .wax-monogram {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Scene Safe Viewport Heights */
+  section.cinematic-scene {
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    box-sizing: border-box;
+  }
+
+  /* Closing Section Safe Area */
+  #scene-closing {
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* ── 1. ALL MOBILE PHONES (< 768px) ── */
+@media (max-width: 767px) {
+  /* Hero Vogue Container → Single Column */
+  .hero-vogue-container {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+    width: 100%;
+  }
+
+  #scene-hero {
+    padding-top: calc(5.5rem + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* HERO PORTRAITS OPTION B: DIAGONAL ELEGANT STACK (15-20% OVERLAP) */
+  .hero-portrait-stack {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portrait-card {
+    position: absolute;
+    width: 58%;
+    aspect-ratio: 0.78;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--color-glass-shadow);
+    border: 1px solid var(--color-glass-border-light);
+  }
+
+  .portrait-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* RTL Layout (Arabic default) */
+  html[dir="rtl"] .portrait-groom {
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: 2;
+  }
+
+  html[dir="rtl"] .portrait-bride {
+    bottom: 0;
+    left: 0;
+    right: auto;
+    z-index: 3;
+  }
+
+  /* LTR Layout (English) */
+  html[dir="ltr"] .portrait-groom {
+    top: 0;
+    left: 0;
+    right: auto;
+    z-index: 2;
+  }
+
+  html[dir="ltr"] .portrait-bride {
+    bottom: 0;
+    right: 0;
+    left: auto;
+    z-index: 3;
+  }
+
+  /* Story Timeline Mobile Positioning */
+  .story-timeline-container {
+    padding: 1.5rem 0;
+    overflow: visible;
+  }
+
+  .story-timeline-spine {
+    left: 24px;
+    right: auto;
+    transform: none;
+    z-index: 1;
+  }
+
+  html[dir="rtl"] .story-timeline-spine {
+    left: auto;
+    right: 24px;
+  }
+
+  .story-milestone-item {
+    display: block !important;
+    position: relative;
+    padding-left: 64px !important;
+    padding-right: 0 !important;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
+  html[dir="rtl"] .story-milestone-item {
+    padding-left: 0 !important;
+    padding-right: 64px !important;
+  }
+
+  .story-milestone-item .milestone-node-wrap {
+    position: absolute !important;
+    top: 2.2rem;
+    left: 3.5px !important;
+    right: auto !important;
+    width: 44px;
+    height: 44px;
+    z-index: 10;
+  }
+
+  html[dir="rtl"] .story-milestone-item .milestone-node-wrap {
+    left: auto !important;
+    right: 3.5px !important;
+  }
+
+  .story-milestone-item .story-card-wrapper {
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .story-img-wrap {
+    width: 100%;
+    aspect-ratio: 1.32;
+  }
+
+  .story-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .story-grid {
+    gap: 3rem;
+  }
+
+  /* Vogue Gallery Mobile Grid */
+  .gallery-editorial-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .gallery-editorial-grid .item-portrait,
+  .gallery-editorial-grid .item-landscape,
+  .gallery-editorial-grid .item-tall,
+  .gallery-editorial-grid .item-feature,
+  .gallery-editorial-grid .item-square {
+    grid-column: span 1 !important;
+    aspect-ratio: 0.85 !important;
+  }
+
+  .gallery-editorial-grid .item-feature {
+    grid-column: span 2 !important;
+    aspect-ratio: 1.35 !important;
+  }
+
+  /* Letter Card Compact Padding */
+  .letter-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .letter-quote {
+    font-size: var(--text-lg);
+    line-height: 1.95;
+  }
+
+  /* Chapter Headings */
+  .chapter-title-group {
+    margin-bottom: 2.2rem;
+  }
+
+  /* Calendar CTA Buttons Stack Vertically */
+  .calendar-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .calendar-cta-group .btn-luxury {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Mobile Architectural Side Scroll Progress Indicator (Merged with Screen Edge + Radiant Glow) */
+  .audio-volume-slider {
+    display: none !important;
+  }
+
+  .side-scroll-tracker {
+    display: flex !important;
+    position: fixed !important;
+    top: 8vh !important;
+    bottom: 8vh !important;
+    width: 14px !important;
+    right: 4px !important;
+    left: auto !important;
+    z-index: 95 !important;
+    pointer-events: auto !important;
+  }
+
+  html[dir="rtl"] .side-scroll-tracker {
+    right: auto !important;
+    left: 4px !important;
+  }
+
+  html[dir="ltr"] .side-scroll-tracker {
+    left: auto !important;
+    right: 4px !important;
+  }
+
+  .tracker-line-bg {
+    width: 2.5px !important;
+    background: rgba(197, 155, 108, 0.3) !important;
+    box-shadow: 0 0 10px rgba(197, 155, 108, 0.3) !important;
+  }
+
+  .tracker-fill-line {
+    width: 3px !important;
+    box-shadow: 0 0 18px 3px rgba(197, 155, 108, 1), 0 0 32px 8px rgba(212, 175, 55, 0.85) !important;
+  }
+
+  .tracker-runner-orb {
+    width: 10px !important;
+    height: 10px !important;
+    box-shadow: 0 0 20px 6px rgba(197, 155, 108, 1), 0 0 38px 10px rgba(212, 175, 55, 0.9) !important;
+  }
+
+  .tracker-dot {
+    width: 6px !important;
+    height: 6px !important;
+    background: rgba(197, 155, 108, 0.45) !important;
+    border: 1px solid rgba(212, 175, 55, 0.6) !important;
+  }
+
+  .tracker-dot.is-active {
+    transform: scale(1.6) !important;
+    box-shadow: 0 0 14px rgba(212, 175, 55, 1) !important;
+  }
+
+  .tracker-tooltip {
+    display: none !important;
+  }
+
+  /* Preloader Invitation Card Mobile Polish */
+  .envelope-letter-card {
+    top: 0.75rem;
+    bottom: 0.75rem;
+    padding: 1.1rem 0.8rem;
+  }
+
+  .calligraphy-reveal-text {
+    font-size: clamp(1.2rem, 4.2vw, 1.6rem);
+    margin-top: 0.1rem;
+  }
+
+  .ceremonial-prompt {
+    font-size: 0.78rem;
+    margin-top: 0.15rem;
+  }
+
+  .audio-prompt-toast {
+    margin-top: 0.4rem;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.72rem;
+  }
+
+  .card-content-wrap .hero-monogram-badge {
+    font-size: 1.4rem;
+    margin-bottom: 0.1rem;
+  }
+
+  /* Hero Eyebrow & Subheading */
+  .hero-eyebrow {
+    font-size: var(--text-xs);
+  }
+
+  .hero-subheading {
+    max-width: 100%;
+  }
+
+  .hero-date-badge {
+    padding: 0.6rem 1.4rem;
+    font-size: 0.92rem;
+  }
+
+  /* Timeline & Venue Cards */
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .venue-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.35rem;
+  }
+
+  .venue-map-img {
+    width: 100%;
+    aspect-ratio: 1.3;
+  }
+
+  /* Lightbox Modal Mobile Polish */
+  .lightbox-content {
+    max-width: 92vw;
+    max-height: 75vh;
+  }
+
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+  }
+
+  .lightbox-close {
+    top: -45px;
+    right: 5px;
+    font-size: 2.2rem;
+  }
+
+  #lightbox-prev {
+    left: 8px !important;
+    font-size: 2rem !important;
+  }
+
+  #lightbox-next {
+    right: 8px !important;
+    font-size: 2rem !important;
+  }
+}
+
+/* ── 2. BREAKPOINT: COMPACT PHONES & FOLDABLES (320px – 359px) ── */
+@media (max-width: 359px) {
+  html {
+    font-size: 13.5px;
+  }
+
+  section.cinematic-scene {
+    padding: calc(3rem + env(safe-area-inset-top, 0px)) calc(0.75rem + env(safe-area-inset-right, 0px)) calc(3rem + env(safe-area-inset-bottom, 0px)) calc(0.75rem + env(safe-area-inset-left, 0px));
+  }
+
+  .top-header-controls {
+    top: calc(0.6rem + env(safe-area-inset-top, 0px));
+    left: calc(0.6rem + env(safe-area-inset-left, 0px));
+    right: calc(0.6rem + env(safe-area-inset-right, 0px));
+  }
+
+  .glass-charm-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.75rem;
+    min-height: 40px;
+  }
+
+  .audio-controller-bar {
+    padding: 0.35rem 0.5rem;
+    gap: 0.35rem;
+    max-width: 195px;
+  }
+
+  .audio-track-title {
+    max-width: 62px;
+    font-size: 0.64rem;
+  }
+
+  /* 3D Envelope Scaled proportional to 320px viewport */
+  .envelope-wrapper-3d {
+    width: min(88vw, 285px);
+    aspect-ratio: 1.45;
+  }
+
+  .wax-seal-hero {
+    width: 58px;
+    height: 58px;
+  }
+
+  .wax-monogram {
+    font-size: 1.05rem;
+  }
+
+  .envelope-letter-card {
+    inset: 0.7rem;
+    padding: 1rem 0.75rem;
+  }
+
+  .calligraphy-reveal-text {
+    font-size: 1.25rem;
+  }
+
+  .ceremonial-prompt {
+    font-size: 0.78rem;
+  }
+
+  .envelope-shadow-floor {
+    width: 86vw;
+    height: 80px;
+    top: 55%;
+  }
+
+  /* Hero Section */
+  .hero-names {
+    font-size: clamp(1.85rem, 7.2vw, 2.3rem);
+  }
+
+  .hero-portrait-stack {
+    max-width: 275px;
+    aspect-ratio: 0.96;
+  }
+
+  .portrait-card {
+    width: 58%;
+    aspect-ratio: 0.78;
+  }
+
+  /* Countdown 2x2 Grid */
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .countdown-card {
+    padding: 0.85rem 0.5rem;
+  }
+
+  .countdown-val {
+    font-size: 1.7rem;
+  }
+
+  /* Gallery Single Column */
+  .gallery-masonry {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.9;
+  }
+
+  .rsvp-card {
+    padding: 1.25rem 0.9rem;
+  }
+}
+
+/* ── 3. BREAKPOINT: SMALL PHONES (360px – 374px) ── */
+@media (min-width: 360px) and (max-width: 374px) {
+  section.cinematic-scene {
+    padding: calc(3.25rem + env(safe-area-inset-top, 0px)) calc(0.9rem + env(safe-area-inset-right, 0px)) calc(3.25rem + env(safe-area-inset-bottom, 0px)) calc(0.9rem + env(safe-area-inset-left, 0px));
+  }
+
+  .top-header-controls {
+    top: calc(0.7rem + env(safe-area-inset-top, 0px));
+    left: calc(0.75rem + env(safe-area-inset-left, 0px));
+    right: calc(0.75rem + env(safe-area-inset-right, 0px));
+  }
+
+  .glass-charm-btn {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+    min-height: 42px;
+  }
+
+  .audio-controller-bar {
+    padding: 0.38rem 0.6rem;
+    gap: 0.4rem;
+    max-width: 220px;
+  }
+
+  .audio-track-title {
+    max-width: 78px;
+    font-size: 0.68rem;
+  }
+
+  /* 3D Envelope */
+  .envelope-wrapper-3d {
+    width: min(88vw, 315px);
+    aspect-ratio: 1.45;
+  }
+
+  .wax-seal-hero {
+    width: 62px;
+    height: 62px;
+  }
+
+  .wax-monogram {
+    font-size: 1.15rem;
+  }
+
+  .envelope-letter-card {
+    inset: 0.75rem;
+    padding: 1.2rem 0.85rem;
+  }
+
+  .calligraphy-reveal-text {
+    font-size: 1.35rem;
+  }
+
+  .envelope-shadow-floor {
+    width: 88vw;
+    height: 90px;
+    top: 56%;
+  }
+
+  /* Hero Section */
+  .hero-names {
+    font-size: clamp(2.05rem, 7.6vw, 2.55rem);
+  }
+
+  .hero-portrait-stack {
+    max-width: 305px;
+    aspect-ratio: 0.96;
+  }
+
+  .portrait-card {
+    width: 58%;
+    aspect-ratio: 0.78;
+  }
+
+  /* Countdown Grid */
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .countdown-card {
+    padding: 1rem 0.6rem;
+  }
+
+  .countdown-val {
+    font-size: 1.85rem;
+  }
+
+  .gallery-masonry {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.9;
+  }
+
+  .rsvp-card {
+    padding: 1.4rem 1rem;
+  }
+}
+
+/* ── 4. BREAKPOINT: STANDARD PHONES / iPhone SE (375px – 389px) ── */
+@media (min-width: 375px) and (max-width: 389px) {
+  section.cinematic-scene {
+    padding: calc(3.5rem + env(safe-area-inset-top, 0px)) calc(1rem + env(safe-area-inset-right, 0px)) calc(3.5rem + env(safe-area-inset-bottom, 0px)) calc(1rem + env(safe-area-inset-left, 0px));
+  }
+
+  .top-header-controls {
+    top: calc(0.75rem + env(safe-area-inset-top, 0px));
+    left: calc(0.85rem + env(safe-area-inset-left, 0px));
+    right: calc(0.85rem + env(safe-area-inset-right, 0px));
+  }
+
+  .glass-charm-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+    min-height: 44px;
+  }
+
+  .audio-controller-bar {
+    padding: 0.4rem 0.65rem;
+    gap: 0.45rem;
+    max-width: 240px;
+  }
+
+  .audio-track-title {
+    max-width: 88px;
+    font-size: 0.7rem;
+  }
+
+  /* 3D Envelope */
+  .envelope-wrapper-3d {
+    width: min(88vw, 330px);
+    aspect-ratio: 1.46;
+  }
+
+  .wax-seal-hero {
+    width: 64px;
+    height: 64px;
+  }
+
+  .wax-monogram {
+    font-size: 1.2rem;
+  }
+
+  .envelope-letter-card {
+    inset: 0.8rem;
+    padding: 1.35rem 0.95rem;
+  }
+
+  .calligraphy-reveal-text {
+    font-size: 1.45rem;
+  }
+
+  .envelope-shadow-floor {
+    width: 88vw;
+    height: 95px;
+    top: 56%;
+  }
+
+  /* Hero Section */
+  .hero-names {
+    font-size: clamp(2.15rem, 7.8vw, 2.75rem);
+  }
+
+  .hero-portrait-stack {
+    max-width: 325px;
+    aspect-ratio: 0.96;
+  }
+
+  .portrait-card {
+    width: 58%;
+    aspect-ratio: 0.78;
+  }
+
+  /* Countdown Grid */
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .countdown-card {
+    padding: 1.1rem 0.7rem;
+  }
+
+  .countdown-val {
+    font-size: 2rem;
+  }
+
+  .gallery-masonry {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.9;
+  }
+
+  .rsvp-card {
+    padding: 1.5rem 1.1rem;
+  }
+}
+
+/* ── 5. BREAKPOINT: iPhone 12/13/14 Pro (390px – 411px) ── */
+@media (min-width: 390px) and (max-width: 411px) {
+  section.cinematic-scene {
+    padding: calc(3.75rem + env(safe-area-inset-top, 0px)) calc(1.1rem + env(safe-area-inset-right, 0px)) calc(3.75rem + env(safe-area-inset-bottom, 0px)) calc(1.1rem + env(safe-area-inset-left, 0px));
+  }
+
+  .top-header-controls {
+    top: calc(0.8rem + env(safe-area-inset-top, 0px));
+    left: calc(0.9rem + env(safe-area-inset-left, 0px));
+    right: calc(0.9rem + env(safe-area-inset-right, 0px));
+  }
+
+  .glass-charm-btn {
+    padding: 0.5rem 0.95rem;
+    font-size: 0.82rem;
+    min-height: 44px;
+  }
+
+  .audio-controller-bar {
+    padding: 0.4rem 0.7rem;
+    gap: 0.48rem;
+    max-width: 255px;
+  }
+
+  .audio-track-title {
+    max-width: 98px;
+    font-size: 0.72rem;
+  }
+
+  /* 3D Envelope */
+  .envelope-wrapper-3d {
+    width: min(86vw, 345px);
+    aspect-ratio: 1.46;
+  }
+
+  .wax-seal-hero {
+    width: 66px;
+    height: 66px;
+  }
+
+  .wax-monogram {
+    font-size: 1.22rem;
+  }
+
+  .envelope-letter-card {
+    inset: 0.85rem;
+    padding: 1.45rem 1.05rem;
+  }
+
+  .calligraphy-reveal-text {
+    font-size: 1.55rem;
+  }
+
+  .envelope-shadow-floor {
+    width: 88vw;
+    height: 100px;
+    top: 56%;
+  }
+
+  /* Hero Section */
+  .hero-names {
+    font-size: clamp(2.25rem, 8vw, 2.9rem);
+  }
+
+  .hero-portrait-stack {
+    max-width: 340px;
+    aspect-ratio: 0.96;
+  }
+
+  .portrait-card {
+    width: 58%;
+    aspect-ratio: 0.78;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.95rem;
+  }
+
+  .countdown-card {
+    padding: 1.15rem 0.75rem;
+  }
+
+  .countdown-val {
+    font-size: 2.1rem;
+  }
+
+  .gallery-masonry {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.9;
+  }
+
+  .rsvp-card {
+    padding: 1.6rem 1.2rem;
+  }
+}
+
+/* ── 6. BREAKPOINT: iPhone 15 Pro Max & Galaxy S23/S24 (412px – 479px) ── */
+@media (min-width: 412px) and (max-width: 479px) {
+  section.cinematic-scene {
+    padding: calc(4rem + env(safe-area-inset-top, 0px)) calc(1.2rem + env(safe-area-inset-right, 0px)) calc(4rem + env(safe-area-inset-bottom, 0px)) calc(1.2rem + env(safe-area-inset-left, 0px));
+  }
+
+  .top-header-controls {
+    top: calc(0.85rem + env(safe-area-inset-top, 0px));
+    left: calc(1rem + env(safe-area-inset-left, 0px));
+    right: calc(1rem + env(safe-area-inset-right, 0px));
+  }
+
+  .glass-charm-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    min-height: 46px;
+  }
+
+  .audio-controller-bar {
+    padding: 0.42rem 0.75rem;
+    gap: 0.5rem;
+    max-width: 275px;
+  }
+
+  .audio-track-title {
+    max-width: 110px;
+    font-size: 0.72rem;
+  }
+
+  /* 3D Envelope */
+  .envelope-wrapper-3d {
+    width: min(85vw, 370px);
+    aspect-ratio: 1.46;
+  }
+
+  .wax-seal-hero {
+    width: 68px;
+    height: 68px;
+  }
+
+  .wax-monogram {
+    font-size: 1.25rem;
+  }
+
+  .envelope-letter-card {
+    inset: 0.9rem;
+    padding: 1.55rem 1.15rem;
+  }
+
+  .calligraphy-reveal-text {
+    font-size: 1.65rem;
+  }
+
+  .envelope-shadow-floor {
+    width: 86vw;
+    height: 100px;
+    top: 56%;
+  }
+
+  /* Hero Section */
+  .hero-names {
+    font-size: clamp(2.35rem, 8.2vw, 3.1rem);
+  }
+
+  .hero-portrait-stack {
+    max-width: 355px;
+    aspect-ratio: 0.96;
+  }
+
+  .portrait-card {
+    width: 58%;
+    aspect-ratio: 0.78;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .countdown-card {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .countdown-val {
+    font-size: 2.2rem;
+  }
+
+  .gallery-masonry {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.9;
+  }
+
+  .rsvp-card {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* ── 7. BREAKPOINT: PHABLETS & LARGE PHONES (480px – 767px) ── */
+@media (min-width: 480px) and (max-width: 767px) {
+  section.cinematic-scene {
+    padding: calc(4.5rem + env(safe-area-inset-top, 0px)) calc(1.5rem + env(safe-area-inset-right, 0px)) calc(4.5rem + env(safe-area-inset-bottom, 0px)) calc(1.5rem + env(safe-area-inset-left, 0px));
+  }
+
+  .top-header-controls {
+    top: calc(1rem + env(safe-area-inset-top, 0px));
+    left: calc(1.2rem + env(safe-area-inset-left, 0px));
+    right: calc(1.2rem + env(safe-area-inset-right, 0px));
+  }
+
+  .audio-controller-bar {
+    max-width: 310px;
+  }
+
+  .audio-track-title {
+    max-width: 130px;
+  }
+
+  .envelope-wrapper-3d {
+    width: min(82vw, 410px);
+    aspect-ratio: 1.47;
+  }
+
+  .wax-seal-hero {
+    width: 72px;
+    height: 72px;
+  }
+
+  .envelope-letter-card {
+    inset: 1rem;
+    padding: 1.65rem 1.25rem;
+  }
+
+  .hero-portrait-stack {
+    max-width: 375px;
+    aspect-ratio: 0.96;
+  }
+
+  .portrait-card {
+    width: 58%;
+    aspect-ratio: 0.78;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .gallery-masonry {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.88;
+  }
+
+  .venue-card {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}
+
+/* ── 8. BREAKPOINT: TABLETS & iPad Mini/Pro (768px – 1024px) ── */
+@media (min-width: 768px) and (max-width: 1024px) {
+  section.cinematic-scene {
+    padding: calc(5.5rem + env(safe-area-inset-top, 0px)) calc(2.2rem + env(safe-area-inset-right, 0px)) calc(5.5rem + env(safe-area-inset-bottom, 0px)) calc(2.2rem + env(safe-area-inset-left, 0px));
+  }
+
+  .top-header-controls {
+    top: calc(1.25rem + env(safe-area-inset-top, 0px));
+    left: calc(1.75rem + env(safe-area-inset-left, 0px));
+    right: calc(1.75rem + env(safe-area-inset-right, 0px));
+  }
+
+  .envelope-wrapper-3d {
+    width: min(76vw, 470px);
+    aspect-ratio: 1.48;
+  }
+
+  .envelope-letter-card {
+    inset: 1.1rem;
+    padding: 2rem;
+  }
+
+  .hero-vogue-container {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .hero-portrait-stack {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 0.85;
+  }
+
+  .portrait-card {
+    position: absolute;
+    width: 68%;
+    aspect-ratio: 0.75;
+  }
+
+  html[dir="rtl"] .portrait-groom {
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: 2;
+  }
+
+  html[dir="rtl"] .portrait-bride {
+    bottom: 0;
+    left: 0;
+    right: auto;
+    z-index: 3;
+  }
+
+  html[dir="ltr"] .portrait-groom {
+    top: 0;
+    left: 0;
+    right: auto;
+    z-index: 2;
+  }
+
+  html[dir="ltr"] .portrait-bride {
+    bottom: 0;
+    right: 0;
+    left: auto;
+    z-index: 3;
+  }
+
+  .story-card {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .gallery-masonry {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .gallery-item {
+    aspect-ratio: 0.85;
+  }
+
+  .venue-card {
+    grid-template-columns: 0.95fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ── 9. LAPTOPS & DESKTOPS (1025px – 1440px) ── */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .hero-vogue-container,
+  #scene-story,
+  #scene-gallery {
+    max-width: 1180px;
+  }
+}
+
+/* ── 10. ULTRA-WIDE DISPLAYS (1441px – 2159px) ── */
+@media (min-width: 1441px) and (max-width: 2159px) {
+  .hero-vogue-container,
+  #scene-story,
+  #scene-gallery,
+  #scene-venue {
+    max-width: 1380px;
+  }
+
+  section.cinematic-scene {
+    padding: 7rem 4rem;
+  }
+}
+
+/* ── 11. ULTRA 4K DISPLAYS (>= 2160px) ── */
+@media (min-width: 2160px) {
+  html {
+    font-size: 20px;
+  }
+
+  .hero-vogue-container,
+  #scene-story,
+  #scene-gallery,
+  #scene-venue {
+    max-width: 1750px;
+  }
+
+  section.cinematic-scene {
+    padding: 9rem 6rem;
+  }
+}
+
+/* ── 12. LANDSCAPE MOBILE ORIENTATION ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  #preloader.luxury-studio-stage {
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .envelope-wrapper-3d {
+    height: 70vh;
+    width: auto;
+    aspect-ratio: 1.46;
+    margin: auto;
+  }
+
+  .envelope-shadow-floor {
+    display: none;
+  }
+
+  .top-header-controls {
+    top: 0.5rem;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .glass-charm-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .audio-controller-bar {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .hero-portrait-stack {
+    max-height: 72vh;
+  }
+}
+
+/* ── 13. ACCESSIBILITY: REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #ambient-canvas {
+    display: none;
+  }
+
+  .envelope-wrapper-3d {
+    animation: none !important;
+  }
+}

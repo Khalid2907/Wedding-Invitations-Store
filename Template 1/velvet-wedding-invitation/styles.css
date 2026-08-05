@@ -1,22 +1,25 @@
 /* ==========================================================================
-   "VELVET" VINTAGE RETRO-LUXURY DESIGN SYSTEM
-   Theme: 1970s Romantic Nostalgia & Timeless High-End Elegance
+   "VELVET" VINTAGE RETRO-LUXURY DESIGN SYSTEM (ARABIC REDESIGN)
+   Theme: Elegant Arabic Wedding Invitation, Flowers & Perfume Bottle Backdrop
    ========================================================================== */
 
 /* Variables & Base Customization */
 :root {
   --bg-cream: #faf5eb;
   --bg-cream-darker: #f3ebd9;
-  --accent-burgundy: #5c1622;
+  --accent-burgundy: #4a152b;
+  --accent-burgundy-rich: #5c162e;
   --accent-burgundy-light: #7a202f;
-  --accent-orange: #d35e35;
-  --accent-orange-light: #e57c57;
-  --text-charcoal: #2e2522;
-  --text-muted: #5e504a;
+  --text-espresso: #2c1b18;
+  --text-muted-brown: #5e433c;
+  --rose-gold: #c68b79;
+  --rose-gold-dark: #a86553;
   --gold-foil: #c59b48;
   --gold-foil-light: #dfb764;
-  --velvet-shadow: 0 16px 38px -12px rgba(92, 22, 34, 0.35);
-  --paper-shadow: 0 10px 30px rgba(46, 37, 34, 0.15);
+  --font-arabic-calligraphy: 'Aref Ruqaa', 'Amiri', serif;
+  --font-arabic-body: 'Cairo', 'Tajawal', sans-serif;
+  --velvet-shadow: 0 20px 48px -10px rgba(74, 21, 43, 0.25);
+  --glass-shadow: 0 20px 50px rgba(74, 21, 43, 0.16), 0 4px 15px rgba(0,0,0,0.05);
   --transition-slow: 0.9s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-medium: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -32,13 +35,26 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #1a060a; /* Deep velvet void backdrop */
-  color: var(--text-charcoal);
-  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: url('assets/floral_perfume_bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-espresso);
+  font-family: var(--font-arabic-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.95;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle Dark Overlay over Background Image */
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Typography Classes */
@@ -68,6 +84,58 @@ html, body {
 
 .text-center {
   text-align: center;
+}
+
+/* ==========================================================================
+   GLASSMORPHISM CONTAINER & LOAD ANIMATIONS
+   ========================================================================== */
+
+@keyframes glassFadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.invitation-glass-card,
+.slide-text-block,
+.card-front-preview {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 24px;
+  box-shadow: var(--glass-shadow), inset 0 0 20px rgba(255, 255, 255, 0.6);
+  padding: 2.5rem 2rem;
+  margin: 1rem auto;
+  animation: glassFadeSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Spacing & Margins for central Arabic Invitation */
+.invitation-names {
+  font-family: var(--font-arabic-calligraphy);
+  color: var(--accent-burgundy);
+  font-size: 2.8rem;
+  line-height: 1.8;
+  margin: 1.2rem 0;
+}
+
+.invitation-date {
+  font-family: var(--font-arabic-body);
+  color: var(--text-espresso);
+  line-height: 1.95;
+  margin: 1.5rem 0;
+}
+
+.invitation-venue {
+  font-family: var(--font-arabic-body);
+  color: var(--text-espresso);
+  line-height: 1.95;
+  margin-top: 1.5rem;
 }
 
 /* ==========================================================================
@@ -439,7 +507,7 @@ html, body {
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--transition-slow);
-  background: linear-gradient(135deg, #2a0a0f 0%, #150205 100%);
+  background: transparent;
   padding: 2.5rem;
 }
 
@@ -644,7 +712,8 @@ html, body {
   text-align: right;
 }
 
-/* Arabic font override for body copy inside slides — Noto Naskh Arabic for refined elegance */
+/* Arabic font override for body copy inside slides — Cairo & Tajawal for modern readability */
+[dir="rtl"] body,
 [dir="rtl"] .story-paragraph,
 [dir="rtl"] .event-desc,
 [dir="rtl"] .rsvp-deadline,
@@ -656,37 +725,52 @@ html, body {
 [dir="rtl"] .ledger-subtitle,
 [dir="rtl"] .seal-hint,
 [dir="rtl"] .label-to,
-[dir="rtl"] .label-name {
-  font-family: 'Noto Naskh Arabic', 'Cormorant Garamond', Georgia, serif;
+[dir="rtl"] .label-name,
+[dir="rtl"] .invitation-date,
+[dir="rtl"] .invitation-venue {
+  font-family: 'Cairo', 'Tajawal', 'Noto Naskh Arabic', sans-serif !important;
   font-size: 1.05rem;
-  line-height: 1.9;
+  line-height: 1.95 !important;
+  color: var(--text-espresso);
 }
 
+/* Arabic font override for headings and calligraphy names — Amiri & Aref Ruqaa for romantic calligraphy */
+[dir="rtl"] .invitation-names,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
 [dir="rtl"] .section-title,
 [dir="rtl"] .event-title,
 [dir="rtl"] .ledger-title,
 [dir="rtl"] .rsvp-header h2,
-[dir="rtl"] .track-title {
-  font-family: 'Noto Naskh Arabic', 'DM Serif Display', Georgia, serif;
+[dir="rtl"] .track-title,
+[dir="rtl"] .card-front-preview h2,
+[dir="rtl"] .font-calligraphy {
+  font-family: 'Aref Ruqaa', 'Amiri', serif !important;
+  font-weight: 700;
+  line-height: 1.85 !important;
+  color: var(--accent-burgundy) !important;
 }
 
 /* Brand name in Arabic mode */
 [dir="rtl"] .brand {
-  font-family: 'Noto Naskh Arabic', 'DM Serif Display', serif;
+  font-family: 'Amiri', 'Aref Ruqaa', serif;
   letter-spacing: 0.05em;
+  color: var(--rose-gold-dark);
 }
 
-/* Time display in Arabic (Eastern Arabic numerals) */
+/* Time display in Arabic */
 [dir="rtl"] .time-hour,
 [dir="rtl"] .time-ampm {
-  font-family: 'Noto Naskh Arabic', 'Space Mono', monospace;
-  font-size: 0.9em;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  font-size: 0.95em;
 }
 
 /* Polaroid caption in Arabic */
 [dir="rtl"] .polaroid-caption {
-  font-family: 'Noto Naskh Arabic', 'Pinyon Script', cursive;
-  font-size: 1.1rem;
+  font-family: 'Aref Ruqaa', 'Amiri', serif;
+  font-size: 1.25rem;
+  color: var(--accent-burgundy);
   letter-spacing: 0.02em;
 }
 
@@ -731,10 +815,8 @@ html, body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 40px 90px rgba(0,0,0,0.7), inset 0 0 100px rgba(0,0,0,0.8);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: #0d0103;
+  border-radius: 20px;
+  background: transparent;
 }
 
 /* Slide projector Shutter Overlay (Triggers darkness during transitions) */
@@ -797,13 +879,17 @@ html, body {
   width: calc(100% - 3rem);
   height: calc(100% - 3rem);
   max-height: 580px;
-  border-radius: 4px;
-  padding: 3.5rem;
-  box-shadow: var(--paper-shadow);
+  border-radius: 24px;
+  padding: 3rem 3.5rem;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: var(--glass-shadow), inset 0 0 20px rgba(255, 255, 255, 0.6);
   overflow-y: auto;
-  border: 1px solid rgba(46, 37, 34, 0.08);
   display: flex;
   align-items: center;
+  animation: glassFadeSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Slide Layout Grid: Intro Page */
@@ -1821,151 +1907,509 @@ html, body {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Adaptive Scaling)
+   RESPONSIVE DESIGN — Mobile-First Adaptive Scaling
    ========================================================================== */
 
-/* Medium Layout Adaptations */
+/* ── TABLET / LANDSCAPE PHONE (≤ 950px) ──────────────────────────────────── */
 @media (max-width: 950px) {
   #invitation-content {
-    padding: 1.5rem;
-  }
-  
-  .slide-inner {
-    width: calc(100% - 1.5rem);
-    height: calc(100% - 1.5rem);
-    padding: 2rem;
+    padding: 1.2rem 1.2rem 0.8rem;
   }
 
+  .slide-inner {
+    width: calc(100% - 1.2rem);
+    height: calc(100% - 1.2rem);
+    padding: 2rem 1.5rem;
+  }
+
+  /* Slide 1: Stack portrait below text */
   .slide-layout-grid-portrait {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
-  
+
   .portrait-container {
-    order: -1; /* Polaroid moves to top on mobile/tablets */
+    order: -1;
   }
 
   .polaroid-frame {
-    max-width: 240px;
-    padding: 12px 12px 30px 12px;
+    max-width: 220px;
+    padding: 10px 10px 28px;
   }
 
   .invitation-names {
     font-size: 2.8rem;
   }
 
+  /* Slide 2: Hide filmstrip, single column */
   .story-content-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .story-graphics-column {
-    display: none; /* Hide filmstrip on smaller tablets for layout spacing */
+    display: none;
   }
 
+  /* Slide 5: Vinyl + guestbook stacked */
   .slide-layout-vinyl {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   .turntable-container {
-    width: 240px;
-    height: 200px;
+    width: 220px;
+    height: 185px;
   }
-  
+
   .turntable-deck {
     padding: 8px;
   }
 
   .platter {
-    width: 170px;
-    height: 170px;
+    width: 155px;
+    height: 155px;
   }
 
   .vinyl-disc {
-    width: 160px;
-    height: 160px;
+    width: 145px;
+    height: 145px;
   }
-  
+
   .vinyl-record-img {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
   }
 
   .tonearm {
-    width: 70px;
-    height: 110px;
+    width: 65px;
+    height: 100px;
     top: 10px;
     right: 10px;
   }
 }
 
-/* Mobile Portrait Adaptations */
-@media (max-width: 500px) {
+/* ── LARGE PHONE / SMALL TABLET (≤ 600px) ────────────────────────────────── */
+@media (max-width: 600px) {
+  /* Root font scale */
   html {
-    font-size: 14px;
+    font-size: 13.5px;
+  }
+
+  /* Envelope */
+  .envelope {
+    width: min(90vw, 360px);
+    height: min(58vw, 240px);
+  }
+
+  /* Compact content wrapper */
+  #invitation-content {
+    padding: 0.9rem 0.9rem 0.5rem;
+  }
+
+  /* Header: tighter, hide monogram */
+  .app-header {
+    padding-bottom: 0.6rem;
+  }
+
+  .quick-nav-indicator {
+    display: none; /* hide J&S monogram – saves space */
   }
 
   .app-header .brand {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
   }
 
-  .knob-face {
-    width: 36px;
-    height: 36px;
+  .header-controls {
+    gap: 6px;
   }
 
-  .knob-label {
-    font-size: 0.45rem;
+  /* Shrink header buttons — show icon only */
+  .header-controls .icon-btn {
+    padding: 5px 10px;
+    font-size: 0.58rem;
+    gap: 5px;
   }
 
-  .timeline-container::before {
-    left: 20px;
+  .header-controls .icon-btn .btn-text {
+    display: none; /* hide text label on small phones */
   }
 
+  .lang-btn .lang-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Projector viewport margins */
+  #projector-viewport {
+    margin: 0.6rem auto;
+    border-radius: 8px;
+  }
+
+  /* Slide inner */
+  .slide-inner {
+    width: calc(100% - 0.8rem);
+    height: calc(100% - 0.8rem);
+    padding: 1.4rem 1.1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    align-items: flex-start;
+  }
+
+  /* ── Slide 1 ── */
+  .slide-layout-grid-portrait {
+    gap: 1rem;
+  }
+
+  .invitation-names {
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .meta-tag {
+    font-size: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .serif-sub {
+    font-size: 0.72rem;
+    margin-bottom: 1rem;
+  }
+
+  .divider-gold-flourish {
+    margin-bottom: 1rem;
+  }
+
+  .invitation-date {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .invitation-date .calendar-date {
+    font-size: 1.4rem;
+    padding: 3px 10px;
+  }
+
+  .invitation-venue {
+    font-size: 0.9rem;
+  }
+
+  .invitation-venue strong {
+    font-size: 1.1rem;
+  }
+
+  .polaroid-frame {
+    max-width: 160px;
+    padding: 8px 8px 22px;
+  }
+
+  .polaroid-caption {
+    font-size: 1.4rem;
+    margin-top: 8px;
+  }
+
+  /* ── Slide 2 ── */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .section-subtitle {
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+  }
+
+  .story-text-column {
+    font-size: 0.95rem;
+  }
+
+  .dropcap {
+    font-size: 2.8rem;
+    padding-right: 5px;
+  }
+
+  .story-paragraph {
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── Slide 3 — Schedule ── */
+  .slide-layout-schedule {
+    padding: 0;
+  }
+
+  .timeline-container {
+    gap: 1rem;
+  }
+
+  /* Always vertical on mobile (override any RTL flex-reverse) */
   .timeline-item {
-    flex-direction: column;
+    flex-direction: column !important;
+    gap: 0.3rem;
   }
 
   .timeline-time {
     width: 100%;
     text-align: left;
-    padding-left: 45px;
-    margin-bottom: 5px;
+    padding-left: 40px;
+    margin-bottom: 2px;
+  }
+
+  [dir="rtl"] .timeline-time {
+    text-align: right;
+    padding-left: 0;
+    padding-right: 40px;
   }
 
   .timeline-badge {
-    left: 15px;
-    top: 12px;
+    left: 12px;
+    top: 10px;
+  }
+
+  [dir="rtl"] .timeline-badge {
+    left: auto;
+    right: 12px;
   }
 
   .timeline-content {
-    margin-left: 45px;
-    padding: 1rem;
+    margin-left: 40px;
+    padding: 0.7rem 0.8rem;
+  }
+
+  [dir="rtl"] .timeline-content {
+    margin-left: 0;
+    margin-right: 40px;
+  }
+
+  .event-title {
+    font-size: 1rem;
+  }
+
+  .event-desc {
+    font-size: 0.82rem;
+  }
+
+  .time-hour {
+    font-size: 1.1rem;
+  }
+
+  /* ── Slide 4 — RSVP ── */
+  .rsvp-card-border {
+    padding: 1rem 0.9rem;
+  }
+
+  .rsvp-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .rsvp-deadline {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
   }
 
   .flex-row {
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1rem;
   }
 
-  .rsvp-card-border {
-    padding: 1.2rem;
+  .form-label {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
   }
 
-  .guestbook-ledger-paper {
-    padding: 1rem;
-  }
-  
-  .guestbook-ledger-paper::before {
-    left: 20px;
+  .form-input-vintage,
+  .form-select-vintage {
+    font-size: 0.85rem;
+    padding: 7px 10px;
   }
 
-  .ledger-lines {
+  .form-textarea-vintage {
+    font-size: 0.85rem;
+    padding: 7px 10px;
+    min-height: 55px;
+  }
+
+  .btn-velvet-gold {
+    padding: 10px 24px;
+    font-size: 0.7rem;
+  }
+
+  /* ── Slide 5 — Vinyl ── */
+  .vinyl-player-section {
+    padding-bottom: 0.5rem;
+  }
+
+  .turntable-container {
+    width: 180px;
+    height: 155px;
+  }
+
+  .platter {
+    width: 128px;
+    height: 128px;
+  }
+
+  .vinyl-disc {
+    width: 120px;
     height: 120px;
   }
 
+  .vinyl-record-img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .tonearm {
+    width: 55px;
+    height: 85px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .track-title {
+    font-size: 0.75rem;
+  }
+
+  .track-hint {
+    font-size: 0.65rem;
+  }
+
+  /* Guestbook */
+  .ledger-title {
+    font-size: 1.4rem;
+  }
+
+  .ledger-subtitle {
+    font-size: 0.55rem;
+  }
+
+  .guestbook-ledger-paper {
+    padding: 0.8rem;
+  }
+
+  .ledger-lines {
+    height: 130px;
+  }
+
   .ledger-row {
-    padding-left: 15px;
+    padding-left: 12px;
+    font-size: 0.8rem;
+  }
+
+  [dir="rtl"] .ledger-row {
+    padding-left: 0;
+    padding-right: 12px;
+  }
+
+  .ledger-input-wrapper {
+    gap: 6px;
+  }
+
+  .ledger-input-name,
+  .ledger-input-msg {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  /* ── Footer controls ── */
+  .projector-controls {
+    padding: 0.5rem 0.8rem 0.6rem;
+  }
+
+  .controls-inner {
+    gap: 1rem;
+  }
+
+  .knob-face {
+    width: 34px;
+    height: 34px;
+  }
+
+  .knob-label {
+    font-size: 0.42rem;
+    letter-spacing: 0.08em;
+  }
+
+  .slide-counter {
+    gap: 3px;
+  }
+
+  .slide-counter .label {
+    font-size: 0.5rem;
+  }
+
+  .slide-counter .number,
+  .slide-counter .total {
+    font-size: 1.1rem;
   }
 }
+
+/* ── SMALL PHONE (≤ 420px) ───────────────────────────────────────────────── */
+@media (max-width: 420px) {
+  html {
+    font-size: 12.5px;
+  }
+
+  #invitation-content {
+    padding: 0.7rem 0.7rem 0.4rem;
+  }
+
+  .app-header .brand {
+    font-size: 1.1rem;
+  }
+
+  .invitation-names {
+    font-size: 1.9rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .slide-inner {
+    padding: 1rem 0.9rem;
+  }
+
+  .turntable-container {
+    width: 155px;
+    height: 135px;
+  }
+
+  .platter {
+    width: 110px;
+    height: 110px;
+  }
+
+  .vinyl-disc {
+    width: 103px;
+    height: 103px;
+  }
+
+  .vinyl-record-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .tonearm {
+    width: 48px;
+    height: 75px;
+  }
+
+  .ledger-lines {
+    height: 100px;
+  }
+
+  .polaroid-frame {
+    max-width: 130px;
+    padding: 6px 6px 18px;
+  }
+
+  .rsvp-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .knob-face {
+    width: 30px;
+    height: 30px;
+  }
+}
+

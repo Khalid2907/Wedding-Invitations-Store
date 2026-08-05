@@ -1,0 +1,151 @@
+/* ==========================================================================
+   ELYSIUM — Motion & Animation Keyframes
+   Rab6 Studio Flagship Collection | "Where time stands still."
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Scene 1: Ambient Loading Aperture Pulse
+   -------------------------------------------------------------------------- */
+@keyframes pulseAperture {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 20px rgba(230, 199, 134, 0.2), inset 0 0 15px rgba(230, 199, 134, 0.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 45px rgba(230, 199, 134, 0.5), inset 0 0 30px rgba(230, 199, 134, 0.3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 20px rgba(230, 199, 134, 0.2), inset 0 0 15px rgba(230, 199, 134, 0.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes spinSubtle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* --------------------------------------------------------------------------
+   2. Scene 2: Architectural Monolithic Door Separation
+   -------------------------------------------------------------------------- */
+.door-left-open {
+  transform: translate3d(-100%, 0, 0) rotateY(-3deg) !important;
+  opacity: 0.9;
+}
+
+.door-right-open {
+  transform: translate3d(100%, 0, 0) rotateY(3deg) !important;
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   3. Volumetric Sunbeam & Light Shaft Sweeps
+   -------------------------------------------------------------------------- */
+@keyframes sweepSunbeam {
+  0% {
+    transform: rotate(-12deg) translateY(-20px) scale(0.98);
+    opacity: 0.35;
+  }
+  50% {
+    transform: rotate(8deg) translateY(20px) scale(1.04);
+    opacity: 0.70;
+  }
+  100% {
+    transform: rotate(-12deg) translateY(-20px) scale(0.98);
+    opacity: 0.35;
+  }
+}
+
+@keyframes goldGlowBreath {
+  0%, 100% {
+    filter: drop-shadow(0 0 12px rgba(230, 199, 134, 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 28px rgba(230, 199, 134, 0.60));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Text & Element Emergence Animations
+   -------------------------------------------------------------------------- */
+@keyframes textEmergence {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0) scale(0.96);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 35px, 0);
+  transition: opacity 1.2s var(--ease-silk-flow), transform 1.2s var(--ease-silk-flow), filter 1.2s var(--ease-silk-flow);
+  filter: blur(6px);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+/* --------------------------------------------------------------------------
+   5. Floating Marble Slab Ambient Motion
+   -------------------------------------------------------------------------- */
+@keyframes floatSlab {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Audio Spectrum Visualizer Equalizer Bars
+   -------------------------------------------------------------------------- */
+@keyframes equalizerPulse {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 18px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Glass RSVP Panel Floor Elevation
+   -------------------------------------------------------------------------- */
+@keyframes elevateGlassPanel {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 80px, 0) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Scene 9: Closing Ceremony Soft Fade Into Light
+   -------------------------------------------------------------------------- */
+@keyframes fadeToLight {
+  0% {
+    background-color: var(--color-elysium-void);
+  }
+  100% {
+    background-color: rgba(250, 246, 240, 0.95);
+    color: #070913;
+  }
+}

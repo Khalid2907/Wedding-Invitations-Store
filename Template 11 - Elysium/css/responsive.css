@@ -1,0 +1,137 @@
+/* ==========================================================================
+   ELYSIUM — Responsive, RTL/LTR & Accessibility Stylesheet
+   Rab6 Studio Flagship Collection | "Where time stands still."
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tablet & Mobile Viewport Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .scene-section {
+    padding: var(--space-16) var(--space-4);
+  }
+
+  .timeline-track {
+    padding-inline-start: var(--space-6);
+  }
+
+  .countdown-grid {
+    gap: var(--space-3);
+  }
+
+  .countdown-box {
+    padding: var(--space-3) var(--space-4);
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-nav-controls {
+    top: var(--space-4);
+    inset-inline-end: var(--space-4);
+  }
+
+  .hero-couple-names {
+    font-size: var(--text-3xl);
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .radio-pills {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .museum-frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Accessibility Touch Targets Minimum 44px */
+  button, a, input, select, .glass-pill-btn, .filter-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .hero-date-badge {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .badge-divider {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Reduced Motion Accessibility Fallback
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .door-panel {
+    transition: opacity 0.3s ease !important;
+  }
+
+  .door-left-open, .door-right-open {
+    transform: none !important;
+    opacity: 0 !important;
+  }
+
+  #particle-canvas {
+    display: none !important;
+  }
+
+  .timeline-item {
+    animation: none !important;
+  }
+
+  .sunbeam-overlay {
+    animation: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Print Stylesheet Optimization
+   -------------------------------------------------------------------------- */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .top-nav-controls, #scene-loading, .doors-container, #particle-canvas, .lightbox-modal {
+    display: none !important;
+  }
+
+  .glass-card, .timeline-marble-slab, .rsvp-panel {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+}

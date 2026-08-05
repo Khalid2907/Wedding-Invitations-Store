@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareq & Layla — Elysium Wedding Ceremony</title>
+  <meta name="description" content="Where time stands still. You are cordially invited to the architectural wedding celebration of Tareq and Layla.">
+  <meta name="theme-color" content="#070913">
+
+  <!-- Favicon (RAB6 Brand Monogram) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=rab6">
+  <link rel="shortcut icon" type="image/svg+xml" href="assets/favicon.svg?v=rab6">
+  <link rel="apple-touch-icon" href="assets/favicon.svg?v=rab6">
+
+  <!-- Google Fonts: Display & Body Fonts (EN & AR) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Schema.org JSON-LD Event Metadata -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Tareq & Layla Wedding Celebration — Elysium",
+    "startDate": "2026-10-24T18:00:00+02:00",
+    "endDate": "2026-10-25T01:00:00+02:00",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Four Seasons Nile Plaza Sanctuary",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cairo",
+        "addressCountry": "EG"
+      }
+    },
+    "description": "Where time stands still. Architectural wedding celebration of Tareq and Layla."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Texture Noise Overlay -->
+  <div class="texture-overlay" aria-hidden="true"></div>
+
+  <!-- Volumetric Particle Canvas Background -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Architectural Side Scroll Progress Indicator Line (Side Line) -->
+  <aside class="side-scroll-tracker" aria-label="Scene Scroll Progress">
+    <div class="tracker-line-bg"></div>
+    <div id="tracker-fill-line" class="tracker-fill-line"></div>
+    <div id="tracker-runner-orb" class="tracker-runner-orb"></div>
+    
+    <div class="tracker-dots-container">
+      <div class="tracker-dot is-active" data-target-scene="scene-hero">
+        <span class="tracker-dot-tooltip">01 Sanctuary</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-couple">
+        <span class="tracker-dot-tooltip">02 Couple</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-story">
+        <span class="tracker-dot-tooltip">03 Story</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-timeline">
+        <span class="tracker-dot-tooltip">04 Schedule</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-venue">
+        <span class="tracker-dot-tooltip">05 Venue</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-gallery">
+        <span class="tracker-dot-tooltip">06 Exhibition</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-countdown">
+        <span class="tracker-dot-tooltip">07 Countdown</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-rsvp">
+        <span class="tracker-dot-tooltip">08 RSVP</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-registry">
+        <span class="tracker-dot-tooltip">09 Registry</span>
+      </div>
+      <div class="tracker-dot" data-target-scene="scene-closing">
+        <span class="tracker-dot-tooltip">10 Ceremony</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Top Nav Controls (Fixed UI: Language Switcher & Audio Controller) -->
+  <header class="top-nav-controls">
+    <!-- Language Toggle Button -->
+    <button id="lang-toggle-btn" class="glass-pill-btn" aria-label="Switch Language">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <span id="lang-text">العربية</span>
+    </button>
+
+    <!-- Audio Player Toggle Button -->
+    <button id="audio-toggle-btn" class="glass-pill-btn" aria-label="Toggle Ambient Audio">
+      <div id="equalizer-icon" class="equalizer-icon">
+        <div class="equalizer-bar"></div>
+        <div class="equalizer-bar"></div>
+        <div class="equalizer-bar"></div>
+      </div>
+      <span id="sound-status-text" data-i18n="soundPrompt">Sound</span>
+    </button>
+  </header>
+
+  <!-- Scene 1: Ambient Loading Experience Overlay -->
+  <div id="scene-loading">
+    <div class="aperture-ring">
+      <div class="aperture-inner"></div>
+      <div class="loading-monogram">T&L</div>
+    </div>
+    <div class="loading-text-container">
+      <p class="bismillah-text" data-i18n="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+      <div class="loading-title" data-i18n="loadingText">Elysium Sanctuary Loading...</div>
+      <div class="loading-progress-bar">
+        <div id="loading-progress-fill" class="loading-progress-fill"></div>
+      </div>
+      <button id="enter-btn" class="glass-pill-btn enter-btn" data-i18n="enterBtn">Enter Experience</button>
+    </div>
+  </div>
+
+  <!-- Scene 2: Architectural Monolithic Doors Overlay -->
+  <div id="scene-doors" class="doors-container" aria-hidden="true">
+    <div id="door-left" class="door-panel left-door"></div>
+    <div id="door-right" class="door-panel right-door"></div>
+    <div id="door-seam-glow" class="door-seam-glow"></div>
+  </div>
+
+  <!-- Master Main Content -->
+  <main>
+
+    <!-- Scene 3: Hero & Couple Reveal -->
+    <section id="scene-hero" class="scene-section">
+      <div class="hero-bg-frame">
+        <img src="assets/images/hero-arch.png" alt="Architectural Sanctuary Background">
+      </div>
+      
+      <div class="container-narrow reveal-on-scroll">
+        <p class="bismillah-text" data-i18n="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+        
+        <div class="hero-monogram-frame">
+          <span class="hero-monogram-text">T & L</span>
+        </div>
+        <div class="hero-tagline" data-i18n="tagline">Where time stands still</div>
+        <h1 class="hero-couple-names gold-gradient-text" data-i18n="coupleNames">Tareq & Layla</h1>
+        <p class="section-subtitle" data-i18n="heroSubtitle">Request the honor of your presence at their wedding celebration</p>
+
+        <div style="font-size: var(--text-xs); letter-spacing: 0.15em; color: var(--color-champagne-gold); text-transform: uppercase; margin-bottom: var(--space-4);" data-i18n="familyNames">
+          The Al-Mansoor & Al-Hashemi Families cordially invite you to celebrate
+        </div>
+        
+        <div class="hero-date-badge">
+          <div class="badge-divider"></div>
+          <span data-i18n="weddingDate">Saturday, October 24, 2026</span>
+          <div class="badge-divider"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dedicated Couple Section (#scene-couple) -->
+    <section id="scene-couple" class="scene-section">
+      <div class="container-wide">
+        <div class="reveal-on-scroll" style="text-align: center;">
+          <span class="section-badge" data-i18n="coupleBadge">The Couple</span>
+          <h2 class="section-title" data-i18n="coupleTitle">Two Souls, One Architectural Vow</h2>
+          <p class="section-subtitle" data-i18n="coupleSubtitle">Meet the Bride and Groom</p>
+        </div>
+
+        <div class="couple-card-grid reveal-on-scroll">
+          <!-- Groom Card -->
+          <div class="couple-card">
+            <div class="couple-portrait-frame">
+              <img src="assets/images/groom.png" alt="Tareq Al-Mansoor Portrait">
+            </div>
+            <h3 class="couple-person-name" data-i18n="groomName">Tareq Al-Mansoor</h3>
+            <div class="couple-person-role" data-i18n="groomTitle">The Groom</div>
+            <p class="couple-person-bio" data-i18n="groomBio">Architect & Spatial Designer. Seeking harmony, timeless structure, and beauty in every detail.</p>
+          </div>
+
+          <!-- Interlocking Monogram Seal -->
+          <div class="couple-monogram-interlock">
+            <div class="interlock-seal">
+              <div class="interlock-ring-dashed"></div>
+              <div class="interlock-letters">
+                <span class="letter-t">T</span>
+                <span class="ampersand">&amp;</span>
+                <span class="letter-l">L</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bride Card -->
+          <div class="couple-card">
+            <div class="couple-portrait-frame">
+              <img src="assets/images/bride.png" alt="Layla Al-Hashemi Portrait">
+            </div>
+            <h3 class="couple-person-name" data-i18n="brideName">Layla Al-Hashemi</h3>
+            <div class="couple-person-role" data-i18n="brideTitle">The Bride</div>
+            <p class="couple-person-bio" data-i18n="brideBio">Art Curator & Creative Director. Bringing elegance, light, and grace to life's shared journey.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 4: Love Story (Expanded 5-Chapter Parallax) -->
+    <section id="scene-story" class="scene-section">
+      <div class="container-wide">
+        <div class="reveal-on-scroll" style="text-align: center;">
+          <span class="section-badge" data-i18n="storyBadge">Our Journey</span>
+          <h2 class="section-title" data-i18n="storyTitle">A Symphony Suspended in Time</h2>
+          <p class="section-subtitle" data-i18n="storySubtitle">Five Chapters of Timeless Romance & Architectural Harmony</p>
+        </div>
+
+        <div class="story-grid reveal-on-scroll" style="margin-top: var(--space-8);">
+          <!-- Chapter 1 -->
+          <div class="glass-card story-card">
+            <div class="story-img-header">
+              <img src="assets/images/couple-portrait.png" alt="Encounter Portrait">
+            </div>
+            <div class="story-card-body">
+              <span class="story-quote-mark">“</span>
+              <div class="timeline-time" data-i18n="story1Chapter">CHAPTER 01 — 2021</div>
+              <h3 class="story-title" data-i18n="story1Title">The Encounter beneath the Arch</h3>
+              <p class="venue-address" style="margin-bottom: var(--space-2);" data-i18n="story1Sub">Venice Architecture Biennale, Italy</p>
+              <p class="story-text" data-i18n="story1Text">Beneath the vaulted marble ceilings of modern art, our paths crossed. What began as a quiet conversation on spatial geometry evolved into an architecture of shared dreams.</p>
+            </div>
+          </div>
+
+          <!-- Chapter 2 -->
+          <div class="glass-card story-card">
+            <div class="story-img-header">
+              <img src="assets/images/story-kyoto.png" alt="Kyoto Sanctuary">
+            </div>
+            <div class="story-card-body">
+              <span class="story-quote-mark">“</span>
+              <div class="timeline-time" data-i18n="story2Chapter">CHAPTER 02 — 2023</div>
+              <h3 class="story-title" data-i18n="story2Title">Sanctuary of Bamboo &amp; Stone</h3>
+              <p class="venue-address" style="margin-bottom: var(--space-2);" data-i18n="story2Sub">Kyoto Gardens, Japan</p>
+              <p class="story-text" data-i18n="story2Text">Amidst the quiet dignity of stone gardens and rustling bamboo, we realized that love is not built in a day, but carved thoughtfully with patience, grace, and quiet understanding.</p>
+            </div>
+          </div>
+
+          <!-- Chapter 3 -->
+          <div class="glass-card story-card">
+            <div class="story-img-header">
+              <img src="assets/images/detail-rings.png" alt="The Vow Detail">
+            </div>
+            <div class="story-card-body">
+              <span class="story-quote-mark">“</span>
+              <div class="timeline-time" data-i18n="story3Chapter">CHAPTER 03 — 2025</div>
+              <h3 class="story-title" data-i18n="story3Title">The Vow Above the Sea</h3>
+              <p class="venue-address" style="margin-bottom: var(--space-2);" data-i18n="story3Sub">Amalfi Coast Sanctuary, Italy</p>
+              <p class="story-text" data-i18n="story3Text">As dusk turned the Mediterranean sea to liquid gold, a single promise was whispered into the ocean breeze—a vow to build a lifetime of wonder and devotion together.</p>
+            </div>
+          </div>
+
+          <!-- Chapter 4 -->
+          <div class="glass-card story-card">
+            <div class="story-img-header">
+              <img src="assets/images/story-vision.png" alt="Building Elysium Vision">
+            </div>
+            <div class="story-card-body">
+              <span class="story-quote-mark">“</span>
+              <div class="timeline-time" data-i18n="story4Chapter">CHAPTER 04 — 2026</div>
+              <h3 class="story-title" data-i18n="story4Title">Building Elysium</h3>
+              <p class="venue-address" style="margin-bottom: var(--space-2);" data-i18n="story4Sub">Cairo &amp; Paris Studio</p>
+              <p class="story-text" data-i18n="story4Text">Two souls weaving heritage, art, and modern luxury into a sacred celebration. Elysium is our personal monument to timeless romance and unyielding visual harmony.</p>
+            </div>
+          </div>
+
+          <!-- Chapter 5 (Featured Milestone) -->
+          <div class="glass-card story-card story-card--featured">
+            <div class="story-img-header">
+              <img src="assets/images/hero-arch.png" alt="The Celebration Sanctuary">
+            </div>
+            <div class="story-card-body" style="text-align: center; align-items: center;">
+              <span class="story-quote-mark" style="position: relative; top: 0; inset-inline-start: 0; margin-bottom: -1rem;">“</span>
+              <div class="timeline-time" data-i18n="story5Chapter">CHAPTER 05 — THE CELEBRATION</div>
+              <h3 class="story-title" data-i18n="story5Title">Where Time Stands Still</h3>
+              <p class="venue-address" style="margin-bottom: var(--space-3);" data-i18n="story5Sub">October 24, 2026 — Cairo, Egypt</p>
+              <p class="story-text" style="max-width: 650px; margin: 0 auto;" data-i18n="story5Text">In a sanctuary suspended between earth and sky, we choose each other—today, tomorrow, and through eternal romance. We invite you to step across the threshold into forever.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 5: Floating Marble Timeline -->
+    <section id="scene-timeline" class="scene-section">
+      <div class="container-narrow">
+        <div class="reveal-on-scroll" style="text-align: center;">
+          <span class="section-badge" data-i18n="timelineBadge">The Ceremony</span>
+          <h2 class="section-title" data-i18n="timelineTitle">Schedule of Events</h2>
+        </div>
+
+        <div class="timeline-track reveal-on-scroll" style="margin-top: var(--space-12);">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-marble-slab">
+              <div class="timeline-time" data-i18n="t1Time">06:00 PM</div>
+              <h3 class="timeline-event-title" data-i18n="t1Title">Welcome & Sun Pavilion Assembly</h3>
+              <p class="story-text" data-i18n="t1Desc">Arrival of guests, ambient music score, and light refreshments.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-marble-slab">
+              <div class="timeline-time" data-i18n="t2Time">07:30 PM</div>
+              <h3 class="timeline-event-title" data-i18n="t2Title">The Architectural Marriage Vows</h3>
+              <p class="story-text" data-i18n="t2Desc">Exchange of vows under the volumetric sunbeam dome.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-marble-slab">
+              <div class="timeline-time" data-i18n="t3Time">09:00 PM</div>
+              <h3 class="timeline-event-title" data-i18n="t3Title">Grand Banquet & Celebration</h3>
+              <p class="story-text" data-i18n="t3Desc">A culinary journey accompanied by live orchestral performances.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 6: Architectural Venue & Sunlight Reveal -->
+    <section id="scene-venue" class="scene-section">
+      <div class="container-wide">
+        <div class="reveal-on-scroll" style="text-align: center;">
+          <span class="section-badge" data-i18n="venueBadge">The Sanctuary</span>
+          <h2 class="section-title" data-i18n="venueTitle">Four Seasons Nile Plaza</h2>
+          <p class="section-subtitle" data-i18n="venueDesc">The Grand Sanctuary Ballroom, Cairo, Egypt</p>
+        </div>
+
+        <div class="venue-card-wrapper reveal-on-scroll" style="margin-top: var(--space-8);">
+          <div class="venue-image-frame">
+            <img src="assets/images/venue-sanctuary.png" alt="Four Seasons Venue Sanctuary Architecture" class="venue-image">
+            <div class="sunbeam-overlay" aria-hidden="true"></div>
+          </div>
+
+          <div class="glass-card venue-details-panel">
+            <h3 class="venue-name" data-i18n="venueTitle">Four Seasons Nile Plaza</h3>
+            <p class="venue-address" data-i18n="venueDesc">The Grand Sanctuary Ballroom, Cairo, Egypt</p>
+            <p class="story-text">Experience a serene architectural atmosphere surrounded by high marble pillars and gentle Nile water reflections.</p>
+            
+            <div class="action-btn-group">
+              <a href="https://maps.google.com/?q=Four+Seasons+Nile+Plaza" target="_blank" rel="noopener" class="glass-pill-btn" data-i18n="getDirections">Google Maps</a>
+              <a href="https://maps.apple.com/?q=Four+Seasons+Nile+Plaza" target="_blank" rel="noopener" class="glass-pill-btn" data-i18n="appleMaps">Apple Maps</a>
+              <button id="btn-ical" class="glass-pill-btn" data-i18n="addToCalendar">Add to Calendar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 7: Museum Gallery Exhibition -->
+    <section id="scene-gallery" class="scene-section">
+      <div class="container-wide">
+        <div class="reveal-on-scroll" style="text-align: center;">
+          <span class="section-badge" data-i18n="galleryBadge">Exhibition</span>
+          <h2 class="section-title" data-i18n="galleryTitle">Curated Moments</h2>
+        </div>
+
+        <div class="gallery-filters reveal-on-scroll">
+          <button class="filter-btn is-active" data-filter="all" data-i18n="filterAll">All</button>
+          <button class="filter-btn" data-filter="portraits" data-i18n="filterPortraits">Portraits</button>
+          <button class="filter-btn" data-filter="moments" data-i18n="filterMoments">Moments</button>
+          <button class="filter-btn" data-filter="arch" data-i18n="filterArch">Architectural</button>
+        </div>
+
+        <div class="gallery-grid reveal-on-scroll">
+          <div class="museum-frame" data-category="portraits">
+            <img src="assets/images/couple-portrait.png" alt="Couple Portrait">
+          </div>
+          <div class="museum-frame" data-category="moments">
+            <img src="assets/images/detail-rings.png" alt="Rings Detail">
+          </div>
+          <div class="museum-frame" data-category="arch">
+            <img src="assets/images/hero-arch.png" alt="Sanctuary Architecture">
+          </div>
+          <div class="museum-frame" data-category="portraits">
+            <img src="assets/images/venue-sanctuary.png" alt="Sanctuary Dusk">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-label="Artwork Viewer" aria-modal="true">
+      <button id="lightbox-close-btn" class="lightbox-close-btn" aria-label="Close Lightbox">&times;</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" class="lightbox-image" src="" alt="Exhibition Art">
+      </div>
+    </div>
+
+    <!-- Countdown Section Component -->
+    <section id="scene-countdown" class="scene-section">
+      <div class="container-narrow reveal-on-scroll" style="text-align: center;">
+        <span class="section-badge" data-i18n="countdownBadge">Countdown</span>
+        <h2 class="section-title" data-i18n="countdownTitle">Time Until Celebration</h2>
+
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span id="count-days" class="countdown-num">00</span>
+            <span class="countdown-label" data-i18n="days">Days</span>
+          </div>
+          <div class="countdown-box">
+            <span id="count-hours" class="countdown-num">00</span>
+            <span class="countdown-label" data-i18n="hours">Hours</span>
+          </div>
+          <div class="countdown-box">
+            <span id="count-mins" class="countdown-num">00</span>
+            <span class="countdown-label" data-i18n="minutes">Minutes</span>
+          </div>
+          <div class="countdown-box">
+            <span id="count-secs" class="countdown-num">00</span>
+            <span class="countdown-label" data-i18n="seconds">Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 8: Floor-Rising Glass RSVP Panel -->
+    <section id="scene-rsvp" class="scene-section">
+      <div class="container-narrow reveal-on-scroll">
+        <div style="text-align: center; margin-bottom: var(--space-8);">
+          <span class="section-badge" data-i18n="rsvpBadge">Participation</span>
+          <h2 class="section-title" data-i18n="rsvpTitle">Confirm Your Attendance</h2>
+          <p class="section-subtitle" data-i18n="rsvpSubtitle">Please respond by September 15, 2026</p>
+        </div>
+
+        <div class="rsvp-panel">
+          <form id="rsvp-form">
+            <!-- Step 1: Attendance -->
+            <div class="form-group">
+              <label class="form-label" data-i18n="attendingLabel">Will you join us?</label>
+              <div class="radio-pills">
+                <div id="rsvp-opt-yes" class="radio-pill-option is-selected" data-i18n="attendingYes">Joyfully Accept</div>
+                <div id="rsvp-opt-no" class="radio-pill-option" data-i18n="attendingNo">Regretfully Decline</div>
+              </div>
+            </div>
+
+            <!-- Step 2: Name -->
+            <div class="form-group">
+              <label class="form-label" for="rsvp-name" data-i18n="fullNameLabel">Full Name</label>
+              <input type="text" id="rsvp-name" class="form-input" required placeholder="Enter your full name" data-i18n="fullNamePlaceholder">
+            </div>
+
+            <!-- Step 3: Guest Count -->
+            <div class="form-group">
+              <label class="form-label" for="rsvp-guests" data-i18n="guestCountLabel">Number of Guests</label>
+              <select id="rsvp-guests" class="form-select">
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+              </select>
+            </div>
+
+            <!-- Step 4: Dietary -->
+            <div class="form-group">
+              <label class="form-label" for="rsvp-dietary" data-i18n="dietaryLabel">Dietary Preferences</label>
+              <input type="text" id="rsvp-dietary" class="form-input" placeholder="Gourmet Vegan, Seafood, Allergies..." data-i18n="dietaryPlaceholder">
+            </div>
+
+            <!-- Step 5: Note -->
+            <div class="form-group">
+              <label class="form-label" for="rsvp-note" data-i18n="noteLabel">Blessing & Note for the Couple</label>
+              <textarea id="rsvp-note" class="form-textarea" rows="3" placeholder="Write a heartfelt message..." data-i18n="notePlaceholder"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" data-i18n="submitRsvp">Confirm RSVP</button>
+          </form>
+
+          <div id="rsvp-response-message" style="display: none; margin-top: var(--space-6);"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gift Registry Section -->
+    <section id="scene-registry" class="scene-section">
+      <div class="container-narrow reveal-on-scroll" style="text-align: center;">
+        <span class="section-badge" data-i18n="registryBadge">Gift Registry</span>
+        <h2 class="section-title" data-i18n="registryTitle">Your Presence is Our Greatest Gift</h2>
+        <p class="section-subtitle" data-i18n="registryDesc">Should you wish to honor us with a gift, digital contributions may be made to our joint celebration fund.</p>
+        
+        <div class="glass-card" style="display: inline-block; padding: var(--space-6) var(--space-8);">
+          <div style="font-family: monospace; font-size: var(--text-lg); color: var(--color-champagne-gold); margin-bottom: var(--space-4);">
+            EG940003000000000123456789012
+          </div>
+          <button id="btn-copy-iban" class="glass-pill-btn" data-i18n="copyIban">Copy IBAN</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 9: Closing Ceremony & Light Fade -->
+    <section id="scene-closing" class="scene-section">
+      <div class="container-narrow reveal-on-scroll">
+        <h2 class="closing-message" data-i18n="closingMsg">We look forward to sharing this timeless moment with you.</h2>
+        <div class="closing-signature" data-i18n="closingNames">Tareq & Layla</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Rab6 Studio — ELYSIUM Collection. Crafted with timeless elegance.</p>
+  </footer>
+
+  <!-- Modular JavaScript Engine -->
+  <script src="js/language.js"></script>
+  <script src="js/lighting-particles.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
