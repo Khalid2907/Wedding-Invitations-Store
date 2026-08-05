@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONSTELLATION — Luxury Digital Invitation | Rab6 Studio</title>
+  <meta name="description" content="Some souls were written in the stars long before they met. Mohammad & Rahma invite you to an interactive celestial wedding journey." />
+
+  <!-- PWA Manifest & Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#03050F" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CONSTELLATION — Mohammad & Rahma Wedding Invitation" />
+  <meta property="og:description" content="An interactive celestial journey written in the stars." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/favicon.svg" />
+
+  <!-- Google Fonts: Cormorant Garamond, Outfit, Amiri, Aref Ruqaa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Fullscreen 2D Canvas Stardust Engine -->
+  <canvas id="stardust-canvas"></canvas>
+
+  <!-- Ambient Volumetric Nebula Background -->
+  <div class="nebula-bg"></div>
+  <div class="nebula-orb-1 anim-nebula"></div>
+  <div class="nebula-orb-2 anim-nebula"></div>
+
+  <!-- Interactive Preloader (Arabic Constellation Monogram Entrance) -->
+  <div id="preloader">
+    <div class="preloader-monogram">محمد ✦ رحمة</div>
+    <div class="preloader-tagline" data-i18n="tagline">"Some souls were written in the stars long before they met."</div>
+  </div>
+
+  <!-- Floating UI Controls (Web Audio Sound & Language Toggle) -->
+  <div class="ui-dock-left">
+    <button id="btn-sound" class="btn-dock" aria-label="Toggle Soundtrack">
+      <span>✦</span>
+      <span class="sound-label">Sound On ✦</span>
+    </button>
+  </div>
+
+  <div class="ui-dock-right">
+    <button id="btn-lang" class="btn-dock" aria-label="Switch Language">العربية</button>
+  </div>
+
+  <!-- MAIN NARRATIVE JOURNEY: 7 CHAPTERS -->
+  <main>
+
+    <!-- CHAPTER 1: THE SKY (HERO) -->
+    <section id="chapter-1" class="chapter">
+      <div class="chapter-number" data-i18n="ch1_num">Chapter I</div>
+      <h2 class="chapter-title" data-i18n="ch1_title">The Sky</h2>
+      <p class="chapter-subtitle" data-i18n="ch1_sub">A celestial journey written in the stars</p>
+
+      <div class="hero-content">
+        <h1 class="hero-names" data-i18n="hero_names">Mohammad &amp; Rahma</h1>
+        <p class="hero-tagline" data-i18n="tagline">"Some souls were written in the stars long before they met."</p>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: OUR STARS (CELESTIAL HALOS) -->
+    <section id="chapter-2" class="chapter">
+      <div class="chapter-number" data-i18n="ch2_num">Chapter II</div>
+      <h2 class="chapter-title" data-i18n="ch2_title">Our Stars</h2>
+      <p class="chapter-subtitle" data-i18n="ch2_sub">Guiding lights on a shared journey</p>
+
+      <div class="stars-grid">
+        <div class="star-card">
+          <div class="halo-avatar">
+            <div class="halo-ring anim-halo"></div>
+            <img src="../../assets/elysium-thumb.png" alt="Groom" class="avatar-img" />
+          </div>
+          <h3 class="star-name" data-i18n="groom_name">Mohammad Al-Sayed</h3>
+          <p class="star-role" data-i18n="groom_role">The Groom</p>
+        </div>
+
+        <div class="star-card">
+          <div class="halo-avatar">
+            <div class="halo-ring anim-halo"></div>
+            <img src="../../assets/silk-thumb.png" alt="Bride" class="avatar-img" />
+          </div>
+          <h3 class="star-name" data-i18n="bride_name">Rahma Al-Mansoor</h3>
+          <p class="star-role" data-i18n="bride_role">The Bride</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: OUR STORY (ORBITING PLANETS) -->
+    <section id="chapter-3" class="chapter">
+      <div class="chapter-number" data-i18n="ch3_num">Chapter III</div>
+      <h2 class="chapter-title" data-i18n="ch3_title">Our Story</h2>
+      <p class="chapter-subtitle" data-i18n="ch3_sub">Orbiting celestial memories</p>
+
+      <div class="planets-container">
+        <div class="planet-node">
+          <div class="planet-title" data-i18n="story_p1">First Alignment</div>
+        </div>
+        <div class="planet-node">
+          <div class="planet-title" data-i18n="story_p2">The Promise</div>
+        </div>
+        <div class="planet-node">
+          <div class="planet-title" data-i18n="story_p3">The Horizon</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: THE SOLAR COUNTDOWN -->
+    <section id="chapter-4" class="chapter">
+      <div class="chapter-number" data-i18n="ch4_num">Chapter IV</div>
+      <h2 class="chapter-title" data-i18n="ch4_title">The Solar Countdown</h2>
+      <p class="chapter-subtitle" data-i18n="ch4_sub">Time rotating around our wedding date</p>
+
+      <div class="solar-system">
+        <div class="sun-center">14 NOV<br>2026</div>
+        <div class="orbit-ring orbit-1 anim-orbit"></div>
+        <div class="orbit-ring orbit-2 anim-orbit"></div>
+        <div class="orbit-ring orbit-3 anim-orbit"></div>
+        <div class="orbit-ring orbit-4 anim-orbit"></div>
+      </div>
+
+      <div class="countdown-readout">
+        <div class="cd-box"><div id="cd-days" class="cd-num">00</div><div class="cd-unit" data-i18n="cd_days">Days</div></div>
+        <div class="cd-box"><div id="cd-hours" class="cd-num">00</div><div class="cd-unit" data-i18n="cd_hours">Hours</div></div>
+        <div class="cd-box"><div id="cd-mins" class="cd-num">00</div><div class="cd-unit" data-i18n="cd_mins">Minutes</div></div>
+        <div class="cd-box"><div id="cd-secs" class="cd-num">00</div><div class="cd-unit" data-i18n="cd_secs">Seconds</div></div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 5: GALAXY GALLERY -->
+    <section id="chapter-5" class="chapter">
+      <div class="chapter-number" data-i18n="ch5_num">Chapter V</div>
+      <h2 class="chapter-title" data-i18n="ch5_title">Galaxy Gallery</h2>
+      <p class="chapter-subtitle" data-i18n="ch5_sub">Moments frozen in cosmic starlight</p>
+
+      <div class="galaxy-grid">
+        <div class="galaxy-item"><img src="../../assets/pavilion-thumb.png" alt="Memory" class="galaxy-img" /></div>
+        <div class="galaxy-item"><img src="../../assets/elysium-thumb.png" alt="Memory" class="galaxy-img" /></div>
+        <div class="galaxy-item"><img src="../../assets/silk-thumb.png" alt="Memory" class="galaxy-img" /></div>
+        <div class="galaxy-item"><img src="../../assets/aurora-thumb.png" alt="Memory" class="galaxy-img" /></div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 6: LUNAR SANCTUARY VENUE -->
+    <section id="chapter-6" class="chapter">
+      <div class="chapter-number" data-i18n="ch6_num">Chapter VI</div>
+      <h2 class="chapter-title" data-i18n="ch6_title">Lunar Sanctuary</h2>
+      <p class="chapter-subtitle" data-i18n="ch6_sub">The venue under the night sky</p>
+
+      <div class="moon-container">
+        <div class="moon-sphere anim-moon"></div>
+        <div class="venue-card">
+          <h3 class="venue-name" data-i18n="venue_name">The Grand Starlight Palace</h3>
+          <p class="venue-address" data-i18n="venue_addr">Palace Boulevard, Sector 7</p>
+          <button class="btn-cosmic" data-i18n="btn_map">Open Location Map</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 7: COSMIC RSVP ("SEND A STAR") -->
+    <section id="chapter-7" class="chapter">
+      <div class="chapter-number" data-i18n="ch7_num">Chapter VII</div>
+      <h2 class="chapter-title" data-i18n="ch7_title">Send a Star</h2>
+      <p class="chapter-subtitle" data-i18n="ch7_sub">Ignite a star in our wedding sky</p>
+
+      <div class="rsvp-card">
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label class="form-label" data-i18n="label_name">Your Full Name</label>
+            <input type="text" class="form-input" required placeholder="Guest Name..." />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" data-i18n="label_attendance">Will You Join Us?</label>
+            <select class="form-select">
+              <option value="yes">✦ Joyfully Accept (Attending)</option>
+              <option value="no">✦ Regretfully Decline</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-cosmic" data-i18n="btn_rsvp">Release Your Star</button>
+        </form>
+        <p id="rsvp-success" style="display:none; margin-top:1.5rem; color:var(--color-gold-stardust); text-align:center; font-family:var(--font-display); font-size:var(--text-lg);" data-i18n="rsvp_succ">Your star has been released into our night sky!</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ES Modules Engine Entry point -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

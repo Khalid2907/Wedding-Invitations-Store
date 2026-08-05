@@ -1,0 +1,521 @@
+/* ============================================================
+   RAB6 TEMPLATE 7 — CONSTELLATION (MAIN STYLESHEET)
+   ============================================================ */
+
+@import url('variables.css');
+@import url('animations.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-deep-space);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg-deep-space);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ── Fullscreen Stardust Canvas ── */
+#stardust-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--z-canvas);
+  pointer-events: none;
+}
+
+/* ── Ambient Volumetric Nebula Blur ── */
+.nebula-bg {
+  position: fixed;
+  top: -20vh;
+  left: -20vw;
+  width: 140vw;
+  height: 140vh;
+  background: radial-gradient(circle at 50% 40%, rgba(18, 11, 36, 0.80) 0%, rgba(8, 11, 30, 0.90) 50%, #03050F 90%);
+  pointer-events: none;
+  z-index: -2;
+  filter: blur(60px);
+}
+
+.nebula-orb-1 {
+  position: fixed;
+  top: 10%;
+  left: 15%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(155, 81, 224, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+.nebula-orb-2 {
+  position: fixed;
+  bottom: 10%;
+  right: 15%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(circle, rgba(142, 235, 227, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* ── Preloader & Calligraphy Constellation ── */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #03050F;
+  z-index: var(--z-preloader);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--dur-warp) var(--ease-luxury), visibility var(--dur-warp);
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-monogram {
+  font-family: var(--font-arabic-calligraphy);
+  font-size: var(--text-4xl);
+  color: var(--color-gold-stardust);
+  text-shadow: 0 0 30px var(--color-gold-glow);
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: scale(0.92);
+  transition: all var(--dur-hero) var(--ease-luxury);
+}
+
+.preloader-monogram.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.preloader-tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-silver-moon);
+  font-style: italic;
+  letter-spacing: 1px;
+  opacity: 0;
+  transition: opacity var(--dur-reveal) var(--ease-luxury) 400ms;
+}
+
+.preloader-tagline.visible {
+  opacity: 0.9;
+}
+
+/* ── UI Docks: Sound & Language Switcher ── */
+.ui-dock-left, .ui-dock-right {
+  position: fixed;
+  top: 2rem;
+  z-index: var(--z-nav);
+}
+
+.ui-dock-left { left: 2rem; }
+.ui-dock-right { right: 2rem; }
+
+.btn-dock {
+  background: var(--bg-space-glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  color: var(--color-gold-stardust);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: transform var(--dur-hover) var(--ease-luxury), box-shadow var(--dur-hover) var(--ease-luxury), border-color var(--dur-hover);
+}
+
+.btn-dock:hover {
+  transform: translate3d(0, -2px, 0);
+  border-color: var(--color-gold-stardust);
+  box-shadow: 0 0 20px var(--color-gold-glow);
+}
+
+/* ── Chapter Container ── */
+.chapter {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: var(--z-content);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chapter-number {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-aurora-cyan);
+  margin-bottom: 0.5rem;
+}
+
+.chapter-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--color-gold-stardust);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.chapter-subtitle {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  color: var(--color-silver-moon);
+  font-style: italic;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 3.5rem;
+}
+
+/* ── Chapter 1: The Sky (Hero) ── */
+.hero-content {
+  text-align: center;
+}
+
+.hero-names {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  background: linear-gradient(135deg, #FAF5EB 0%, #E2C799 50%, #C2D6D3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-silver-moon);
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ── Chapter 2: Our Stars (Celestial Halos) ── */
+.stars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  width: 100%;
+}
+
+.star-card {
+  background: var(--bg-space-glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  backdrop-filter: blur(var(--glass-blur-md));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md));
+  transition: transform var(--dur-hover) var(--ease-luxury), box-shadow var(--dur-hover) var(--ease-luxury);
+  position: relative;
+  overflow: hidden;
+}
+
+.star-card:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: var(--glass-shadow);
+}
+
+.halo-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  padding: 8px;
+  background: radial-gradient(circle, var(--color-gold-glow) 0%, transparent 70%);
+}
+
+.halo-ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px dashed var(--color-gold-stardust);
+  border-radius: 50%;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.star-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-gold-stardust);
+  margin-bottom: 0.5rem;
+}
+
+.star-role {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-aurora-cyan);
+}
+
+/* ── Chapter 3: Our Story (Planets) ── */
+.planets-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.planet-node {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #9B51E0 0%, #120B24 70%, #03050F 100%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 0 25px rgba(155, 81, 224, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--dur-hover) var(--ease-luxury), box-shadow var(--dur-hover) var(--ease-luxury);
+}
+
+.planet-node:hover {
+  transform: scale(1.12) translate3d(0, -4px, 0);
+  box-shadow: 0 0 45px rgba(142, 235, 227, 0.6);
+}
+
+.planet-title {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-gold-stardust);
+  text-align: center;
+}
+
+/* ── Chapter 4: Solar Countdown ── */
+.solar-system {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-center {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FAF5EB 0%, #E2C799 60%, #B89762 100%);
+  box-shadow: 0 0 50px var(--color-gold-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: #03050F;
+  font-weight: 700;
+  text-align: center;
+}
+
+.orbit-ring {
+  position: absolute;
+  border: 1px solid rgba(226, 199, 153, 0.20);
+  border-radius: 50%;
+}
+
+.orbit-1 { width: 180px; height: 180px; }
+.orbit-2 { width: 240px; height: 240px; }
+.orbit-3 { width: 300px; height: 300px; }
+.orbit-4 { width: 360px; height: 360px; }
+
+.countdown-readout {
+  display: flex;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.cd-box {
+  text-align: center;
+  background: var(--bg-space-glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  min-width: 90px;
+}
+
+.cd-num {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-gold-stardust);
+}
+
+.cd-unit {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-silver-moon);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Chapter 5: Galaxy Gallery ── */
+.galaxy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.galaxy-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  position: relative;
+  aspect-ratio: 4/5;
+  cursor: pointer;
+}
+
+.galaxy-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--dur-card) var(--ease-luxury);
+}
+
+.galaxy-item:hover .galaxy-img {
+  transform: scale(1.08);
+}
+
+/* ── Chapter 6: Lunar Sanctuary Venue ── */
+.moon-container {
+  text-align: center;
+}
+
+.moon-sphere {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #F8F9FA 0%, #C2D6D3 50%, #7A899E 100%);
+  margin: 0 auto 2rem;
+  box-shadow: 0 0 50px rgba(194, 214, 211, 0.4);
+}
+
+.venue-card {
+  background: var(--bg-space-glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  backdrop-filter: blur(var(--glass-blur-md));
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.venue-name {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  color: var(--color-gold-stardust);
+  margin-bottom: 0.5rem;
+}
+
+.venue-address {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-silver-moon);
+  margin-bottom: 1.5rem;
+}
+
+/* ── Chapter 7: Cosmic RSVP ("Send a Star") ── */
+.rsvp-card {
+  background: var(--bg-space-glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  backdrop-filter: blur(var(--glass-blur-md));
+  width: 100%;
+  max-width: 580px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+[dir="rtl"] .form-group {
+  text-align: right;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-gold-stardust);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-input, .form-select {
+  width: 100%;
+  background: rgba(3, 5, 15, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  outline: none;
+  transition: border-color var(--dur-hover);
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--color-gold-stardust);
+  box-shadow: 0 0 15px var(--color-gold-glow);
+}
+
+.btn-cosmic {
+  width: 100%;
+  background: linear-gradient(135deg, #FAF5EB 0%, #E2C799 50%, #B89762 100%);
+  border: none;
+  color: #03050F;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: transform var(--dur-button) var(--ease-luxury), box-shadow var(--dur-button);
+}
+
+.btn-cosmic:hover {
+  transform: translate3d(0, -2px, 0);
+  box-shadow: 0 0 30px var(--color-gold-glow);
+}

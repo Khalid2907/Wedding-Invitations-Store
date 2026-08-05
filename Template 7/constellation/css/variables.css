@@ -1,0 +1,70 @@
+/* ============================================================
+   RAB6 TEMPLATE 7 — CONSTELLATION (VARIABLES & TOKENS)
+   ============================================================ */
+
+:root {
+  /* ── 1. Color Palette (Deep Space & Celestial Accents) ── */
+  --bg-deep-space: #03050F;       /* Blackvoid universe base */
+  --bg-space-navy: #080B1E;       /* Deep space layer 1 */
+  --bg-space-purple: #120B24;     /* Nebula container layer 2 */
+  --bg-space-glass: rgba(18, 11, 36, 0.55);
+
+  --color-gold-stardust: #E2C799;  /* Celestial Gold */
+  --color-gold-glow: rgba(226, 199, 153, 0.40);
+  --color-gold-light: #FAF5EB;
+
+  --color-silver-moon: #C2D6D3;   /* Moon Silver */
+  --color-aurora-cyan: #8EEBE3;   /* Aurora Cyan */
+  --color-nebula-violet: #9B51E0; /* Deep Nebula Violet */
+
+  --color-text-primary: #F8F9FA;  /* Starlight White */
+  --color-text-secondary: #C2D6D3;/* Soft Silver */
+  --color-text-muted: #7A899E;    /* Cosmic Slate */
+  --color-text-gold: #E2C799;     /* Gold Accent */
+
+  /* ── 2. Glassmorphism Tokens ── */
+  --glass-border: rgba(226, 199, 153, 0.25);
+  --glass-border-subtle: rgba(255, 255, 255, 0.10);
+  --glass-blur-sm: 8px;
+  --glass-blur-md: 16px;
+  --glass-blur-lg: 24px;
+  --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.70), 0 0 30px rgba(226, 199, 153, 0.15);
+
+  /* ── 3. Fluid Typography Scale ── */
+  --font-display: 'Cormorant Garamond', 'Amiri', serif;
+  --font-body: 'Outfit', 'Cairo', sans-serif;
+  --font-arabic-calligraphy: 'Aref Ruqaa', 'Amiri', serif;
+
+  --text-xs: clamp(0.70rem, 0.9vw, 0.78rem);
+  --text-sm: clamp(0.82rem, 1.1vw, 0.88rem);
+  --text-base: clamp(0.95rem, 1.3vw, 1.05rem);
+  --text-lg: clamp(1.10rem, 1.7vw, 1.25rem);
+  --text-xl: clamp(1.35rem, 2.3vw, 1.60rem);
+  --text-2xl: clamp(1.75rem, 3.2vw, 2.20rem);
+  --text-3xl: clamp(2.30rem, 4.5vw, 3.20rem);
+  --text-4xl: clamp(3.20rem, 6.5vw, 4.80rem);
+
+  /* ── 4. Unified Motion Tokens ── */
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --dur-micro: 150ms;
+  --dur-button: 220ms;
+  --dur-hover: 300ms;
+  --dur-card: 350ms;
+  --dur-reveal: 700ms;
+  --dur-hero: 1000ms;
+  --dur-warp: 1400ms;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  --z-canvas: -1;
+  --z-content: 10;
+  --z-nav: 30;
+  --z-modal: 50;
+  --z-preloader: 100;
+}

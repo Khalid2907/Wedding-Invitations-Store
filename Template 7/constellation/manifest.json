@@ -1,0 +1,16 @@
+{
+  "name": "CONSTELLATION — Luxury Celestial Invitation",
+  "short_name": "Constellation",
+  "description": "Interactive celestial wedding invitation by Rab6 Studio",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#03050F",
+  "theme_color": "#E2C799",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
