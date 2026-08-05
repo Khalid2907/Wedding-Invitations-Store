@@ -176,6 +176,9 @@ const lerp = (a, b, t) => a + (b - a) * t;
       card_06_name: 'Elysium Flagship (T6)',
       card_06_meta: 'Northern Lights · Crystal Shader',
       card_06_desc: 'The pinnacle of digital luxury. Volumetric background shaders, audio spectrum, dynamic countdown & interactive venue.',
+      card_07_name: 'Constellation Flagship (T7)',
+      card_07_meta: 'Interactive Celestial Voyage · Web Audio',
+      card_07_desc: 'Arabic stardust calligraphy, 7 story chapters, planetary memories, solar countdown & "Send a Star" RSVP ritual.',
 
       /* ── Preview ── */
       preview_eyebrow: 'Live Preview',
@@ -313,6 +316,9 @@ const lerp = (a, b, t) => a + (b - a) * t;
       card_06_name: 'إليزيوم الراية (T6)',
       card_06_meta: 'الشفق قطبي · ظلال الكريستال',
       card_06_desc: 'قمة الفخامة الرقمية. خلفية الشفق التفاعلية، طيف الصوت، العداد التنازلي والموقع الجغرافي.',
+      card_07_name: 'الكوكبة الفلكية (T7)',
+      card_07_meta: 'رحلة سماوية تفاعلية · هندسة الصوت',
+      card_07_desc: 'خط عربي بفرشاة غبار النجوم، ٧ فصول سينمائية، ذكريات يدور حولها الفلك، وطقس أطلق نجمتك لتأكيد الحضور.',
 
       /* ── Preview ── */
       preview_eyebrow: 'معاينة مباشرة',
