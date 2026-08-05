@@ -741,5 +741,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Register PWA Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('Rab6 Service Worker Registered:', reg.scope))
+        .catch(err => console.warn('Rab6 Service Worker Failed:', err));
+    });
+  }
+
   console.log('%cLuxury Invitations — Navy × Gold Edition ✦', 'color:#CCA000;font-family:serif;font-size:14px;');
 });
