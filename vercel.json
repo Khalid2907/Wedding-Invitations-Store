@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "^/$",
+      "status": 307,
+      "headers": {
+        "Location": "/Main%20Page/index.html"
+      }
+    }
+  ]
+}
